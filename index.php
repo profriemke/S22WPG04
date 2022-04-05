@@ -2,7 +2,7 @@
 require("./database_include.php");
 ?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="de">
 <head>
     <meta charset="UTF-8">
     <title>Webprojekt</title>
@@ -10,19 +10,19 @@ require("./database_include.php");
 
 <body>
 
-    <?php
-    $statement = $pdo->prepare('SELECT * FROM Rezepte');
-    if($statement->execute()) {
-        header("Content-Type: application/json");
-        $data=$statement->fetchAll(PDO::FETCH_ASSOC);
-        echo json_encode($data, JSON_UNESCAPED_UNICODE);
-    } else {
-        echo 'Datenbank-Fehler:';
-        echo $statement->errorInfo()[2];
-        echo $statement->queryString;
-        die();
-    }
-    ?>
+<?php
+$statement = $pdo->prepare('SELECT * FROM Rezepte');
+if($statement->execute()) {
+    #header("Content-Type: application/json");
+    $data=$statement->fetchAll(PDO::FETCH_ASSOC);
+    echo json_encode($data, JSON_UNESCAPED_UNICODE);
+} else {
+    echo 'Datenbank-Fehler:';
+    echo $statement->errorInfo()[2];
+    echo $statement->queryString;
+    die();
+}
+?>
 
 </body>
 
