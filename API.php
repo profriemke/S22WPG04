@@ -1,17 +1,10 @@
 <?php
 require("./database_include.php");
 ?>
-<!DOCTYPE html>
-<html lang="de">
-<head>
-    <meta charset="UTF-8">
-    <title>Webprojekt</title>
-</head>
 
-<body>
 
 <?php
-$statement = $pdo->prepare('SELECT * FROM Rezepte');
+$statement = $pdo->prepare("SELECT * FROM Rezepte");
 if($statement->execute()) {
     $data=$statement->fetchAll(PDO::FETCH_ASSOC);
     echo json_encode($data, JSON_UNESCAPED_UNICODE);
@@ -23,7 +16,4 @@ if($statement->execute()) {
 }
 ?>
 
-</body>
-
-</html>
 
