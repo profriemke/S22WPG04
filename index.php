@@ -30,7 +30,7 @@ if ($statement->execute()) {
 
         #echo "</div>";
         #echo "<br>";
-        #echo "<a href='../post/edit.php?id=".$row["id"]." ' class='button'> Post bearbeiten </a>";
+        echo "<a href='rezept_edit.php?id=".$row["ID"]." ' class='button'> Rezept bearbeiten </a>";
         #echo "<a href='../post/delete_do.php?id=".$row["id"]."' class='button'> Post löschen </a>";
         #echo "</div>";
     }
