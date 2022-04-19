@@ -1,6 +1,6 @@
 <?php
-include("navbar_include.php");
-include("database_include.php");
+include("./../includes/navbar_include.php");
+include("../../database_include.php");
 ?>
 <!DOCTYPE html>
 <html lang="de">
@@ -38,6 +38,12 @@ if ($statement->execute()) {
 else {
     die("Dieses Rezept ist aktuell leider nicht verfügbar.");
 }
+?>
+
+<?php
+
+echo("Neuste Rezepte");
+?>
 ?>
 
 </body>
