@@ -1,5 +1,6 @@
 <?php
 require("../../database_include.php");
+session_start();
 ?>
 
 <!DOCTYPE html>
@@ -9,6 +10,7 @@ require("../../database_include.php");
     <title>Title</title>
 </head>
 <body>
+<a href="profile.php"> Profilseite </a>
 <?php
 
 if (!isset($_POST["Vorname"]) or !isset($_POST["Nachname"]) or !isset($_POST["Geburtsdatum"]) or !isset($_POST["Passwort"]) or !isset($_POST["Username"])) {
