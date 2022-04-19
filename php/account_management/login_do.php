@@ -1,5 +1,6 @@
 <?php
 require("../../database_include.php");
+session_start();
 ?>
 
 <!DOCTYPE html>
@@ -9,6 +10,7 @@ require("../../database_include.php");
     <title>Title</title>
 </head>
 <body>
+<a href="profile.php"> Profilseite </a>
 <?php
 if (!isset($_POST["Username"]) or !isset($_POST["Username"])) {
     die("Login oder Passwort falsch angegeben");
@@ -19,7 +21,7 @@ if($statement->execute()){
     if($row = $statement->fetch()) {
         if(password_verify($_POST["Passwort"],$row["Passwort"])){
             echo "Herzlich Willkommen ".$row["Username"];
-            $_SESSION["id"] = $row["id"];
+            $_SESSION["ID"] = $row["ID"];
         } else {
             echo "Passwort falsch";
         }
