@@ -8,7 +8,10 @@ session_start();
     <meta charset="UTF-8">
     <title>Profil</title>
 </head>
+<p> Profilbild; Steckbrief </p>
+<p> Name; Benutzername; E-Mail; Passwort ändern </p>
 <?php
+require("../includes/navbar_include.php");
 
 if (isset($_SESSION['ID'])){
     $ID=$_SESSION['ID'];
@@ -26,7 +29,7 @@ if (isset($_SESSION['ID'])){
     }else{
         die("Datenbank-Fehler");}
     }else
-        {echo "Bitte erst <a href='login.html'>registrieren</a>";
+        {echo "Bitte erst <a href='login.php'>registrieren</a>";
         }
 
 

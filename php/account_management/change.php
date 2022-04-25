@@ -36,7 +36,7 @@ if (isset($_SESSION['ID'])){
     {die("Datenbank-Fehler");
     }
 }else
-{echo "Bitte erst <a href='login.html'>registrieren</a>";
+{echo "Bitte erst <a href='login.php'>registrieren</a>";
 }
 ?>
 </body>

@@ -1,11 +1,19 @@
+<?php
+require("../../database_include.php");
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Login</title>
 </head>
+<?php
+require("../includes/navbar_include.php");
+?>
 <body>
-<h2> Melde dich bei Linguini an </h2>
+<h2> Bei eat.pray.eat anmelden </h2>
+<div>
 <form action="login_do.php" method="post">
 
     <input type="text" name="Username" id="Username" placeholder="Username"><br>
@@ -13,6 +21,9 @@
 
     <button type="submit" id="absenden">anmelden</button>
 </form>
-<p> Noch kein Konto? Jetzt <a href="signup.php">registrieren</a> ! </p>
+</div>
+<div>
+<p> Noch kein Konto? Jetzt <a href="signup.php">registrieren</a>! </p>
+</div>
 </body>
 </html>

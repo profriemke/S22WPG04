@@ -5,9 +5,9 @@
     <title>Webprojekt</title>
 </head>
 <body>
-
+<p> E-Mail </p>
 <form action="signup_do.php" method="post">
-    <h2>Konto erstellen</h2>
+    <h2>Neues Konto erstellen</h2>
     <input type="text" name="Vorname" id="Vorname" placeholder="Vorname"><br>
     <input type="text" name="Nachname" id="Nachname" placeholder="Nachname"><br>
     <input type="date" name="Geburtsdatum" id="Geburtsdatum" placeholder="Geburtsdatum"><br>

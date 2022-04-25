@@ -10,8 +10,9 @@ session_start();
     <title>Title</title>
 </head>
 <body>
-<a href="profile.php"> Profilseite </a>
 <?php
+require("../navbar_include.php");
+
 if (!isset($_POST["Username"]) or !isset($_POST["Username"])) {
     die("Login oder Passwort falsch angegeben");
 }
