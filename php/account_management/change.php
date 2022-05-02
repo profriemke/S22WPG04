@@ -10,25 +10,26 @@ session_start();
 </head>
 <body>
 <?php
-if (isset($_SESSION['ID'])){
-    $ID=$_SESSION['ID'];
-    $statement = $pdo->prepare("SELECT * from Nutzer WHERE ID=$ID");
+if (isset($_SESSION['id'])){
+    $id=$_SESSION['id'];
+    $statement = $pdo->prepare("SELECT * from Nutzer WHERE id=$id");
     if($statement->execute(array($_GET["ID"]))) {
         if($row=$statement->fetch()){
             ?>
             <form action="change_do.php" method="post">
 
-                <label for="Vorname">Vorname:</label>
-                <input type="Vorname" name="Vorname" value="<?php echo $row["Vorname"]; ?>">
+                <label for="vorname">Vorname:</label>
+                <input type="vorname" name="vorname" value="<?php echo $row["vorname"]; ?>">
                 <br>
 
-                <label for="Nachname">Nachname:</label>
-                <input name="Nachname" value="<?php echo $row["Nachname"]; ?>">
+                <label for="nachname">Nachname:</label>
+                <input type="nachname" name="nachname" value="<?php echo $row["nachname"]; ?>">
+                <br>
 
-                <label for="Geburtstag">Geburtstag:</label>
-                <input name="Geburtstag" value="<?php echo $row["Geburtstag"]; ?>">
+                <label for="geburtstag">Geburtstag:</label>
+                <input type="date" name="geburtstag" value="<?php echo $row["geburtstag"]; ?>">
 
-                <input type="hidden" name="ID" value="<?php echo $row["ID"]; ?>">
+                <input type="hidden" name="ID" value="<?php echo $row["id"]; ?>">
                 <br>
 
                 <button type="submit" id="absenden">Post ändern</button>
