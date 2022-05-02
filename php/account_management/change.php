@@ -11,19 +11,24 @@ session_start();
 <body>
 <?php
 if (isset($_SESSION['ID'])){
-    $statement = $pdo->prepare("SELECT * FROM Nutzer WHERE ID=?");
+    $ID=$_SESSION['ID'];
+    $statement = $pdo->prepare("SELECT * from Nutzer WHERE ID=$ID");
     if($statement->execute(array($_GET["ID"]))) {
         if($row=$statement->fetch()){
             ?>
             <form action="change_do.php" method="post">
-                <label for="titel">Titel:</label>
-                <input type="titel" name="titel" value="<?php echo $row["titel"]; ?>"> <br>
 
-                <label for="post">Text:</label>
-                <textarea name="post" cols="80" rows="8" value="<?php echo $row["post"]; ?>">
-                    </textarea>
+                <label for="Vorname">Vorname:</label>
+                <input type="Vorname" name="Vorname" value="<?php echo $row["Vorname"]; ?>">
+                <br>
 
-                <input type="hidden" name="id" value="<?php echo $row["id"]; ?>">
+                <label for="Nachname">Nachname:</label>
+                <input name="Nachname" value="<?php echo $row["Nachname"]; ?>">
+
+                <label for="Geburtstag">Geburtstag:</label>
+                <input name="Geburtstag" value="<?php echo $row["Geburtstag"]; ?>">
+
+                <input type="hidden" name="ID" value="<?php echo $row["ID"]; ?>">
                 <br>
 
                 <button type="submit" id="absenden">Post ändern</button>

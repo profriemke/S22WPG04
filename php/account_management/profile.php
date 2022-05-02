@@ -13,17 +13,19 @@ session_start();
 <?php
 require("../includes/navbar_include.php");
 
-if (isset($_SESSION['ID'])){
-    $ID=$_SESSION['ID'];
-    $statement = $pdo->prepare("SELECT * from Nutzer WHERE ID=$ID");
+if (isset($_SESSION['id'])){
+    $id=$_SESSION['id'];
+    $statement = $pdo->prepare("SELECT * from Nutzer WHERE id=$id");
     if($statement->execute()){
         while($row=$statement->fetch()){
-            echo $row["Vorname"];
-            echo "<a href='change.php?id=".$ID."'> Ändern</a>";
+            echo $row["vorname"];
+            echo "<a href='change.php?id=".$id."'> Ändern</a>";
             echo"<br>";
-            echo $row["Nachname"];
+            echo $row["nachname"];
+            echo "<a href='change.php?id=".$id."'> Ändern</a>";
             echo"<br>";
-            echo $row["Geburtsdatum"];
+            echo $row["geburtsdatum"];
+            echo "<a href='change.php?id=".$id."'> Ändern</a>";
         }
 
     }else{
