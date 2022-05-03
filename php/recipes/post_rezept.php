@@ -47,7 +47,7 @@ include("./../includes/navbar_include.php")
     <p><input type="text" name="autor"></p>
 
     <h3>Nutzer_ID:</h3>
-    <p><input type="text" name="nutzer_id"></p>
+    <p><input type="hidden" name="nutzer_id" value="<?php echo $_SESSION['id'];?>"></p>
 
     <h3>Zutaten_ID:</h3>
     <p><input type="text" name="zutaten_id"></p>
