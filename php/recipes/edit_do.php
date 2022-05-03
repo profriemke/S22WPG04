@@ -1,5 +1,5 @@
 <?php
-require("database_include.php");
+require("../../database_include.php");
 session_start();
 /* if (!isset($_SESSION["id"])){
     echo "Nutzer nicht angemeldet";
@@ -23,7 +23,7 @@ session_start();
 </head>
 
 <?php
-include("navbar_include.php")
+include("./../includes/navbar_include.php")
 ?>
 
 <body>
@@ -31,9 +31,9 @@ include("navbar_include.php")
 <p>
 
     <?php
-    if (isset($_POST["Titel"]) and isset($_POST["Inhalt"])  and isset($_GET["ID"])) {
+    if (isset($_POST["titel"]) and isset($_POST["inhalt"])  and isset($_GET["id"])) {
         $statement = $pdo->prepare("UPDATE Posts SET titel=?, post=? WHERE id=?");
-        if ($statement->execute(array(htmlspecialchars($_POST["Titel"]), htmlspecialchars($_POST["Inhalt"]), htmlspecialchars($_GET["ID"])))){
+        if ($statement->execute(array(htmlspecialchars($_POST["titel"]), htmlspecialchars($_POST["inhalt"]), htmlspecialchars($_GET["id"])))){
             echo "<h1>Update erfolgreich</h1>";
         } else {
             die("<h1>Datenbank-Fehler</h1>");
@@ -45,7 +45,7 @@ include("navbar_include.php")
 
 <p>
 
-<h3><a href="index.php" class="btn btn-primary">Zurück</a></h3>
+<h3><a href="../public_sites/index.php" class="btn btn-primary">Zurück</a></h3>
 </body>
 </html>
 
