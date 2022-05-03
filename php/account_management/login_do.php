@@ -11,18 +11,18 @@ session_start();
 </head>
 <body>
 <?php
-require("../navbar_include.php");
+require("../includes/navbar_include.php");
 
-if (!isset($_POST["Username"]) or !isset($_POST["Username"])) {
+if (!isset($_POST["username"]) or !isset($_POST["passwort"])) {
     die("Login oder Passwort falsch angegeben");
 }
-$statement = $pdo->prepare("SELECT * FROM Nutzer WHERE Username=:Username");
-$statement->bindParam(":Username",$_POST["Username"]);
+$statement = $pdo->prepare("SELECT * FROM Nutzer WHERE username=:username");
+$statement->bindParam(":username",$_POST["username"]);
 if($statement->execute()){
     if($row = $statement->fetch()) {
-        if(password_verify($_POST["Passwort"],$row["Passwort"])){
-            echo "Herzlich Willkommen ".$row["Username"];
-            $_SESSION["ID"] = $row["ID"];
+        if(password_verify($_POST["passwort"],$row["passwort"])){
+            echo "Herzlich Willkommen ".$row["username"];
+            $_SESSION["id"] = $row["id"];
         } else {
             echo "Passwort falsch";
         }

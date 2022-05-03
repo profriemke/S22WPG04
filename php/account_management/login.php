@@ -16,8 +16,8 @@ require("../includes/navbar_include.php");
 <div>
 <form action="login_do.php" method="post">
 
-    <input type="text" name="Username" id="Username" placeholder="Username"><br>
-    <input type="password" name="Passwort" id="Passwort" placeholder="Passwort"> <br>
+    <input type="text" name="username" id="username" placeholder="Username"><br>
+    <input type="password" name="passwort" id="passwort" placeholder="Passwort"> <br>
 
     <button type="submit" id="absenden">anmelden</button>
 </form>
