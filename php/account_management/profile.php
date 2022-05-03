@@ -1,5 +1,5 @@
 <?php
-require("../../database_include.php");
+require("../includes/database_include.php");
 session_start();
 ?>
 <!DOCTYPE html>
@@ -8,7 +8,8 @@ session_start();
     <meta charset="UTF-8">
     <title>Profil</title>
 </head>
-<p> Name; Benutzername; E-Mail; Passwort ändern </p>
+
+
 <?php
 require("../includes/navbar_include.php");
 ?>

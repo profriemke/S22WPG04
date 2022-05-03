@@ -1,5 +1,5 @@
 <?php
-require("../../database_include.php");
+require("../includes/database_include.php");
 session_start();
 ?>
 <!DOCTYPE html>
@@ -13,7 +13,7 @@ session_start();
 if (isset($_SESSION['id'])){
     $id=$_SESSION['id'];
     $statement = $pdo->prepare("SELECT * from Nutzer WHERE id=$id");
-    if($statement->execute(array($_GET["ID"]))) {
+    if($statement->execute(array($_GET["id"]))) {
         if($row=$statement->fetch()){
             ?>
             <form action="change_do.php" method="post">
@@ -29,7 +29,7 @@ if (isset($_SESSION['id'])){
                 <label for="geburtstag">Geburtstag:</label>
                 <input type="date" name="geburtstag" value="<?php echo $row["geburtstag"]; ?>">
 
-                <input type="hidden" name="ID" value="<?php echo $row["id"]; ?>">
+                <input type="hidden" name="id" value="<?php echo $row["id"]; ?>">
                 <br>
 
                 <button type="submit" id="absenden">Post ändern</button>

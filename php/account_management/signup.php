@@ -15,7 +15,7 @@
     <input type="password" name="passwort" id="passwort" placeholder="Passwort"> <br>
     <input type="text" name="username" id="username" placeholder="Username">  <br>
     <label for="file">Profilbild hinzufügen</label> <br>
-    <input id="file" type ="file" name="file"><br>
+    <input type ="file" name="file"><br>
 
     <button type="submit" id="absenden">registrieren</button>
 </form>
