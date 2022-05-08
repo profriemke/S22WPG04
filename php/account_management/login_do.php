@@ -7,7 +7,7 @@ session_start();
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>login_do</title>
 </head>
 <body>
 <?php
@@ -21,7 +21,7 @@ $statement->bindParam(":username",$_POST["username"]);
 if($statement->execute()){
     if($row = $statement->fetch()) {
         if(password_verify($_POST["passwort"],$row["passwort"])){
-            echo "Herzlich Willkommen ".$row["username"];
+            echo "Herzlich Willkommen ".$row["vorname"].$row["nachname"];
             $_SESSION["id"] = $row["id"];
         } else {
             echo "Passwort falsch";

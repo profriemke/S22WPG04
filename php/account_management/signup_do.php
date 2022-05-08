@@ -7,18 +7,19 @@ session_start();
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>signup_do</title>
 </head>
 <body>
-<a href="profile.php"> Profilseite </a>
+
 <?php
+require("../includes/navbar_include.php");
 
-if (!isset($_POST["vorname"]) or !isset($_POST["nachname"]) or !isset($_POST["geburtsdatum"]) or
-    !isset($_POST["passwort"]) or !isset($_POST["username"]) or !isset($_POST["email"]) and !isset($_POST["file"])) {
-    die("Fehler im Formular");}
+if (!isset($_POST["vorname"]) and !isset($_POST["nachname"]) and !isset($_POST["passwort"]) and !isset($_POST["username"]) and !isset($_POST["email"]) and !isset($_POST["file"])) {
+    die("Fehler im Formular: Nicht alle Felder ausgefüllt");}
 
+echo "Dateiname: ".$_FILES["file"]["name"]."<br>";
     if($_FILES["file"]["name"]=="")
-    {echo " ";
+    {echo "Fehler im Dateiname";
     }else{
         $fileName=$_FILES["file"]["name"];
         $fileSplit= explode(".",$fileName);
@@ -38,14 +39,15 @@ if (!isset($_POST["vorname"]) or !isset($_POST["nachname"]) or !isset($_POST["ge
             die();
         }
 
-        if (!move_uploaded_file($_FILES["file"]["tmp_name"], "../../pictures".$_FILES["file"]["name"])) {
+        if (!move_uploaded_file($_FILES["file"]["tmp_name"], "../../pictures/".$_FILES["file"]["name"])) {
             echo "Datei wurde nicht hochgeladen. Bitte erneut versuchen";
             die();
         }}
-$statement = $pdo->prepare("INSERT INTO Nutzer (vorname, nachname, geburtsdatum, passwort, username, email, bild) VALUES (?,?,?,?,?,?,?)");
+
+/*$statement = $pdo->prepare("INSERT INTO Nutzer (vorname, nachname, passwort, username, email, bild) VALUES (?,?,?,?,?,?)");
         if ($statement->execute(array(htmlspecialchars($_POST["vorname"]),htmlspecialchars($_POST["nachname"]),
-            htmlspecialchars($_POST["geburtsdatum"]), password_hash($_POST["passwort"], PASSWORD_BCRYPT),
-            htmlspecialchars($_POST["username"]), htmlspecialchars($_POST["email"]), htmlspecialchars($_FILES["file"]["name"])))) {
+            password_hash($_POST["passwort"], PASSWORD_BCRYPT), htmlspecialchars($_POST["username"]),
+            htmlspecialchars($_POST["email"]), htmlspecialchars($_FILES["file"]["name"])))) {
             echo "erfolgreich angemeldet";
         }
         else {
@@ -54,7 +56,7 @@ $statement = $pdo->prepare("INSERT INTO Nutzer (vorname, nachname, geburtsdatum,
             die("Datenbank-Fehler");
         }
 
-
+*/
 ?>
 </body>
 </html>
