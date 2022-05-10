@@ -35,7 +35,7 @@ $fileSplit = explode(".", $_FILES["titelbild"]["name"]);
 $fileType = $fileSplit[sizeof($fileSplit)-1];
 echo "<h3>".$fileType."</h3>";
 echo " ";
-if((strtolower($fileType) =="png") OR (strtolower($fileType) =="jpg") OR (strtolower($fileType) =="jpeg") OR(strtolower($fileType) =="mp4") OR (strtolower($fileType) =="NULL")){
+if((strtolower($fileType) =="png") OR (strtolower($fileType) =="jpg") OR (strtolower($fileType) =="jpeg") OR(strtolower($fileType) =="mp4") OR (strtolower($fileType) =="")){
     echo "<h3>Dateiart in Ordnung</h3>";
 }else{
     die("<h1>Nicht zugelassende Dateiart</h1>");

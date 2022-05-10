@@ -23,10 +23,15 @@ session_start();
 include("./../includes/navbar_include.php")
 ?>
 
-<body>
+<?php
+if (isset($_SESSION['id'])){
+    $id=$_SESSION['id'];
+    $statement = $pdo->prepare("SELECT * from Nutzer WHERE id=$id");
+    if($statement->execute()){
+        while($row=$statement->fetch()){
+ ?>
 
-
-<h1>Neues Rezept</h1>
+        <h1>Neues Rezept</h1>
 
 <form action="post_do.php" method="post" enctype="multipart/form-data">
 
@@ -37,20 +42,36 @@ include("./../includes/navbar_include.php")
     <div class="input-group mb-3">
         <input type="file" class="form-control" id="inputGroupFile02" name="titelbild"> <!--Hier kann man vielleicht Drag and Drop nutzen?-->
 
-    <h3>Post:</h3>
+    <h3>Inhalt:</h3>
     <p><textarea name="inhalt" rows=”200″ cols="40"></textarea></p>
 
     <h3>Dauer:</h3>
     <p><input type="text" name="dauer"></p>
 
     <h3>Autor:</h3>
-    <p><input type="text" name="autor"></p>
+    <p><input type="text" name="autor" value="<?php echo htmlspecialchars($row['username']);?>"></p>
 
     <h3>Nutzer_ID:</h3>
-    <p><input type="hidden" name="nutzer_id" value="<?php echo $_SESSION['id'];?>"></p>
+    <p><input type="text" name="nutzer_id" value="<?php echo htmlspecialchars($row['id']);?>"></p>
 
     <h3>Zutaten_ID:</h3>
     <p><input type="text" name="zutaten_id"></p>
+<?php
+}
+
+}else{
+    die("Datenbank-Fehler");}
+}else{
+    echo "Bitte erst <a href='login.php'>registrieren</a>";
+}
+
+
+?>
+
+<body>
+
+
+
 
 
 

@@ -18,7 +18,7 @@ if ($statement->execute()) {
         //$datei="../../files".$row["datei"];
         echo "<div class='titel'>";
         echo "<h3>";
-        echo htmlspecialchars($row['titel']);
+        echo "<a href='./../recipes/recipes_details.php?id=".$row["id"]." ' class='text'> ".htmlspecialchars($row['titel'])." </a>";
         echo "</h3>";
         echo "<br>";
         echo "<p class='Inhalt'>";
