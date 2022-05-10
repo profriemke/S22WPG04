@@ -106,3 +106,8 @@ else {
 
 
 </body>
+
+<?php
+include("./../includes/footer_include.php");
+
+?>
