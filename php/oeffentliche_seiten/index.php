@@ -18,7 +18,7 @@ if ($statement->execute()) {
         //$datei="../../files".$row["datei"];
         echo "<div class='titel'>";
         echo "<h3>";
-        echo "<a href='./../recipes/recipes_details.php?id=".$row["id"]." ' class='text'> ".htmlspecialchars($row['titel'])." </a>";
+        echo "<a href='./../rezepte/recipes_details.php?id=".$row["id"]." ' class='text'> ".htmlspecialchars($row['titel'])." </a>";
         echo "</h3>";
         echo "<br>";
         echo "<p class='Inhalt'>";
@@ -32,7 +32,7 @@ if ($statement->execute()) {
 
         #echo "</div>";
         #echo "<br>";
-        echo "<a href='./../recipes/rezept_edit.php?id=".$row["id"]." ' class='button'> Rezept bearbeiten </a>";
+        echo "<a href='./../rezepte/rezept_edit.php?id=".$row["id"]." ' class='button'> Rezept bearbeiten </a>";
         #echo "<a href='../post/delete_do.php?id=".$row["id"]."' class='button'> Post löschen </a>";
         #echo "</div>";
     }

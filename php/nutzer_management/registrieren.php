@@ -13,7 +13,7 @@ session_start();
 require("../includes/navbar_include.php");
 ?>
 
-<form action="signup_do.php" method="post" enctype="multipart/form-data">
+<form action="registrieren_do.php" method="post" enctype="multipart/form-data">
     <h2>Neues Konto erstellen</h2>
     <input type="text" name="vorname" id="vorname" placeholder="Vorname"><br>
     <input type="text" name="nachname" id="nachname" placeholder="Nachname"><br>

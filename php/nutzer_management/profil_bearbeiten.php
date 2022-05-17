@@ -16,7 +16,7 @@ if (isset($_SESSION['id'])){
     if($statement->execute(array($_GET["id"]))) {
         if($row=$statement->fetch()){
             ?>
-            <form action="edit_profile_do.php" method="post">
+            <form action="profil_bearbeiten_do.php" method="post">
 
                 <label for="vorname">Vorname:</label>
                 <input type="text" name="vorname" value="<?php echo $row["vorname"]; ?>">

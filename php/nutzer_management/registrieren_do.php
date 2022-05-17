@@ -16,10 +16,9 @@ require("../includes/navbar_include.php");
 
 if (!isset($_POST["vorname"]) and !isset($_POST["nachname"]) and !isset($_POST["passwort"]) and !isset($_POST["username"]) and !isset($_POST["email"]) and !isset($_POST["file"])) {
     die("Fehler im Formular: Nicht alle Felder ausgefüllt");}
-
-echo "Dateiname: ".$_FILES["file"]["name"]."<br>";
+else{
     if($_FILES["file"]["name"]=="")
-    {echo "Fehler im Dateiname";
+    {echo "Kein Profilbild hinzugefügt";
     }else{
         $fileName=$_FILES["file"]["name"];
         $fileSplit= explode(".",$fileName);
@@ -54,7 +53,7 @@ $statement = $pdo->prepare("INSERT INTO Nutzer (vorname, nachname, passwort, use
             echo $statement->errorInfo()[2];
 
             die("Datenbank-Fehler");
-        }
+        }}
 
 
 ?>

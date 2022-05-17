@@ -19,7 +19,7 @@ if (isset($_SESSION['id'])){
     $statement = $pdo->prepare("SELECT * from Nutzer WHERE id=$id");
     if($statement->execute()){
         while($row=$statement->fetch()){
-            echo "<a href='edit_profile.php?id=".$id."'> Profil bearbeiten</a> <br>";
+            echo "<a href='profil_bearbeiten.php?id=".$id."'> Profil bearbeiten</a> <br>";
             if($row["bild"]==""){
                 echo "<img height='10%' width='10%' src='../../pictures/placeholder.png'alt='bild'><br>";
             }else {

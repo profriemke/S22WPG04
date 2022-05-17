@@ -48,7 +48,7 @@ if ($statement->execute(array(htmlspecialchars($_GET["id"])))){
     die("Datenbank-Fehler");
 }
 ?>
-<h3><a href="../public_sites/index.php" class="btn btn-primary">Zurück</a></h3>
+<h3><a href="../oeffentliche_seiten/index.php" class="btn btn-primary">Zurück</a></h3>
 
 </body>
 </html>

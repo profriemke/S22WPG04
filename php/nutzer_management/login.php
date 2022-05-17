@@ -23,7 +23,7 @@ require("../includes/navbar_include.php");
 </form>
 </div>
 <div>
-<p> Noch kein Konto? Jetzt <a href="signup.php">registrieren</a>! </p>
+<p> Noch kein Konto? Jetzt <a href="registrieren.php">registrieren</a>! </p>
 </div>
 </body>
 </html>
