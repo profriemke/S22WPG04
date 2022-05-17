@@ -51,11 +51,11 @@ if (isset($_SESSION['id'])){
     <h3>Autor:</h3>
     <p><input type="text" name="autor" value="<?php echo htmlspecialchars($row['username']);?>"></p>
 
-    <h3>Nutzer_ID:</h3>
-    <p><input type="text" name="nutzer_id" value="<?php echo htmlspecialchars($row['id']);?>"></p>
+    <h3>Nutzer:</h3>
+    <p><input type="text" name="nutzer" value="<?php echo htmlspecialchars($row['id']);?>"></p>
 
-    <h3>Zutaten_ID:</h3>
-    <p><input type="text" name="zutaten_id"></p>
+    <h3>Zutaten:</h3>
+    <p><input type="text" name="zutaten"></p>
 <?php
 }
 

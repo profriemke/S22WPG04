@@ -55,14 +55,14 @@ echo "<p>";
 /*echo htmlspecialchars($_POST["post"]);
 echo "<p>";*/ // falls auch der Post angezeigt werden soll beim hochladen
 
-$statement= $pdo->prepare("INSERT INTO Rezepte (titel, inhalt, titelbild, dauer, autor, nutzer_id, zutaten_id) VALUES (:titel, :inhalt, :titelbild, :dauer, :autor, :nutzer_id, :zutaten_id)");
+$statement= $pdo->prepare("INSERT INTO Rezepte (titel, inhalt, titelbild, dauer, autor, nutzer, zutaten) VALUES (:titel, :inhalt, :titelbild, :dauer, :autor, :nutzer, :zutaten)");
 $statement->bindParam(":titel", htmlspecialchars($_POST["titel"]));
 $statement->bindParam(":inhalt", htmlspecialchars($_POST["inhalt"]));
 $statement->bindParam(":titelbild", htmlspecialchars($_FILES["titelbild"]["name"]));
 $statement->bindParam(":dauer", htmlspecialchars($_POST["dauer"]));
 $statement->bindParam(":autor", htmlspecialchars($_POST["autor"]));
-$statement->bindParam(":nutzer_id", htmlspecialchars($_POST["nutzer_id"]));
-$statement->bindParam(":zutaten_id", htmlspecialchars($_POST["zutaten_id"]));
+$statement->bindParam(":nutzer", htmlspecialchars($_POST["nutzer"]));
+$statement->bindParam(":zutaten", htmlspecialchars($_POST["zutaten"]));
 
 
 
