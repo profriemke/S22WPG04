@@ -29,7 +29,7 @@ if (isset($_SESSION['id'])){
             echo $row["vorname"]." ".$row["nachname"]."<br>";
             echo "@".$row["username"]."<br>";
 
-            echo "E-Mail: ".$row["email"]."<br>"."<br>";
+            #echo "E-Mail: ".$row["email"]."<br>"."<br>";
 
             echo "Bio: ".$row["bio"];
         }
