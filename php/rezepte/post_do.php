@@ -74,7 +74,7 @@ if($statement->execute()){
 }
 ?>
 
-<h3><a href="./rezept_edit.php" class="btn btn-primary">Neuer Post</a></h3>
+<h3><a href="edit.php" class="btn btn-primary">Neuer Post</a></h3>
 <h3><a href="../oeffentliche_seiten/index.php" class="btn btn-primary">Zurück</a></h3>
 </body>
 </html>
