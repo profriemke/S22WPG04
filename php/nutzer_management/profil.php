@@ -10,6 +10,7 @@ session_start();
     <link rel="stylesheet" href="../../css/style.css">
     <meta name="viewport" content="width=device-width">
 </head>
+<body>
 <?php
 require("../includes/navbar_include.php");
 ?>
@@ -21,9 +22,9 @@ if (isset($_SESSION['id'])){
         while($row=$statement->fetch()){
             echo "<a href='profil_bearbeiten.php?id=".$id."'> Profil bearbeiten</a> <br>";
             if($row["bild"]==""){
-                echo "<img height='10%' width='10%' src='../../pictures/placeholder.png'alt='bild'><br>";
+                echo "<img height='10%' width='10%' src='https://mars.iuk.hdm-stuttgart.de/~ap121//webprojekt_gruppe/profil_bilder/placeholder.png' alt='bild'><br>";
             }else {
-                echo "<img height='100%' width='100%' src='../pictures/".$row["bild"]."'alt='bild'><br>";}
+                echo "<img height='10%' width='10%' src='https://mars.iuk.hdm-stuttgart.de/~ap121//webprojekt_gruppe/profil_bilder/".$row['bild']."' alt='bild'><br>";}
             echo"<br>";
 
             echo $row["vorname"]." ".$row["nachname"]."<br>";
@@ -37,7 +38,7 @@ if (isset($_SESSION['id'])){
     }else{
         die("Datenbank-Fehler");}
     }else{
-        echo "Bitte erst <a href='login.php'>registrieren</a>";
+        echo "Bitte erst <a href='login.php'>anmelden</a>";
     }
 
 

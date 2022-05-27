@@ -38,7 +38,7 @@ else{
             die();
         }
 
-        if (!move_uploaded_file($_FILES["file"]["tmp_name"], "../../pictures/".$_FILES["file"]["name"])) {
+        if (!move_uploaded_file($_FILES["file"]["tmp_name"], "/home/ap121/public_html/webprojekt_gruppe/profil_bilder/".$_FILES["file"]["name"])) {
             echo "Datei wurde nicht hochgeladen. Bitte erneut versuchen";
             die();
         }}

@@ -16,7 +16,7 @@ if (isset($_SESSION['id'])){
     if($statement->execute(array($_GET["id"]))) {
         if($row=$statement->fetch()){
             ?>
-            <form action="profil_bearbeiten_do.php" method="post">
+            <form action="profil_bearbeiten_do.php" method="post" enctype="multipart/form-data">
 
                 <label for="vorname">Vorname:</label>
                 <input type="text" name="vorname" value="<?php echo $row["vorname"]; ?>">
@@ -32,7 +32,10 @@ if (isset($_SESSION['id'])){
 
                 <label for="bio">Bio:</label>
                 <textarea type="text" name="bio" cols="40" rows="8" value="<?php echo $row["bio"]; ?>">
-                </textarea>
+                </textarea> <br>
+
+                <img height='10%' width='10%' src='https://mars.iuk.hdm-stuttgart.de/~ap121//webprojekt_gruppe/profil_bilder/<?php echo $row["bild"]; ?>'alt='bild'><br>
+                <input type ="file" name="file" id="file">
 
                 <input type="hidden" name="id" value="<?php echo $row["id"]; ?>">
                 <br>
@@ -41,13 +44,13 @@ if (isset($_SESSION['id'])){
             </form>
             <?php
         }else
-        {echo("Post nicht vorhanden");
+        {echo("Nutzer nicht vorhanden");
         }
     }else
     {die("Datenbank-Fehler");
     }
 }else
-{echo "Bitte erst <a href='login.php'>registrieren</a>";
+{echo "Bitte erst <a href='login.php'>anmelden</a>";
 }
 ?>
 </body>
