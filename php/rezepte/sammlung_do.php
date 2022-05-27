@@ -9,8 +9,9 @@ session_start();
     <title>Sammlung</title>
 </head>
 <body>
-
 <?php
+require("../includes/navbar_include.php");
+
 if (isset($_SESSION['id'])){
     $nutzer_id = $_SESSION['id'];
     if (!isset($_POST["id"]))

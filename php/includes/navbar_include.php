@@ -8,6 +8,7 @@
     else{
         echo('<a class="logo-wrapper-link anmelden-button" href="../nutzer_management/logout.php">Abmelden</a>');
     }?>
+<a href="../rezepte/persoenliche_sammlung.php"> persönliche Sammlung </a>
 </div>
 
 
