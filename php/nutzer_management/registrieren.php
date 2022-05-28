@@ -6,7 +6,8 @@ session_start();
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>signup</title>
+    <title>registrieren</title>
+    <link rel="stylesheet" href="../../css/style.css">
 </head>
 <body>
 <?php

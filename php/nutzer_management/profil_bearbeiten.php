@@ -6,10 +6,15 @@ session_start();
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Aendern</title>
+    <title>profil bearbeiten</title>
+    <link rel="stylesheet" href="../../css/style.css">
 </head>
 <body>
 <?php
+
+require("../includes/navbar_include.php");
+
+
 if (isset($_SESSION['id'])){
     $id=$_SESSION['id'];
     $statement = $pdo->prepare("SELECT * from Nutzer WHERE id=$id");

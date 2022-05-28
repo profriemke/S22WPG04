@@ -7,6 +7,7 @@ include("../../database_include.php");
 <head>
     <meta charset="UTF-8">
     <title> Coole Kochseite </title>
+    <link rel="stylesheet" href="../../css/style.css">
 </head>
 <body>
 <?php
