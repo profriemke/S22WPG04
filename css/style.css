@@ -1,14 +1,9 @@
-.navbar{
-    top: 0;
-    background: linear-gradient(to right, cornflowerblue, white);
-    color: white;
-    margin-bottom:10px;
-}
+
 body{
     font-family: Montserrat;
 }
-div{
 
+div{
 }
 
 .button{
@@ -25,3 +20,51 @@ div{
 .profil{
     width: 80vw;
 }
+
+/* Navigation Anfang */
+
+    .navbar{
+        #position:fixed;
+        top: 0;
+        display: flex;
+        background-color: darkolivegreen;
+        color: white;
+        margin-bottom:10px;
+        padding: 20px 0px;
+        height: 54px;
+    }
+    .logo-wrapper{
+        margin-left: 50px;
+        width: 10px;
+    }
+
+    .links-wrapper{
+        margin: auto;
+        text-align: right;
+        margin-right: 50px;
+    }
+
+    .nav-link{
+        padding: 15px 15px;
+        color: white;
+    }
+
+    .drop {
+        display: inline-block;
+        padding-left: 5px;
+    }
+    .drop-content {
+        display: none;
+        padding-top: 10px;
+        #width: 200px;
+        z-index: 1;
+    }
+    .drop:hover .drop-content {
+        display: block;
+        #width: 200px;
+    }
+    .drop-item:hover{
+        background-color: #bab9b9;
+    }
+
+/* Navigation Ende */
