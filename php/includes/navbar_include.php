@@ -7,7 +7,7 @@
 <a class="nav-link" href="../rezepte/post.php"> Neues Rezept </a>
     </div>
     <div class="drop">
-        <div class="drop-header"><img height="70" width="70" src="https://mars.iuk.hdm-stuttgart.de/~ap121//webprojekt_gruppe/website_bilder/user.png" alt="user"></div>
+        <div class="drop-header"><img height="100" width="100" src="https://mars.iuk.hdm-stuttgart.de/~ap121//webprojekt_gruppe/website_bilder/user.png" alt="user"></div>
         <div class="drop-content">
             <div class="drop-item"><a href="../nutzer_management/profil.php">Profil</a></div>
             <div class="drop-item"><a href="../rezepte/persoenliche_sammlung.php">persönliche Sammlung</a></div>
@@ -25,6 +25,6 @@
 
         </div>
     </div>
-</div>
+
 
 
