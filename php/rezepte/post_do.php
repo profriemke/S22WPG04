@@ -17,6 +17,7 @@ session_start();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width">
     <title>post_do</title>
+    <link rel="stylesheet" href="../../css/style.css">
 </head>
 
 <?php

@@ -1,6 +1,96 @@
-.navbar{
-    top: 0;
-    "background-color: rgb(21, 21, 21);"
-    color: white;
-    margin-bottom:10px;
+
+/* http://meyerweb.com/eric/tools/css/reset/ v2.0 | 20110126 License: none (public domain) */ html, body, div, span, applet, object, iframe, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video { margin: 0; padding: 0; border: 0; font-size: 100%; font: inherit; vertical-align: baseline; } /* HTML5 display-role reset for older browsers */ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section { display: block; } body { line-height: 1; } ol, ul { list-style: none; } blockquote, q { quotes: none; } blockquote:before, blockquote:after, q:before, q:after { content: ''; content: none; } table { border-collapse: collapse; border-spacing: 0; }
+body{
+    font-family: Montserrat;
 }
+a:link, a:visited {
+    text-decoration: none;
+}
+div{
+}
+
+.button{
+    display:inline-block;
+    margin:20px;
+    border:2px darkolivegreen;
+    border-radius:5px;
+    padding:3px 7px;
+    background-color:darkolivegreen;
+    text-decoration-color: white;
+}
+/* Profil Anfang */
+    .profil{
+        top:20px;
+        width: 60vw;
+        margin-left: auto;
+        margin-right: auto;
+        background-color: lightgray;
+        min-height: 80vh;
+    }
+
+    .aendern{
+        position: relative;
+        left:10px;
+        top: 10px;
+
+    }
+
+    .profilbild{
+        position: relative;
+        left:10px;
+        top: 10px;
+    }
+
+    .bio{
+        position: relative;
+        left:10px;
+        margin-top: 50px;
+    }
+/* Profil Ende */
+/* Navigation Anfang */
+
+    .navbar{
+        /*position:fixed;*/
+        top: 0;
+        display: flex;
+        background-color: darkolivegreen;
+        color: white;
+        margin-bottom:10px;
+        padding: 20px 0px;
+        height: 100px;
+    }
+    .logo-wrapper{
+        margin-left: 50px;
+        width: 10px;
+        margin-right: auto;
+    }
+
+    .links-wrapper{
+        margin: auto;
+        text-align: right;
+        margin-right: 50px;
+    }
+
+    .nav-link{
+        padding: 15px 15px;
+        color: white;
+    }
+
+    .drop {
+        display: inline-block;
+        padding-left: 1px;
+    }
+    .drop-content {
+        display: none;
+        padding-top: 10px;
+        background-color: darkolivegreen;
+        z-index: 1;
+    }
+    .drop:hover .drop-content {
+        display: block;
+    }
+    .drop-item:hover{
+        background-color: #bab9b9;
+    }
+
+/* Navigation Ende */

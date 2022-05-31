@@ -8,6 +8,7 @@ session_start();
 <head>
     <meta charset="UTF-8">
     <title>login_do</title>
+    <link rel="stylesheet" href="../../css/style.css">
 </head>
 <body>
 <?php

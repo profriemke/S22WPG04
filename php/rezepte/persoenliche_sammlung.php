@@ -14,6 +14,8 @@ session_start();
 <?php
 require("../includes/navbar_include.php");
 ?>
+
+<h2>Persönliche Sammlung</h2>
 <?php
 if (isset($_SESSION['id'])){
     $id=$_SESSION['id'];
