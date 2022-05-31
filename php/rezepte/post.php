@@ -10,18 +10,14 @@
 
 <?php
 require("../includes/database_include.php");
+include("../includes/navbar_include.php");
 session_start();
-/*if (!isset($_SESSION["id"])){
+if (!isset($_SESSION["id"])){
     echo "<h1>Nutzer nicht angemeldet</h1>";
-    echo "<h3>Hier zum <a href='../account/login.php' class='btn btn-primary'>Login</a></h3>";
-    die("<h3><a href='../public/index.php' class='btn btn-primary'>Zurück</a></h3>");
+    echo "<h3>Hier zum <a href='../../php/nutzer_management/login.php'>Login</a></h3>";
+    die("<h3><a href='../oeffentliche_seiten/index.php'>Zurück</a></h3>");
 
 }
-*/
-?>
-
-<?php
-include("../includes/navbar_include.php")
 ?>
 
 <?php
@@ -63,7 +59,7 @@ if (isset($_SESSION['id'])){
 }else{
     die("Datenbank-Fehler");}
 }else{
-    echo "Bitte erst <a href='login.php'>registrieren</a>";
+    echo "Bitte erst <a href='login.php'>einloggen</a>";
 }
 
 
