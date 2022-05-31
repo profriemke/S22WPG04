@@ -1,6 +1,7 @@
 <?php
-include("./../includes/navbar_include.php");
-include("../../database_include.php");
+
+include("../includes/database_include.php");
+include("../includes/navbar_include.php");
 ?>
 <!DOCTYPE html>
 <html lang="de">

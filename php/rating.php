@@ -16,6 +16,7 @@ session_start();
 <?php
     $nutzer_id=$_SESSION['id'];
     $recipe_id=$_POST['recipe_id'];
+
 ?>
 
     <form action="rating_do.php" method="post" >
