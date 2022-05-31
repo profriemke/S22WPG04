@@ -21,7 +21,7 @@ session_start();
 ?>
 
 <?php
-include("./../includes/navbar_include.php")
+include("../includes/navbar_include.php")
 ?>
 
 <?php

@@ -1,5 +1,5 @@
 <?php
-require("../../database_include.php");
+require("../includes/database_include.php");
 session_start();
 /*if (!isset($_SESSION["id"])){
     echo "Nutzer nicht angemeldet";
@@ -21,7 +21,7 @@ session_start();
 </head>
 
 <?php
-include("./../includes/navbar_include.php")
+include("../includes/navbar_include.php")
 ?>
 
 <body>
