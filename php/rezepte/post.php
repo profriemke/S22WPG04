@@ -9,7 +9,7 @@
 </head>
 
 <?php
-require("../../database_include.php");
+require("../includes/database_include.php");
 session_start();
 /*if (!isset($_SESSION["id"])){
     echo "<h1>Nutzer nicht angemeldet</h1>";
