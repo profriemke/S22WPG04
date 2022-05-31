@@ -40,7 +40,7 @@ if ($statement->execute(array(htmlspecialchars($_GET["id"])))){
     echo htmlspecialchars($row["inhalt"]);
 
     include("../rating.php");
-    echo("test");
+
 
     }else{
         echo ("Rezept nicht vorhanden");
