@@ -1,6 +1,7 @@
 <?php
 #include("./includes/database_include.php");
 $pdo=new PDO('mysql:: host=mars.iuk.hdm-stuttgart.de; dbname=u-ap121', 'ap121', 'evi7ohS5ea', array('charset'=>'utf8'));
+
 session_start();
 
 //if (!isset($_SESSION["id"])) {
@@ -8,10 +9,11 @@ session_start();
 //    die("Um diese Aktion ausführen zu können musst du angemeldet sein!");
 
 //}
-$sterne = $_POST["rating"];
+$rating = $_POST["rating"];
 $nutzer_id=$_SESSION['id'];
-if (isset($_POST["comment"]) && isset($_POST["rating"])) {
-    $statement = $pdo->prepare("INSERT INTO Bewertungen (rezept_id, nutzer_id, rating, kommentar, timestamp) VALUES  (?, ?, ?, ?, NOW())"); #hier sterne zu rating angleichen, vorher datenbank überprüfen
+$rezept_id=$_POST['rezept_id'];
+if (isset($_POST["kommentar"]) && isset($_POST["rating"])) {
+    $statement = $pdo->prepare("INSERT INTO Bewertungen (rezept_id, nutzer_id, rating, kommentar, timestamp) VALUES  ($rezept_id, $nutzer_id, ?, ?, NOW())"); #hier sterne zu rating angleichen, vorher datenbank überprüfen
     if ($statement->execute(array( htmlspecialchars($_POST["rezept_id"]), htmlspecialchars($_POST["id"]), htmlspecialchars($_POST["rating"]), htmlspecialchars($_POST["kommentar"]))))
         echo("Bewertung eingefügt");
 

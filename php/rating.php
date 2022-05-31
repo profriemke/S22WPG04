@@ -14,8 +14,14 @@ session_start();
 
 <body>
 <?php
-    $nutzer_id=$_SESSION['id'];
-    $recipe_id=$_POST['recipe_id'];
+if (isset($_SESSION['id'])) {
+    $id = $_SESSION['id'];
+    $nutzer_id = $_SESSION['id'];
+    $recipe_id = $_POST['recipe_id'];
+}
+else {
+    echo("Fehler");
+}
 
 ?>
 
@@ -37,7 +43,7 @@ session_start();
         <input type="radio" name="rating" value="1" id="rating-1">
         <label for="rating-1">1</label>
 
-        <textarea cols="20" name="comment" placeholder="Schreibe einen Kommentar" id="comment"></textarea>
+        <textarea cols="20" name="kommentar" placeholder="Schreibe einen Kommentar" id="comment"></textarea>
 
         <input type ="hidden" name="timestamp" value="">
 
