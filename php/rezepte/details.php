@@ -30,10 +30,13 @@ $statement = $pdo->prepare("SELECT * FROM Rezepte WHERE id=?");
 if ($statement->execute(array(htmlspecialchars($_GET["id"])))){
     if($row = $statement->fetch()){
 
-    echo "<h3>";
+    echo "<h2>";
     echo htmlspecialchars($row["id"]);
     echo htmlspecialchars($row["titel"]);
-    echo "</h3>";
+    echo "</h2>";
+    echo "<h4>";
+    echo htmlspecialchars($row["zutaten"]);
+    echo "</h4>";
     echo htmlspecialchars($row["inhalt"]);
 
     }else{
