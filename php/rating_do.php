@@ -9,20 +9,24 @@ session_start();
 //    die("Um diese Aktion ausführen zu können musst du angemeldet sein!");
 
 //}
-$rating = $_POST["rating"];
-$nutzer_id=$_SESSION['id'];
-$rezept_id=$_POST['rezept_id'];
-if (isset($_POST["kommentar"]) && isset($_POST["rating"])) {
-    $statement = $pdo->prepare("INSERT INTO Bewertungen (rezept_id, nutzer_id, rating, kommentar, timestamp) VALUES  ($rezept_id, $nutzer_id, ?, ?, NOW())"); #hier sterne zu rating angleichen, vorher datenbank überprüfen
-    if ($statement->execute(array( htmlspecialchars($_POST["rezept_id"]), htmlspecialchars($_POST["id"]), htmlspecialchars($_POST["rating"]), htmlspecialchars($_POST["kommentar"]))))
-        echo("Bewertung eingefügt");
+if (isset($_SESSION['id'])) {
+    $rating = $_POST["rating"];
+    $nutzer_id = $_SESSION['id'];
+    $rezept_id = $_POST['rezept_id'];
+    if (isset($_POST["kommentar"]) && isset($_POST["rating"])) {
+        $statement = $pdo->prepare("INSERT INTO Bewertungen (rezept_id, nutzer_id, rating, kommentar, timestamp) VALUES  ($rezept_id, $nutzer_id, ?, ?, NOW())"); #hier sterne zu rating angleichen, vorher datenbank überprüfen
+        if ($statement->execute(array(htmlspecialchars($_POST["rezept_id"]), htmlspecialchars($_POST["id"]), htmlspecialchars($_POST["rating"]), htmlspecialchars($_POST["kommentar"]))))
+            echo("Bewertung eingefügt");
 
-    else{
-        echo $statement->errorInfo()[2];
-        echo $statement->queryString;
-        die("Fehler beim Einfügen");
-    }
+        else {
+            echo $statement->errorInfo()[2];
+            echo $statement->queryString;
+            die("Fehler beim Einfügen");
         }
+    }
+}
+else{("Fehler");
+}
 /*
  if(isset($_POST["rating"])&& isset($_POST["comment"])){
     $rating = $_POST["rating"];
