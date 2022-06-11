@@ -41,7 +41,7 @@ if (isset($_SESSION['id'])){
                 <textarea type="text" name="bio" cols="40" rows="8" value="<?php echo $row["bio"]; ?>">
                 </textarea> <br>
 
-                <img height='10%' width='10%' src='https://mars.iuk.hdm-stuttgart.de/~ap121//webprojekt_gruppe/profil_bilder/<?php echo $row["bild"]; ?>'alt='bild'><br>
+                <img height='10%' width='10%' src='https://mars.iuk.hdm-stuttgart.de/~ap121//webprojekt_gruppe/profil_bilder/<?php echo $row["bild"];?>'alt='bild'><br>
                 <input type ="file" name="file" id="file">
 
                 <input type="hidden" name="id" value="<?php echo $row["id"]; ?>">
