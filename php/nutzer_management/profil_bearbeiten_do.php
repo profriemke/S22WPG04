@@ -11,12 +11,10 @@ session_start();
     <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body>
-<p> §id rausnehmen aus prepare; ID an Bild ranhängen</p>
+<p> ID an Bild ranhängen</p>
 <?php
 
 require("../includes/navbar_include.php");
-
-
 
 if (isset($_SESSION['id'])){ #Abfrage ID
     $id=$_SESSION['id'];
@@ -51,8 +49,9 @@ if (isset($_SESSION['id'])){ #Abfrage ID
                 die();}}
 
         if(!empty($_FILES["file"]["name"])) {
-            $statement = $pdo->prepare("UPDATE Nutzer SET vorname=?, nachname=?, email=?, bio=?, bild=? WHERE id=$id");
-                    if($statement->execute(array(htmlspecialchars($_POST["vorname"]),
+            $statement = $pdo->prepare("UPDATE Nutzer SET vorname=?, nachname=?, email=?, bio=?, bild=? WHERE id=:id");
+            $statement->bindParam(":id",$_SESSION['id']);
+            if($statement->execute(array(htmlspecialchars($_POST["vorname"]),
                         htmlspecialchars($_POST["nachname"]),
                         htmlspecialchars($_POST["email"]),
                         htmlspecialchars($_POST["bio"]),

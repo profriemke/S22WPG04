@@ -18,8 +18,8 @@ require("../includes/navbar_include.php");
 <div class="profil">
 <?php
 if (isset($_SESSION['id'])){
-    $id=$_SESSION['id'];
-    $statement = $pdo->prepare("SELECT * from Nutzer WHERE id=$id");
+    $statement = $pdo->prepare("SELECT * from Nutzer WHERE id=:id");
+    $statement->bindParam(":id",$_SESSION['id']);
     if($statement->execute()){
         while($row=$statement->fetch()){
             echo "<div class='aendern'>";

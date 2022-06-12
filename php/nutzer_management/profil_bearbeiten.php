@@ -18,9 +18,9 @@ require("../includes/navbar_include.php");
 
 
 if (isset($_SESSION['id'])){
-    $id=$_SESSION['id'];
-    $statement = $pdo->prepare("SELECT * from Nutzer WHERE id=$id");
-    if($statement->execute(array($_GET["id"]))) {
+    $statement = $pdo->prepare("SELECT * from Nutzer WHERE id=:id");
+    $statement->bindParam(":id",$_SESSION['id']);
+    if($statement->execute()){
         if($row=$statement->fetch()){
             ?>
             <form action="profil_bearbeiten_do.php" method="post" enctype="multipart/form-data">
