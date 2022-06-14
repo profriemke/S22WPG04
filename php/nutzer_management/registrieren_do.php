@@ -47,9 +47,12 @@ else{
         }}
 
 $statement = $pdo->prepare("INSERT INTO Nutzer (vorname, nachname, passwort, username, email, bild) VALUES (?,?,?,?,?,?)");
-        if ($statement->execute(array(htmlspecialchars($_POST["vorname"]),htmlspecialchars($_POST["nachname"]),
-            password_hash($_POST["passwort"], PASSWORD_BCRYPT), htmlspecialchars($_POST["username"]),
-            htmlspecialchars($_POST["email"]), htmlspecialchars($_FILES["file"]["name"])))) {
+        if ($statement->execute(array(htmlspecialchars($_POST["vorname"]),
+                                    htmlspecialchars($_POST["nachname"]),
+                                    password_hash($_POST["passwort"], PASSWORD_BCRYPT),
+                                    htmlspecialchars($_POST["username"]),
+                                    htmlspecialchars($_POST["email"]),
+                                    htmlspecialchars($_FILES["file"]["name"])))) {
             echo "erfolgreich angemeldet";
             $_SESSION["id"] = $row["id"];
         }

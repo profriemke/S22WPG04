@@ -18,9 +18,9 @@ require("../includes/navbar_include.php");
 
 
 if (isset($_SESSION['id'])){
-    $id=$_SESSION['id'];
-    $statement = $pdo->prepare("SELECT * from Nutzer WHERE id=$id");
-    if($statement->execute(array($_GET["id"]))) {
+    $statement = $pdo->prepare("SELECT * from Nutzer WHERE id=:id");
+    $statement->bindParam(":id",$_SESSION['id']);
+    if($statement->execute()){
         if($row=$statement->fetch()){
             ?>
             <form action="profil_bearbeiten_do.php" method="post" enctype="multipart/form-data">
@@ -41,7 +41,7 @@ if (isset($_SESSION['id'])){
                 <textarea type="text" name="bio" cols="40" rows="8" value="<?php echo $row["bio"]; ?>">
                 </textarea> <br>
 
-                <img height='10%' width='10%' src='https://mars.iuk.hdm-stuttgart.de/~ap121//webprojekt_gruppe/profil_bilder/<?php echo $row["bild"]; ?>'alt='bild'><br>
+                <img height='10%' width='10%' src='https://mars.iuk.hdm-stuttgart.de/~ap121//webprojekt_gruppe/profil_bilder/<?php echo $row["bild"];?>'alt='bild'><br>
                 <input type ="file" name="file" id="file">
 
                 <input type="hidden" name="id" value="<?php echo $row["id"]; ?>">
