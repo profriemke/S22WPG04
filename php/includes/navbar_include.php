@@ -1,5 +1,10 @@
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
-
+<style type="text/css">
+    .navbar{
+        max-height: 20% !important;
+        margin-bottom: 0;
+    }
+</style>
 <div class="navbar">
     <div class="logo-wrapper">
         <a href="../oeffentliche_seiten/index.php"><img height="100" width="100" src="https://mars.iuk.hdm-stuttgart.de/~ap121//webprojekt_gruppe/website_bilder/Logo_weiß.png" alt="Logo"></a>
