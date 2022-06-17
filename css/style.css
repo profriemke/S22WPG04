@@ -92,7 +92,7 @@ div{
         /*position:fixed;*/
         top: 0;
         display: flex;
-        background-color: darkolivegreen;
+        background-color: #004445;
         color: white;
         margin-bottom:10px;
         padding: 20px 0px;
@@ -111,6 +111,12 @@ div{
     margin-right: 50px;
 }
 
+.drop-header {
+    padding-top: 10px;
+    background-color: #004443;
+    z-index: 1;
+}
+
 .nav-link{
     padding: 15px 15px;
     color: white;
@@ -123,7 +129,7 @@ div{
 .drop-content {
     display: none;
     padding-top: 10px;
-    background-color: darkolivegreen;
+    background-color: #004445;
     z-index: 1;
 }
 .drop:hover .drop-content {
