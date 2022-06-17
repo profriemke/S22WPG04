@@ -41,7 +41,7 @@ if ($statement->execute(array(htmlspecialchars($_GET["id"])))){
     echo "</h4>";
     echo htmlspecialchars($row["inhalt"]);
 
-    include("../rating.php");
+    include("rating.php");
 
 
     }else{
