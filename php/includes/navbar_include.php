@@ -7,7 +7,7 @@
 </style>-->
 <div class="navibar">
     <div class="logo-wrapper">
-        <a href="../oeffentliche_seiten/index.php"><img height="100" width="100" src="https://mars.iuk.hdm-stuttgart.de/~ap121//webprojekt_gruppe/website_bilder/logo.png" alt="Logo"></a>
+        <a href="../oeffentliche_seiten/index.php"><img height="100" width="100" src="https://mars.iuk.hdm-stuttgart.de/~ap121//webprojekt_gruppe/website_bilder/Logo_weiß.png" alt="Logo"></a>
     </div>
 
     <div class="links-wrapper">

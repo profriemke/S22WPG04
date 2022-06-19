@@ -15,7 +15,9 @@ session_start();
 <body>
 <?php
 require("../includes/navbar_include.php");
-
+?>
+<div class="content post">
+<?php
 if (!isset($_POST["username"]) or !isset($_POST["passwort"])) {
     die("Login oder Passwort falsch angegeben");
 }
@@ -24,7 +26,7 @@ $statement->bindParam(":username",$_POST["username"]);
 if($statement->execute()){
     if($row = $statement->fetch()) {
         if(password_verify($_POST["passwort"],$row["passwort"])){
-            echo "Herzlich Willkommen ".$row["vorname"].$row["nachname"];
+            echo "Herzlich Willkommen ".$row["vorname"].$row["nachname"]."!";
             $_SESSION["id"] = $row["id"];
         } else {
             echo "Passwort falsch";
@@ -37,5 +39,14 @@ if($statement->execute()){
 }
 
 ?>
+</div>
+
+<footer>
+    <?php
+    require("../includes/footer_include.php");
+    ?>
+</footer>
+
+
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
 </body>

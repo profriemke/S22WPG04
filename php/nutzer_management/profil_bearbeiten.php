@@ -15,15 +15,17 @@ session_start();
 <?php
 
 require("../includes/navbar_include.php");
+?>
+<div class="content post">
 
-
+<?php
 if (isset($_SESSION['id'])){
     $statement = $pdo->prepare("SELECT * from Nutzer WHERE id=:id");
     $statement->bindParam(":id",$_SESSION['id']);
     if($statement->execute()){
         if($row=$statement->fetch()){
             ?>
-            <form action="profil_bearbeiten_do.php" method="post" enctype="multipart/form-data">
+            <form class="signup-wrapper" action="profil_bearbeiten_do.php" method="post" enctype="multipart/form-data">
 
                 <label for="vorname">Vorname:</label>
                 <input type="text" name="vorname" value="<?php echo $row["vorname"]; ?>">
@@ -38,7 +40,9 @@ if (isset($_SESSION['id'])){
                 <br>
 
                 <label for="bio">Bio:</label>
-                <textarea type="text" name="bio" cols="40" rows="8" value="<?php echo $row["bio"]; ?>">
+                <p><?php echo $row['bio']; ?></p>
+                <label for="bio">ändern:</label> <br>
+                <textarea type="text" name="bio" cols="40" rows="8">
                 </textarea> <br>
 
                 <img height='10%' width='10%' src='https://mars.iuk.hdm-stuttgart.de/~ap121//webprojekt_gruppe/profil_bilder/<?php echo $row["bild"];?>'alt='bild'><br>
@@ -47,7 +51,7 @@ if (isset($_SESSION['id'])){
                 <input type="hidden" name="id" value="<?php echo $row["id"]; ?>">
                 <br>
 
-                <button type="submit" id="absenden">Post ändern</button>
+                <button class="action-button" type="submit" id="absenden">Post ändern</button>
             </form>
             <?php
         }else
@@ -60,6 +64,15 @@ if (isset($_SESSION['id'])){
 {echo "Bitte erst <a href='login.php'>anmelden</a>";
 }
 ?>
+</div>
+
+<footer>
+    <?php
+    require("../includes/footer_include.php");
+    ?>
+</footer>
+
+
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
 </body>
 </html>

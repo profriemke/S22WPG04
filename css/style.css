@@ -8,16 +8,14 @@ a:link, a:visited {
 }
 div{
 }
-
-.button{
-    display:inline-block;
-    margin:20px;
-    border:2px darkolivegreen;
-    border-radius:5px;
-    padding:3px 7px;
-    background-color:darkolivegreen;
-    text-decoration-color: white;
+footer{
+    background-color: #004445;
+    text-align: center;
+    height: 20vh;
+    padding-top: 40px;
+    width: 100vw;
 }
+
 /* Registrieren Anfang */
 .content{
     top:20px;
@@ -37,11 +35,10 @@ div{
     margin-right: auto;
     display: flex;
     flex-direction: column;
-
 }
 
 .action-button{
-    background-color:cornflowerblue;
+    background-color: #004445;
     padding: 15px 15px;
     color: white;
     font-size:1.2em;
@@ -67,12 +64,6 @@ div{
         min-height: 80vh;
     }
 
-    .aendern{
-        position: relative;
-        left:10px;
-        top: 10px;
-
-    }
 
     .profilbild{
         position: relative;
@@ -140,3 +131,4 @@ div{
 }
 
 /* Navigation Ende */
+
