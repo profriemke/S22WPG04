@@ -1,7 +1,7 @@
 <?php
 
 include("../includes/database_include.php");
-include("../includes/navbar_include.php");
+
 ?>
 <!DOCTYPE html>
 <html lang="de">
@@ -13,14 +13,16 @@ include("../includes/navbar_include.php");
     <link rel="stylesheet" href="../../css/style.css">
 
     <style>
-        .carousel-inner{
-            max-height: 500px !important;
+
+       img{
+           max-height: 500px;
         }
     </style>
+
 </head>
 <body>
+<?php include("../includes/navbar_include.php"); ?>
 
-</body
 
 <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="false">
     <div class="carousel-indicators">
@@ -30,14 +32,14 @@ include("../includes/navbar_include.php");
     </div>
     <div class="carousel-inner">
         <div class="carousel-item active">
-            <img src="../../pictures/website_pictures/kay-wood-AF4y8fsQkYQ-unsplash.jpg" class="d-block w-100" alt="...">
+            <img src="../../pictures/website_pictures/jens-erik-ebbesen-1RHsJPr0KH8-unsplash.jpg" class="d-block w-100" alt="...">
             <div class="carousel-caption d-none d-md-block">
                 <h5>First slide label</h5>
                 <p>Some representative placeholder content for the first slide.</p>
             </div>
         </div>
         <div class="carousel-item">
-            <img src="../../pictures/website_pictures/website_pictures/kay-wood-AF4y8fsQkYQ-unsplash.jpg" class="d-block w-100" alt="...">
+            <img src="../../pictures/website_pictures/jens-erik-ebbesen-1RHsJPr0KH8-unsplash.jpg" class="d-block w-100" alt="...">
             <div class="carousel-caption d-none d-md-block">
                 <h5>Second slide label</h5>
                 <p>Some representative placeholder content for the second slide.</p>
@@ -63,37 +65,36 @@ include("../includes/navbar_include.php");
 
 
 
-
 <?php
 //Alle Rezepte
 echo " <h1> Entdecken </h1>";
 $statement = $pdo->prepare('SELECT * FROM Rezepte');
 if ($statement->execute()) {
-    while ($row = $statement->fetch()) {
-        //$datei="../../files".$row["datei"];
-        echo "<div class='titel'>";
-        echo "<h3>";
-        echo "<a href='./../rezepte/details.php?id=".$row["id"]." ' class='text'> ".htmlspecialchars($row['titel'])." </a>";
-        echo "</h3>";
-        echo "<br>";
-        echo "<p class='Inhalt'>";
-        echo htmlspecialchars($row['inhalt']);
-        echo "</p>";
-        echo "<br>";
-       # echo "<div class='postpicture'>";
-        #if (!empty($row["datei"])){
-         #   echo "<img src='../../".$row["datei"]. "'>";
-       # }
+while ($row = $statement->fetch()) {
+//$datei="../../files".$row["datei"];
+echo "<div class='titel'>";
+echo "<h3>";
+echo "<a href='./../rezepte/details.php?id=".$row["id"]." ' class='text'> ".htmlspecialchars($row['titel'])." </a>";
+echo "</h3>";
+echo "<br>";
+echo "<p class='Inhalt'>";
+echo htmlspecialchars($row['inhalt']);
+echo "</p>";
+echo "<br>";
+# echo "<div class='postpicture'>";
+#if (!empty($row["datei"])){
+#   echo "<img src='../../".$row["datei"]. "'>";
+# }
 
-        #echo "</div>";
-        #echo "<br>";
-        echo "<a href='./../rezepte/edit.php?id=".$row["id"]." ' class='button'> Rezept bearbeiten </a>";?>
-        <form action="../rezepte/sammlung_do.php" method="post">
-            <input type="hidden" name="id" value="<?php echo $row["id"]; ?>">
-             <br>
-            <button type="submit" id="absenden">Rezept zur Sammlung hinzufügen</button>
-        </form>
-        <?php
+#echo "</div>";
+#echo "<br>";
+echo "<a href='./../rezepte/edit.php?id=".$row["id"]." ' class='button'> Rezept bearbeiten </a>";?>
+<form action="../rezepte/sammlung_do.php" method="post">
+    <input type="hidden" name="id" value="<?php echo $row["id"]; ?>">
+    <br>
+    <button type="submit" id="absenden">Rezept zur Sammlung hinzufügen</button>
+</form>
+<?php
         #echo "<a href='../post/delete_do.php?id=".$row["id"]."' class='button'> Post löschen </a>";
         #echo "</div>";
     }
@@ -101,7 +102,14 @@ if ($statement->execute()) {
 else {
     die("Dieses Rezept ist aktuell leider nicht verfügbar.");
 }
-/*
+?>
+
+include("./../includes/footer_include.php");
+
+
+</body>
+
+<!--
 //Neue Rezepte
 echo " <h1> Neue Rezepte </h1>";
 $statement = $pdo->prepare('SELECT * FROM Rezepte ORDER BY TIMESTAMP DESC');
@@ -162,14 +170,11 @@ if ($statement->execute()) {
 else {
     die("Dieses Rezept ist aktuell leider nicht verfügbar.");
 }
-*/
-?>
+
+-->
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
 </body>
 
-<?php
-include("./../includes/footer_include.php");
 
-?>
 </html>
