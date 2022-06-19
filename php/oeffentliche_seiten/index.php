@@ -16,6 +16,11 @@ include("../includes/database_include.php");
         img{
             max-height: 500px;
         }
+
+        .recipe_preview{
+            display: flex;
+        }
+
     </style>
 </head>
 <body>
@@ -64,45 +69,46 @@ include("../includes/navbar_include.php");
 
 
 
+<div class="recipe_preview">
+    <?php
+    //Alle Rezepte
+    echo " <h1> Entdecken </h1>";
+    $statement = $pdo->prepare('SELECT * FROM Rezepte');
+    if ($statement->execute()) {
+    while ($row = $statement->fetch()) {
+    //$datei="../../files".$row["datei"];
+    echo "<div class='titel'>";
+    echo "<h3>";
+    echo "<a href='./../rezepte/details.php?id=".$row["id"]." ' class='text'> ".htmlspecialchars($row['titel'])." </a>";
+    echo "</h3>";
+    echo "<br>";
+    echo "<p class='Inhalt'>";
+    echo htmlspecialchars($row['inhalt']);
+    echo "</p>";
+    echo "<br>";
+    echo "<div class='postpicture'>";
+    if (!empty($row["datei"])){
+    echo "<img src='../../".$row["datei"]. "'>";
+     }
 
-<?php
-//Alle Rezepte
-echo " <h1> Entdecken </h1>";
-$statement = $pdo->prepare('SELECT * FROM Rezepte');
-if ($statement->execute()) {
-while ($row = $statement->fetch()) {
-//$datei="../../files".$row["datei"];
-echo "<div class='titel'>";
-echo "<h3>";
-echo "<a href='./../rezepte/details.php?id=".$row["id"]." ' class='text'> ".htmlspecialchars($row['titel'])." </a>";
-echo "</h3>";
-echo "<br>";
-echo "<p class='Inhalt'>";
-echo htmlspecialchars($row['inhalt']);
-echo "</p>";
-echo "<br>";
-# echo "<div class='postpicture'>";
-#if (!empty($row["datei"])){
-#   echo "<img src='../../".$row["datei"]. "'>";
-# }
-
-#echo "</div>";
-#echo "<br>";
-echo "<a href='./../rezepte/edit.php?id=".$row["id"]." ' class='button'> Rezept bearbeiten </a>";?>
-<form action="../rezepte/sammlung_do.php" method="post">
-    <input type="hidden" name="id" value="<?php echo $row["id"]; ?>">
-    <br>
-    <button type="submit" id="absenden">Rezept zur Sammlung hinzufügen</button>
-</form>
-<?php
-        #echo "<a href='../post/delete_do.php?id=".$row["id"]."' class='button'> Post löschen </a>";
-        #echo "</div>";
+    #echo "</div>";
+    #echo "<br>";
+    echo "<a href='./../rezepte/edit.php?id=".$row["id"]." ' class='button'> Rezept bearbeiten </a>";?>
+    <form action="../rezepte/sammlung_do.php" method="post">
+        <input type="hidden" name="id" value="<?php echo $row["id"]; ?>">
+        <br>
+        <button type="submit" id="absenden">Rezept zur Sammlung hinzufügen</button>
+    </form>
+    <?php
+            #echo "<a href='../post/delete_do.php?id=".$row["id"]."' class='button'> Post löschen </a>";
+            #echo "</div>";
+        }
     }
-}
-else {
-    die("Dieses Rezept ist aktuell leider nicht verfügbar.");
-}
-?>
+    else {
+        die("Dieses Rezept ist aktuell leider nicht verfügbar.");
+    }
+    ?>
+</div>
 </body>
 
 
