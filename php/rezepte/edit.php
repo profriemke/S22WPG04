@@ -52,6 +52,11 @@ if ($statement->execute(array(htmlspecialchars($_GET["id"])))){
 ?>
 <h3><a href="../oeffentliche_seiten/index.php" class="btn btn-primary">Zurück</a></h3>
 
+<footer>
+    <?php
+    require("../includes/footer_include.php");
+    ?>
+</footer>
 </body>
 </html>
 

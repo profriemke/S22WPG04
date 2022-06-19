@@ -51,6 +51,7 @@ if (isset($_SESSION['id'])){
 
 ?>
 </div>
+
     <footer>
         <?php
         require("../includes/footer_include.php");

@@ -47,6 +47,12 @@ else{
     echo ("Fehler");
 }
 ?>
+
+<footer>
+    <?php
+    require("../includes/footer_include.php");
+    ?>
+</footer>
     </body>
 </html>
 
