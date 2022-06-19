@@ -5,6 +5,7 @@ body{
 }
 a:link, a:visited {
     text-decoration: none;
+
 }
 div{
 }
@@ -14,6 +15,9 @@ footer{
     height: 20vh;
     padding-top: 40px;
     width: 100vw;
+
+    bottom: 0;
+    margin-top: 10px;
 }
 
 /* Registrieren Anfang */
@@ -21,7 +25,10 @@ footer{
     top:20px;
     width: 50vw;
     margin-left: auto;
-    margin-right: auto;}
+    margin-right: auto;
+    margin-bottom: 10px;
+    height: 65vh;
+}
 
 .post{
     background-color: #eee;
@@ -47,6 +54,7 @@ footer{
     width: 300px;
     margin-top: 40px;
     margin-bottom: 40px;
+    border-radius: 50px;
 }
 
 .action-button:hover{
@@ -87,13 +95,14 @@ footer{
         color: white;
         margin-bottom:10px;
         padding: 20px 0px;
-        height: 150px;
+        height: 15vh;
 
 }
 .logo-wrapper{
     margin-left: 50px;
     width: 10px;
     margin-right: auto;
+    height: 100%;
 }
 
 .links-wrapper{
