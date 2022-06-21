@@ -21,8 +21,8 @@ require("../includes/navbar_include.php");
 
 <form class="signup-wrapper" action="login_do.php" method="post">
     <h2> Bei eat.pray.eat anmelden </h2>
-    <input type="text" name="username" id="username" minlength="4" required placeholder="Username"><br>
-    <input type="password" name="passwort" id="passwort"  minlength="4" required placeholder="Passwort">
+    <input type="text" name="username" id="username" minlength="1" required placeholder="Username"><br>
+    <input type="password" name="passwort" id="passwort"  minlength="1" required placeholder="Passwort">
 
     <button class="action-button" type="submit" id="absenden">anmelden</button>
     <p> Noch kein Konto? Jetzt <a href="registrieren.php">registrieren</a>! </p>

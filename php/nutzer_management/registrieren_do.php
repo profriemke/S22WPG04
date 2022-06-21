@@ -53,13 +53,10 @@ $statement = $pdo->prepare("INSERT INTO Nutzer (vorname, nachname, passwort, use
                                     password_hash($_POST["passwort"], PASSWORD_BCRYPT),
                                     htmlspecialchars($_POST["username"]),
                                     htmlspecialchars($_POST["email"]),
-                                    htmlspecialchars($_FILES["file"]["name"])))) {
+                                    htmlspecialchars($_FILES["file"]["name"].$number)))) {
             echo "erfolgreich angemeldet";
             $_SESSION["id"] = $row["id"];
-            session_start();
-            $statement = $pdo->prepare("UPDATE Nutzer SET bild=? WHERE id=:id");
-            $statement->bindParam(":id",$_SESSION["id"]);
-            $statement->execute(array(htmlspecialchars($_FILES["file"]["name"].[$number])));
+
         }
         else {
             echo $statement->errorInfo()[2];
