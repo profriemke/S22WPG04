@@ -43,6 +43,23 @@ if ($statement->execute(array(htmlspecialchars($_GET["id"])))){
 
     include("rating.php");
 
+        $rezepte_id=$row["id"];
+
+        $state = $pdo->prepare("SELECT * FROM Bewertungen WHERE id=$rezepte_id");
+        if($state->execute()) {
+            while ($row = $state->fetch()) {
+                echo "<h3>";
+                echo htmlspecialchars($row['rating']);
+                echo "</h3>";
+                echo "<br>";
+                echo "<p class='Inhalt'>";
+                echo htmlspecialchars($row['kommentar']);
+                echo "</p>";
+                echo "<br>";
+            }
+
+        }
+
 
     }else{
         echo ("Rezept nicht vorhanden");
