@@ -38,7 +38,7 @@ if ($statement->execute(array(htmlspecialchars($_GET["id"])))){
             <h2>Titel:</h2>
             <input type="text" name="titel" value="<?php echo htmlspecialchars($row["titel"]); ?>">
             <h2>Post:</h2>
-            <textarea name="post" rows=”200″ cols="40"><?php echo htmlspecialchars($row["inhalt"]); ?></textarea> <p>
+            <textarea name="inhalt" rows=”200″ cols="100"><?php echo htmlspecialchars($row["inhalt"]); ?></textarea> <p>
             <p>
                 <button input type="submit" class='btn btn-primary'>Edit</button>
         </form>

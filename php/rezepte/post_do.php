@@ -46,10 +46,14 @@ if($_FILES["uploadfile"]["size"]> 800000){
     die("<h1>Datei zu groß</h1>");
 }
 
-if (!move_uploaded_file($_FILES["titelbild"]["tmp_name"],"/home/ap121/public_html/webprojekt_gruppe/rezept_bilder".$_FILES["titelbild"]["name"])) {
+/*
+if (!move_uploaded_file($_FILES["titelbild"]["tmp_name"],"/home/ap121/public_html/webprojekt_gruppe/rezept_bilder/".$_FILES["titelbild"]["name"])) {
     die("<h1>Upload_Fehler</h1>");
 
 }
+
+--> Check ob Bild auf Ordner auf dem Server geschoben wurde
+*/
 
 echo "<p>";
 echo "<h1>".htmlspecialchars($_POST["titel"])."</h1>";
