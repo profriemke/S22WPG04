@@ -16,28 +16,29 @@ session_start();
 <?php
 require("../includes/navbar_include.php");
 ?>
+<div class="content post">
 
-<h2>Persönliche Sammlung</h2>
+        <h2>Persönliche Sammlung</h2>
 <?php
 if (isset($_SESSION['id'])){
-    $id=$_SESSION['id'];
-    $statement = $pdo->prepare("SELECT * from Sammlung WHERE nutzer_id=$id");
+    $statement = $pdo->prepare("SELECT * from Sammlung WHERE nutzer_id=:id");
+    $statement->bindParam(":id",$_SESSION['id']);
     if($statement->execute()){
         while($row=$statement->fetch())
             {$rezepte= $row["rezept_id"];
                 $state = $pdo->prepare("SELECT * FROM Rezepte WHERE id=$rezepte");
                 if($state->execute()){
-                    while($row=$state->fetch()){
-                        echo "<div class='titel'>";
-                        echo "<h3>";
-                        echo "<a href='./../rezepte/details.php?id=".$row["id"]." ' class='text'> ".htmlspecialchars($row['titel'])." </a>";
-                        echo "</h3>";
-                        echo "<br>";
-                        echo "<p class='Inhalt'>";
-                        echo htmlspecialchars($row['inhalt']);
-                        echo "</p>";
-                        echo "<br>";
-                    }
+                    $row=$state->fetch();{?>
+                        <div class="card" style="width: 70%;">
+                            <img src="..." class="card-img-top" alt="...">
+                            <div class="card-body">
+                                <h5 class="card-title"><?php echo "<a href='./../rezepte/details.php?id=".$row["id"]." ' class='text'> ".htmlspecialchars($row['titel'])." </a>";?></h5>
+                                <p class="card-text"><?php echo htmlspecialchars($row['inhalt']);?> </p>
+                                <?php echo "<a href='./../rezepte/details.php?id=".$row["id"]."' class='btn btn-primary'>Zum Rezept</a>" ?>
+                            </div>
+                        </div><br>
+    <?php }
+
 
                 }else{
                     die("Datenbank-Fehler");}
@@ -53,6 +54,7 @@ if (isset($_SESSION['id'])){
     {echo "Bitte erst <a href='../nutzer_management/login.php'>anmelden</a>";}
 
 ?>
+</div>
 
 <footer>
     <?php

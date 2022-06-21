@@ -20,6 +20,7 @@ require("../includes/navbar_include.php");
 if (!isset($_POST["vorname"]) and !isset($_POST["nachname"]) and !isset($_POST["passwort"]) and !isset($_POST["username"]) and !isset($_POST["email"]) and !isset($_POST["file"])) {
     die("Fehler im Formular: Nicht alle Felder ausgefüllt");}
 else{
+    $number= rand();
     if($_FILES["file"]["name"]=="")
     {echo "Kein Profilbild hinzugefügt";
     }else{
@@ -41,7 +42,7 @@ else{
             die();
         }
 
-        if (!move_uploaded_file($_FILES["file"]["tmp_name"], "/home/ap121/public_html/webprojekt_gruppe/profil_bilder/".$_FILES["file"]["name"])) {
+        if (!move_uploaded_file($_FILES["file"]["tmp_name"], "/home/ap121/public_html/webprojekt_gruppe/profil_bilder/".$_FILES["file"]["name"].$number)) {
             echo "Datei wurde nicht hochgeladen. Bitte erneut versuchen";
             die();
         }}
@@ -55,6 +56,10 @@ $statement = $pdo->prepare("INSERT INTO Nutzer (vorname, nachname, passwort, use
                                     htmlspecialchars($_FILES["file"]["name"])))) {
             echo "erfolgreich angemeldet";
             $_SESSION["id"] = $row["id"];
+            session_start();
+            $statement = $pdo->prepare("UPDATE Nutzer SET bild=? WHERE id=:id");
+            $statement->bindParam(":id",$_SESSION["id"]);
+            $statement->execute(array(htmlspecialchars($_FILES["file"]["name"].[$number])));
         }
         else {
             echo $statement->errorInfo()[2];

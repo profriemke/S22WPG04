@@ -62,7 +62,8 @@ if (isset($_SESSION['id'])){ #Abfrage ID
         {echo "Profil erfolgreich geändert! mit bild". $_FILES["file"]["name"]."<br> Zurück zum <a href='profil.php'>Profil.</a>";}}
 
         else{
-            $statement = $pdo->prepare("UPDATE Nutzer SET vorname=?, nachname=?, email=?, bio=? WHERE id=$id");
+            $statement = $pdo->prepare("UPDATE Nutzer SET vorname=?, nachname=?, email=?, bio=? WHERE id=:id");
+            $statement->bindParam(":id",$_SESSION['id']);
                     if($statement->execute(array(htmlspecialchars($_POST["vorname"]),
                         htmlspecialchars($_POST["nachname"]),
                         htmlspecialchars($_POST["email"]),

@@ -27,7 +27,7 @@ footer{
     margin-left: auto;
     margin-right: auto;
     margin-bottom: 10px;
-    height: 65vh;
+    min-height: 65vh;
 }
 
 .post{

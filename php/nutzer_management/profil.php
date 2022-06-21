@@ -15,8 +15,11 @@ session_start();
 <?php
 require("../includes/navbar_include.php");
 ?>
+
 <div class="content post">
+    <h2>Profil</h2>
 <?php
+
 if (isset($_SESSION['id'])){
     $statement = $pdo->prepare("SELECT * from Nutzer WHERE id=:id");
     $statement->bindParam(":id",$_SESSION['id']);
@@ -33,7 +36,6 @@ if (isset($_SESSION['id'])){
             echo "@".$row["username"]."<br>";
             echo "</div>";
 
-            #echo "E-Mail: ".$row["email"]."<br>"."<br>";
             echo "<div class='bio'>";
             echo "Bio: ".$row["bio"];
             echo "</div>";
