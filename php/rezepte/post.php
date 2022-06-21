@@ -34,26 +34,25 @@ if (isset($_SESSION['id'])){
 <form action="post_do.php" method="post" enctype="multipart/form-data">
 
     <h3>Titel:</h3>
-    <p><input type="text" name="titel"></p>
+    <input type="text" name="titel">
 
     <h3>Bild:</h3>
-    <div class="input-group mb-3">
-        <input type="file" class="form-control" id="inputGroupFile02" name="titelbild"> <!--Hier kann man vielleicht Drag and Drop nutzen?-->
+    <input type="file" class="form-control" id="inputGroupFile02" name="titelbild"> <!--Hier kann man vielleicht Drag and Drop nutzen?-->
 
     <h3>Inhalt:</h3>
-    <p><textarea name="inhalt" rows=”200″ cols="40"></textarea></p>
+    <textarea name="inhalt" rows=”200″ cols="40"></textarea>
 
     <h3>Dauer:</h3>
-    <p><input type="text" name="dauer"></p>
+    <input type="text" name="dauer">
 
     <h3>Autor:</h3>
-    <p><input type="text" name="autor" value="<?php echo htmlspecialchars($row['username']);?>"></p>
+    <input type="text" name="autor" value="<?php echo htmlspecialchars($row['username']);?>">
 
-    <h3>Nutzer:</h3>
-    <p><input type="text" name="nutzer" value="<?php echo htmlspecialchars($row['id']);?>"></p>
+    <!-- <h3>Nutzer:</h3> -->
+    <input type="hidden" name="nutzer" value="<?php echo htmlspecialchars($row['id']);?>">
 
     <h3>Zutaten:</h3>
-    <p><input type="text" name="zutaten"></p>
+    <input type="text" name="zutaten">
 <?php
 }
 

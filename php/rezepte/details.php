@@ -34,6 +34,7 @@ if ($statement->execute(array(htmlspecialchars($_GET["id"])))){
 
     echo "<h2>";
     echo htmlspecialchars($row["id"]);
+    echo htmlspecialchars($row["titelbild"]);
     echo htmlspecialchars($row["titel"]);
     echo "</h2>";
     echo "<h4>";

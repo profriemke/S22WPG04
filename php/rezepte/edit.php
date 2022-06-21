@@ -34,13 +34,24 @@ $statement = $pdo->prepare("SELECT * FROM Rezepte WHERE id=?");
 if ($statement->execute(array(htmlspecialchars($_GET["id"])))){
     if($row = $statement->fetch()){
         ?>
-        <form action="edit_do.php?id=<?php echo htmlspecialchars($row["id"]); ?>" method="post">
+        <input action="edit_do.php?id=<?php echo htmlspecialchars($row["id"]); ?>" method="post">
+
             <h2>Titel:</h2>
             <input type="text" name="titel" value="<?php echo htmlspecialchars($row["titel"]); ?>">
+
             <h2>Post:</h2>
-            <textarea name="inhalt" rows=”200″ cols="100"><?php echo htmlspecialchars($row["inhalt"]); ?></textarea> <p>
-            <p>
-                <button input type="submit" class='btn btn-primary'>Edit</button>
+            <textarea name="inhalt" rows=”200″ cols="100"><?php echo htmlspecialchars($row["inhalt"]); ?></textarea>
+
+            <h2>Zutaten:</h2>
+            <textarea name="zutaten" rows=”200″ cols="100"><?php echo htmlspecialchars($row["zutaten"]); ?></textarea>
+
+            <h2>Dauer:</h2>
+            <textarea name="dauer" rows=”200″ cols="100"><?php echo htmlspecialchars($row["dauer"]); ?></textarea>
+
+            <h2>Titelbild:</h2>
+            <input type="file" name="titelbild" value="<?php echo htmlspecialchars($row["titelbild"]); ?>">
+
+            <button input type="submit" class='btn btn-primary'>Edit</button>
         </form>
         <?php
     }else{
