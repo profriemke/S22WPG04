@@ -28,6 +28,7 @@ include("../includes/navbar_include.php")
 <body>
 
 <?php
+//Rezept
 $statement = $pdo->prepare("SELECT * FROM Rezepte WHERE id=?");
 if ($statement->execute(array(htmlspecialchars($_GET["id"])))){
     if($row = $statement->fetch()){
@@ -41,25 +42,44 @@ if ($statement->execute(array(htmlspecialchars($_GET["id"])))){
     echo "</h4>";
     echo htmlspecialchars($row["inhalt"]);
 
-    include("rating.php");
+//Durchschnittsbewertung
+$statement = $pdo->prepare("SELECT AVG(rating) AS average FROM Bewertungen ");
+if($statement->execute()) {
+    if ($row = $statement->fetch()) {
+        echo (round($row['average']));
+    }
+    else {
+        echo("Leider ist die Bewertung aktuell nicht verfügbar.");
+    }
+}
 
+//Eingabefeld Bewertung
+include("rating.php");
+
+
+//Kommentarsektion
+/*
         $rezepte_id=$row["id"];
 
-        $state = $pdo->prepare("SELECT * FROM Bewertungen WHERE id=$rezepte_id");
-        if($state->execute()) {
-            while ($row = $state->fetch()) {
-                echo "<h3>";
-                echo htmlspecialchars($row['rating']);
-                echo "</h3>";
-                echo "<br>";
-                echo "<p class='Inhalt'>";
-                echo htmlspecialchars($row['kommentar']);
-                echo "</p>";
-                echo "<br>";
+       # while($row = $statement){
+            $statement = $pdo->prepare("SELECT * FROM Bewertungen WHERE rezept_id=$rezepte_id");
+
+            if($statement->execute()) {
+                while ($row = $statement->fetch()) {
+                    echo "<h3>";
+                    echo htmlspecialchars($row['rating']);
+                    echo "</h3>";
+                    echo "<br>";
+                    echo "<p class='Inhalt'>";
+                    echo htmlspecialchars($row['kommentar']);
+                    echo "</p>";
+                    echo "<br>";
+                }
+
             }
+      #  }
 
-        }
-
+*/
 
     }else{
         echo ("Rezept nicht vorhanden");

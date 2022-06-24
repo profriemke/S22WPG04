@@ -25,15 +25,12 @@ if (isset($_SESSION['id'])) {
     // $rating = $_POST["rating"];
     // $nutzer_id = $_SESSION['id'];
     //$rezept_id = $_POST['rezept_id'];
-    if (!isset($_POST["rezept_id"])
-        and !isset($_POST["nutzer_id"])
-        and !isset($_POST["rating"])
-        and !isset($_POST["kommentar"]))
-    {die("Fehler im Formular");}
+    if (!isset($_POST["rezept_id"]) && !isset($_POST["nutzer_id"]) && !isset($_POST["rating"]) && !isset($_POST["kommentar"])) {
+        die("Fehler im Formular");}
 
 
     else {
-        $statement = $pdo->prepare("INSERT INTO Bewertungen (rezept_id, nutzer_id, rating, kommentar) VALUES (?, ?, ?, ?)"); #hier sterne zu rating angleichen, vorher datenbank überprüfen
+        $statement = $pdo->prepare("INSERT INTO Bewertungen (rezept_id, nutzer_id, rating, kommentar) VALUES (?, ?, ?, ?)");
         if ($statement->execute(array(htmlspecialchars($_POST["rezept_id"]), htmlspecialchars($_POST["user_id"]), htmlspecialchars($_POST["rating"]), htmlspecialchars($_POST["kommentar"]))))
         {echo("Bewertung eingefügt");}
 
@@ -43,9 +40,9 @@ if (isset($_SESSION['id'])) {
             die("Fehler beim Einfügen");}
     }
 }
-else{
-    echo ("Fehler");
-}
+    else{
+        echo ("Bitte zuerst anmelden!");
+    }
 ?>
 
 <footer>

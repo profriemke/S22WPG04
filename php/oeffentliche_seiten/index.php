@@ -36,21 +36,21 @@ include("../includes/navbar_include.php");
     </div>
     <div class="carousel-inner">
         <div class="carousel-item active">
-            <img src="../../pictures/website_pictures/kay-wood-AF4y8fsQkYQ-unsplash.jpg" class="d-block w-100" alt="...">
+            <img src="./home/ju009/public_html/pictures/website_pictures" class="d-block w-100" alt="...">
             <div class="carousel-caption d-none d-md-block">
                 <h5>First slide label</h5>
                 <p>Some representative placeholder content for the first slide.</p>
             </div>
         </div>
         <div class="carousel-item">
-            <img src="../../pictures/website_pictures/website_pictures/kay-wood-AF4y8fsQkYQ-unsplash.jpg" class="d-block w-100" alt="...">
+            <img src="/home/ju009/public_html/pictures/website_pictures" class="d-block w-100" alt="...">
             <div class="carousel-caption d-none d-md-block">
                 <h5>Second slide label</h5>
                 <p>Some representative placeholder content for the second slide.</p>
             </div>
         </div>
         <div class="carousel-item">
-            <img src="..." class="d-block w-100" alt="...">
+            <img src="/home/ju009/public_html/pictures/website_pictures" class="d-block w-100" alt="...">
             <div class="carousel-caption d-none d-md-block">
                 <h5>Third slide label</h5>
                 <p>Some representative placeholder content for the third slide.</p>
@@ -86,10 +86,11 @@ include("../includes/navbar_include.php");
     echo htmlspecialchars($row['inhalt']);
     echo "</p>";
     echo "<br>";
-    echo "<div class='postpicture'>";
+    echo($row['rating']);
+   /* echo "<div class='postpicture'>";
     if (!empty($row["datei"])){
     echo "<img src='../../".$row["datei"]. "'>";
-     }
+     }*/
 
     #echo "</div>";
     #echo "<br>";
