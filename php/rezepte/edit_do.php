@@ -33,9 +33,9 @@ include("../includes/navbar_include.php")
 <p>
 
     <?php
-    if (isset($_POST["titel"]) and isset($_POST["inhalt"]) and isset($_GET["id"])) {
-        $statement = $pdo->prepare("UPDATE Rezepte SET titel=?, inhalt=? WHERE id=?");
-        if ($statement->execute(array(htmlspecialchars($_POST["titel"]), htmlspecialchars($_POST["inhalt"]), htmlspecialchars($_GET["id"])))){
+    if (isset($_POST["titel"]) and isset($_POST["inhalt"]) and isset($_POST["dauer"]) and isset($_POST["zutaten"]) and isset($_FILES["titelbild"]) and isset($_GET["id"])) {
+        $statement = $pdo->prepare("UPDATE Rezepte SET titel=?, SET dauer=?, SET zutaten=?, SET titelbild=?, SET inhalt=? WHERE id=?");
+        if ($statement->execute(array(htmlspecialchars($_POST["titel"]), htmlspecialchars($_POST["inhalt"]), htmlspecialchars($_POST["zutaten"]), htmlspecialchars($_POST["dauer"]), htmlspecialchars($_POST["titelbild"]), htmlspecialchars($_GET["id"])))){
             echo "<h1>Update erfolgreich</h1>";
         } else {
             echo $statement->errorInfo()[2];
