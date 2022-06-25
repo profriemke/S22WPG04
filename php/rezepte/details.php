@@ -32,7 +32,7 @@ include("../includes/navbar_include.php")
 $statement = $pdo->prepare("SELECT * FROM Rezepte WHERE id=?");
 if ($statement->execute(array(htmlspecialchars($_GET["id"])))){
     if($row = $statement->fetch()){
-
+    $rezepte_id=$row["id"];
     echo "<h2>";
     echo htmlspecialchars($row["id"]);
     echo "</h2>";
@@ -54,7 +54,8 @@ if ($statement->execute(array(htmlspecialchars($_GET["id"])))){
     </form>
 
     <?php echo "<a href='./../rezepte/edit.php?id=".$row["id"]." ' class='button'> Rezept bearbeiten </a>";
-
+        //Eingabefeld Bewertung
+        include("rating.php");
 //Durchschnittsbewertung
 $statement = $pdo->prepare("SELECT AVG(rating) AS average FROM Bewertungen ");
 if($statement->execute()) {
@@ -66,13 +67,12 @@ if($statement->execute()) {
     }
 }
 
-//Eingabefeld Bewertung
-include("rating.php");
+
 
 
 //Kommentarsektion
 
-        $rezepte_id=$row["id"];
+
 
        # while($row = $statement){
             $statement = $pdo->prepare("SELECT * FROM Bewertungen WHERE rezept_id=$rezepte_id");
