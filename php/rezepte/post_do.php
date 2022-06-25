@@ -29,55 +29,54 @@ include("../includes/navbar_include.php")
 
 
 <?php
-if(!isset($_POST["titel"])or !isset($_POST["inhalt"])or !isset($_FILES["titelbild"])) {
-    die("<h1>Formula-Fehler</h1>");
-}
+if (!isset($_POST["titel"]) and !isset($_POST["inhalt"]) and !isset($_POST["titelbild"]) and !isset($_POST["zutaten"]) and !isset($_POST["autor"]) and !isset($_POST["dauer"])) {
+    die("Fehler im Formular: Nicht alle Felder ausgefüllt");}
+else{
+    $number= rand();
+    if($_FILES["titelbild"]["name"]=="")
+    {echo "Kein Bild hinzugefügt";
+    }else{
+        $fileName=$_FILES["titelbild"]["name"];
+        $fileSplit= explode(".",$fileName);
+        $fileType=$fileSplit[sizeof($fileSplit)-1];
 
-$fileSplit = explode(".", $_FILES["titelbild"]["name"]);
-$fileType = $fileSplit[sizeof($fileSplit)-1];
-echo "<h3>".$fileType."</h3>";
-echo " ";
-if((strtolower($fileType) =="png") OR (strtolower($fileType) =="jpg") OR (strtolower($fileType) =="jpeg") OR(strtolower($fileType) =="mp4") OR (strtolower($fileType) =="")){
-    echo "<h3>Dateiart in Ordnung</h3>";
-}else{
-    die("<h1>Nicht zugelassende Dateiart</h1>");
-}
-if($_FILES["uploadfile"]["size"]> 800000){
-    die("<h1>Datei zu groß</h1>");
-}
+        for ($i=0; $i<=sizeof($fileSplit)-2; $i++){
+            $fileName=$fileName.$fileSplit[$i];
+        }
 
-/*
-if (!move_uploaded_file($_FILES["titelbild"]["tmp_name"],"/home/ap121/public_html/webprojekt_gruppe/rezept_bilder/".$_FILES["titelbild"]["name"])) {
-    die("<h1>Upload_Fehler</h1>");
+        if ($_FILES["titelbild"]["size"] > 8000000) {
+            echo"Datei zu groß. Maximale größe beträgt 8 MB ";
+            die();
+        }
 
-}
+        if (!$fileType == "jpg" OR !$fileType=="png" OR !$fileType== "jpeg" OR !$fileType=="heic") {
+            echo"Dateiart nicht gültig. Folgende Dateiarten sind zugelassen : JPG; PNG; JPEG";
+            die();
+        }
 
---> Check ob Bild auf Ordner auf dem Server geschoben wurde
-*/
+        if (!move_uploaded_file($_FILES["titelbild"]["tmp_name"], "/home/ap121/public_html/webprojekt_gruppe/rezept_bilder/".$_FILES["titelbild"]["name"].$number)) {
+            echo "Datei wurde nicht hochgeladen. Bitte erneut versuchen";
+            die();
+        }}
 
-echo "<p>";
-echo "<h1>".htmlspecialchars($_POST["titel"])."</h1>";
-echo "<p>";
-/*echo htmlspecialchars($_POST["post"]);
-echo "<p>";*/ // falls auch der Post angezeigt werden soll beim hochladen
+    $statement = $pdo->prepare("INSERT INTO Rezepte (titel, inhalt, zutaten, autor, dauer, titelbild) VALUES (?,?,?,?,?,?)");
+    if ($statement->execute(array(htmlspecialchars($_POST["titel"]),
+        htmlspecialchars($_POST["inhalt"]),
+        htmlspecialchars($_POST["zutaten"]),
+        htmlspecialchars($_POST["autor"]),
+        htmlspecialchars($_POST["dauer"]),
+        htmlspecialchars($_FILES["titelbild"]["name"].$number)))) {
+        echo "erfolgreich hochgeladen";
+        $_SESSION["id"] = $row["id"];
 
-$statement= $pdo->prepare("INSERT INTO Rezepte (titel, inhalt, titelbild, dauer, autor, nutzer, zutaten) VALUES (:titel, :inhalt, :titelbild, :dauer, :autor, :nutzer, :zutaten)");
-$statement->bindParam(":titel", htmlspecialchars($_POST["titel"]));
-$statement->bindParam(":inhalt", htmlspecialchars($_POST["inhalt"]));
-$statement->bindParam(":titelbild", htmlspecialchars($_FILES["titelbild"]["name"]));
-$statement->bindParam(":dauer", htmlspecialchars($_POST["dauer"]));
-$statement->bindParam(":autor", htmlspecialchars($_POST["autor"]));
-$statement->bindParam(":nutzer", htmlspecialchars($_POST["nutzer"]));
-$statement->bindParam(":zutaten", htmlspecialchars($_POST["zutaten"]));
+    }
+    else {
+        echo $statement->errorInfo()[2];
 
+        die("Datenbank-Fehler");
+    }}
 
 
-if($statement->execute()){
-    echo "<h2>Post hochgeladen</h2>";
-}else{
-    echo "<h1>Fehler Datenbank</h1>";
-    echo $statement->errorInfo()[2];
-}
 ?>
 
 <h3><a href="edit.php" class="btn btn-primary">Neuer Post</a></h3>

@@ -35,13 +35,16 @@ if ($statement->execute(array(htmlspecialchars($_GET["id"])))){
 
     echo "<h2>";
     echo htmlspecialchars($row["id"]);
+    echo "</h2>";
     echo htmlspecialchars($row["titelbild"]);
+    echo "<h2>";
     echo htmlspecialchars($row["titel"]);
     echo "</h2>";
     echo "<h4>";
     echo htmlspecialchars($row["zutaten"]);
     echo "</h4>";
     echo htmlspecialchars($row["inhalt"]);
+    echo "<a href='./../rezepte/delete.php?id=".$row["id"]." ' class='text'>Rezept löschen</a>";
 
 //Durchschnittsbewertung
 $statement = $pdo->prepare("SELECT AVG(rating) AS average FROM Bewertungen ");
@@ -89,6 +92,8 @@ include("rating.php");
     die("Datenbank-Fehler");
 }
 ?>
+
+<h3><a href="../oeffentliche_seiten/index.php" class="btn btn-primary">Zurück</a></h3>
 
 <footer>
     <?php
