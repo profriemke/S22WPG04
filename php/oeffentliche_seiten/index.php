@@ -85,19 +85,11 @@ include("../includes/navbar_include.php");
     echo "<p class='Inhalt'>";
     echo htmlspecialchars($row['inhalt']);
     echo "</p>";
+    echo "<img height='30%' width='30%' src='https://mars.iuk.hdm-stuttgart.de/~ap121//webprojekt_gruppe/rezept_bilder/".htmlspecialchars($row['titelbild'])."' alt='bild'><br>";
     echo "<br>";
     echo($row['rating']);
-    if (!empty($row["Titelbild"])){
-    echo "<img src='https://mars.iuk.hdm-stuttgart.de/~ap121//webprojekt_gruppe/rezept_bilder/".$row["titelbild"]. "'>";
-     }
 
-    #echo "</div>";
-    #echo "<br>";
-    ?>
 
-    <?php
-            #echo "<a href='../post/delete_do.php?id=".$row["id"]."' class='button'> Post löschen </a>";
-            #echo "</div>";
         }
     }
     else {

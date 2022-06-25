@@ -34,24 +34,34 @@ $statement = $pdo->prepare("SELECT * FROM Rezepte WHERE id=?");
 if ($statement->execute(array(htmlspecialchars($_GET["id"])))){
     if($row = $statement->fetch()){
         ?>
-        <input action="edit_do.php?id=<?php echo htmlspecialchars($row["id"]); ?>" method="post">
 
-            <h2>Titel:</h2>
-            <input type="text" name="titel" value="<?php echo htmlspecialchars($row["titel"]); ?>">
+        <form class="signup-wrapper" action="edit_do.php" method="post" enctype="multipart/form-data">
 
-            <h2>Post:</h2>
-            <textarea name="inhalt" rows=”200″ cols="100"><?php echo htmlspecialchars($row["inhalt"]); ?></textarea>
+            <label for="titel">Titel:</label>
+            <input type="text" name="titel" value="<?php echo $row["titel"]; ?>">
+            <br>
 
-            <h2>Zutaten:</h2>
-            <textarea name="zutaten" rows=”200″ cols="100"><?php echo htmlspecialchars($row["zutaten"]); ?></textarea>
+            <label for="dauer">Dauer:</label>
+            <input type="text" name="dauer" value="<?php echo $row["dauer"]; ?>">
+            <br>
 
-            <h2>Dauer:</h2>
-            <textarea name="dauer" rows=”200″ cols="100"><?php echo htmlspecialchars($row["dauer"]); ?></textarea>
+            <label for="inhalt">Inhalt:</label>
+            <input type="text" name="inhalt" value="<?php echo $row["inhalt"]; ?>">
+            <br>
 
-            <h2>Titelbild:</h2>
-            <input type="file" name="titelbild" value="<?php echo htmlspecialchars($row["titelbild"]); ?>">
+          <!--  <label for="bio">Bio:</label>
+            <p><#?php echo $row['bio']; ?></p>
+            <label for="bio">ändern:</label> <br>
+            <textarea type="text" name="bio" cols="40" rows="8">
+                </textarea> <br> -->
 
-            <button input type="submit" class='btn btn-primary'>Edit</button>
+            <img height='10%' width='10%' src='https://mars.iuk.hdm-stuttgart.de/~ap121//webprojekt_gruppe/rezept_bilder/<?php echo $row["bild"];?>'alt='bild'><br>
+            <input type ="file" name="titelbild" id="titelbild">
+
+            <input type="hidden" name="id" value="<?php echo $row["id"]; ?>">
+            <br>
+
+            <button class="action-button" type="submit" id="absenden">Rezept ändern</button>
         </form>
         <?php
 
@@ -62,8 +72,10 @@ if ($statement->execute(array(htmlspecialchars($_GET["id"])))){
 }else{
     die("Datenbank-Fehler");
 }
+echo "<a href='./../rezepte/details.php?id=".htmlspecialchars($row["id"])." ' class='text'>Zurück zu ".htmlspecialchars($row['titel'])." </a>";
 ?>
-<h3><a href="../oeffentliche_seiten/index.php" class="btn btn-primary">Zurück</a></h3>
+
+
 
 <footer>
     <?php
