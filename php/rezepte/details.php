@@ -36,7 +36,7 @@ if ($statement->execute(array(htmlspecialchars($_GET["id"])))){
     echo "<h2>";
     echo htmlspecialchars($row["id"]);
     echo "</h2>";
-    echo htmlspecialchars($row["titelbild"]);
+    echo "<img height='30%' width='30%' src='https://mars.iuk.hdm-stuttgart.de/~ap121//webprojekt_gruppe/rezept_bilder/".htmlspecialchars($row['titelbild'])."' alt='bild'><br>";
     echo "<h2>";
     echo htmlspecialchars($row["titel"]);
     echo "</h2>";
@@ -44,7 +44,16 @@ if ($statement->execute(array(htmlspecialchars($_GET["id"])))){
     echo htmlspecialchars($row["zutaten"]);
     echo "</h4>";
     echo htmlspecialchars($row["inhalt"]);
-    echo "<a href='./../rezepte/delete.php?id=".$row["id"]." ' class='text'>Rezept löschen</a>";
+
+?>
+
+    <form action="../rezepte/sammlung_do.php" method="post">
+        <input type="hidden" name="id" value="<?php echo $row["id"]; ?>">
+        <br>
+        <button type="submit" id="absenden">Rezept zur Sammlung hinzufügen</button>
+    </form>
+
+    <?php echo "<a href='./../rezepte/edit.php?id=".$row["id"]." ' class='button'> Rezept bearbeiten </a>";
 
 //Durchschnittsbewertung
 $statement = $pdo->prepare("SELECT AVG(rating) AS average FROM Bewertungen ");

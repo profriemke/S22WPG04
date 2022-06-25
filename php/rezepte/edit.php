@@ -54,6 +54,8 @@ if ($statement->execute(array(htmlspecialchars($_GET["id"])))){
             <button input type="submit" class='btn btn-primary'>Edit</button>
         </form>
         <?php
+
+        echo "<a href='./../rezepte/delete.php?id=" . $row["id"] . " ' class='text'>Rezept löschen</a>";
     }else{
         echo ("Rezept nicht vorhanden");
     }

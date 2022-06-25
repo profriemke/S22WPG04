@@ -31,7 +31,7 @@ if (!isset($_SESSION["id"])){
 if (isset($_GET["id"])) {
     $statement = $pdo->prepare("DELETE FROM Rezepte WHERE id=?");
     if ($statement->execute(array(htmlspecialchars($_GET["id"])))){
-        echo "<h1>Post gelöscht</h1>";
+        echo "<h1>Rezept gelöscht</h1>";
     }else{
         die("<h1>Datenbank-Fehler</h1>");
     }

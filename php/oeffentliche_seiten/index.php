@@ -93,12 +93,8 @@ include("../includes/navbar_include.php");
 
     #echo "</div>";
     #echo "<br>";
-    echo "<a href='./../rezepte/edit.php?id=".$row["id"]." ' class='button'> Rezept bearbeiten </a>";?>
-    <form action="../rezepte/sammlung_do.php" method="post">
-        <input type="hidden" name="id" value="<?php echo $row["id"]; ?>">
-        <br>
-        <button type="submit" id="absenden">Rezept zur Sammlung hinzufügen</button>
-    </form>
+    ?>
+
     <?php
             #echo "<a href='../post/delete_do.php?id=".$row["id"]."' class='button'> Post löschen </a>";
             #echo "</div>";
