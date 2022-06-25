@@ -40,9 +40,8 @@ if (isset($_SESSION['id'])){
                 <br>
 
                 <label for="bio">Bio:</label>
-                <p><?php echo $row['bio']; ?></p>
-                <label for="bio">ändern:</label> <br>
-                <textarea type="text" name="bio" cols="40" rows="8">
+
+                <textarea type="text" name="bio" cols="40" rows="8"><?php echo $row['bio']; ?>
                 </textarea> <br>
 
                 <img height='10%' width='10%' src='https://mars.iuk.hdm-stuttgart.de/~ap121//webprojekt_gruppe/profil_bilder/<?php echo $row["bild"];?>'alt='bild'><br>
@@ -51,7 +50,7 @@ if (isset($_SESSION['id'])){
                 <input type="hidden" name="id" value="<?php echo $row["id"]; ?>">
                 <br>
 
-                <button class="action-button" type="submit" id="absenden">Post ändern</button>
+                <button class="action-button" type="submit" id="absenden">Profil ändern</button>
             </form>
             <?php
         }else
