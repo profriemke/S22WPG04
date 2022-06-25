@@ -67,7 +67,6 @@ else{
         htmlspecialchars($_POST["dauer"]),
         htmlspecialchars($_FILES["titelbild"]["name"].$number)))) {
         echo "erfolgreich hochgeladen";
-        $_SESSION["id"] = $row["id"];
 
     }
     else {
