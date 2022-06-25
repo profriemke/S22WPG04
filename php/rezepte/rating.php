@@ -26,7 +26,7 @@ else {
 
     <textarea cols="20" name="kommentar" placeholder="Schreibe einen Kommentar" id="comment"></textarea>
 
-
-    <input type="submit" value = "Bewertung abgeben" >
+    <br>
+    <input type="submit" value = "Bewertung abgeben" class="btn btn-primary">
 
 </form>

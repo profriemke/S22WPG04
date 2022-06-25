@@ -23,8 +23,10 @@ require("../includes/navbar_include.php");
     <h2> Bei eat.pray.eat anmelden </h2>
     <input type="text" name="username" id="username" minlength="1" required placeholder="Username"><br>
     <input type="password" name="passwort" id="passwort"  minlength="1" required placeholder="Passwort">
+    <br>
 
-    <button class="action-button" type="submit" id="absenden">anmelden</button>
+    <button class='btn btn-primary' style='background-color: #d17609; border-color:#d17609;' type="submit" id="absenden" class='btn btn-primary' style='background-color: #d17609; border-color:#d17609; '>anmelden</button>
+    <br>
     <p> Noch kein Konto? Jetzt <a href="registrieren.php">registrieren</a>! </p>
 </form>
 </div>

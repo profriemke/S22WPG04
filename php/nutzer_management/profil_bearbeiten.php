@@ -44,13 +44,13 @@ if (isset($_SESSION['id'])){
                 <textarea type="text" name="bio" cols="40" rows="8"><?php echo $row['bio']; ?>
                 </textarea> <br>
 
-                <img height='10%' width='10%' src='https://mars.iuk.hdm-stuttgart.de/~ap121//webprojekt_gruppe/profil_bilder/<?php echo $row["bild"];?>'alt='bild'><br>
+                <img class='profilbild' height='40%' width='40%' src='https://mars.iuk.hdm-stuttgart.de/~ap121//webprojekt_gruppe/profil_bilder/<?php echo $row["bild"];?>'alt='bild'><br>
                 <input type ="file" name="file" id="file">
 
                 <input type="hidden" name="id" value="<?php echo $row["id"]; ?>">
                 <br>
 
-                <button class="action-button" type="submit" id="absenden">Profil ändern</button>
+                <button class='btn btn-primary' style='background-color: #d17609; border-color:#d17609; ' type="submit" id="absenden">Profil ändern</button>
             </form>
             <?php
         }else

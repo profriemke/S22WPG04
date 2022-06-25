@@ -86,7 +86,7 @@ include("../includes/navbar_include.php")
                     htmlspecialchars($_POST["dauer"]),
                     htmlspecialchars($_FILES["titelbild"]["name"]),
                     htmlspecialchars($_POST["id"]))))
-                {echo "Rezept erfolgreich geändert! mit bild". $_FILES["titelbild"]["name"]."<br> Zurück zum <a href='details.php'>Rezept.</a>";}}
+                {echo "Rezept erfolgreich geändert!<br> Zurück zum <a href='details.php'>Rezept.</a>";}}
 
             else{
                 $statement = $pdo->prepare("UPDATE Rezepte SET titel=?, inhalt=?, dauer=? WHERE id=?");

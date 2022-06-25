@@ -18,7 +18,7 @@ require("../includes/navbar_include.php");
 ?>
 
 <div class="content post">
-    <h2>Profil</h2>
+
 <?php
 
 if (isset($_SESSION['id'])){
@@ -27,21 +27,25 @@ if (isset($_SESSION['id'])){
     if($statement->execute()){
         while($row=$statement->fetch()){
 
-            echo "<div class='profilbild'>";
             if($row["bild"]==""){
-                echo "<img height='30%' width='30%' src='https://mars.iuk.hdm-stuttgart.de/~ap121//webprojekt_gruppe/profil_bilder/placeholder.png' alt='bild'><br>";
+                echo "<img class='profilbild' height='40%' width='40%' src='https://mars.iuk.hdm-stuttgart.de/~ap121//webprojekt_gruppe/profil_bilder/placeholder.png' alt='bild'><br>";
             }else {
-                echo "<img height='30%' width='30%' src='https://mars.iuk.hdm-stuttgart.de/~ap121//webprojekt_gruppe/profil_bilder/".$row['bild']."' alt='bild'><br>";}
+                echo "<img class='profilbild' height='40%' width='40%' src='https://mars.iuk.hdm-stuttgart.de/~ap121//webprojekt_gruppe/profil_bilder/".$row['bild']."' alt='bild'><br>";}
             echo"<br>";
+            echo"<h3>";
             echo $row["vorname"]." ".$row["nachname"]."<br>";
+            echo"</h3>";
             echo "@".$row["username"]."<br>";
-            echo "</div>";
-
+            echo "<hr>";
             echo "<div class='bio'>";
-            echo "Bio: ".$row["bio"];
+            echo"<h3>";
+            echo "Bio: <br>";
+            echo"</h3>";
+            echo $row['bio'];
             echo "</div>";
-            echo "<div class='action-button'>";
-            echo "<a href='profil_bearbeiten.php?id=".$id."'> Profil bearbeiten</a> <br>";
+            echo "<hr>";
+            echo "<div class='btn btn-primary' style='background-color: #d17609; border-color:#d17609; '>";
+            echo "<a href='profil_bearbeiten.php?id=".$id."' style='color:white;'> Profil bearbeiten</a> <br>";
             echo "</div>";
         }
 

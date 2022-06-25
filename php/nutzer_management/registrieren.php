@@ -28,7 +28,7 @@ require("../includes/navbar_include.php");
     <label for="bio">Profilbild:</label><br>
     <input type ="file" name="file" id="file"> <br>
 
-    <button class="action-button" type="submit" id="absenden">registrieren</button>
+    <button class='btn btn-primary' style='background-color: #d17609; border-color:#d17609;' type="submit" id="absenden">registrieren</button>
 </form>
 </div>
 <footer>

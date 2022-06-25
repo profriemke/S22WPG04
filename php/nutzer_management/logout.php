@@ -17,7 +17,7 @@
     require("../includes/navbar_include.php");
     ?>
 
-<div class="content post">
+<div class="content post" style="text-align: center;">
     <?php
     if (isset($_SESSION['id'])) {
         session_destroy();

@@ -19,20 +19,26 @@ require("../includes/navbar_include.php");
 <div class="content post">
 <?php
 if (!isset($_POST["username"]) or !isset($_POST["passwort"])) {
+    echo "<div style='text-align: center;'>";
     die("Login oder Passwort falsch angegeben");
+    echo "</div>";
 }
 $statement = $pdo->prepare("SELECT * FROM Nutzer WHERE username=:username");
 $statement->bindParam(":username",$_POST["username"]);
 if($statement->execute()){
     if($row = $statement->fetch()) {
         if(password_verify($_POST["passwort"],$row["passwort"])){
-            echo "Herzlich Willkommen ".$row["vorname"].$row["nachname"]."!";
+            echo "<div style='text-align: center;'>";
+            echo "Herzlich Willkommen ".$row["vorname"]." ".$row["nachname"]."!";
+            echo "</div>";
             $_SESSION["id"] = $row["id"];
         } else {
             echo "Passwort falsch";
         }
     }else{
+        echo "<div style='text-align: center;'>";
         echo"Nutzer nicht vorhanden";
+        echo "</div>";
     }
 }else {
     die("Datenbank-Fehler");

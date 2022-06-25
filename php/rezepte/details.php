@@ -18,15 +18,12 @@ session_start();
 
 }
 */ // Falls man angemeldet sein muss um bearbeiten zu können
-
 ?>
-
+<body>
 <?php
 include("../includes/navbar_include.php")
 ?>
-
-<body>
-
+<div class="content post">
 <?php
 //Rezept
 $statement = $pdo->prepare("SELECT * FROM Rezepte WHERE id=?");
@@ -34,12 +31,10 @@ if ($statement->execute(array(htmlspecialchars($_GET["id"])))){
     if($row = $statement->fetch()){
     $rezepte_id=$row["id"];
     echo "<h2>";
-    echo htmlspecialchars($row["id"]);
-    echo "</h2>";
-    echo "<img height='30%' width='30%' src='https://mars.iuk.hdm-stuttgart.de/~ap121//webprojekt_gruppe/rezept_bilder/".htmlspecialchars($row['titelbild'])."' alt='bild'><br>";
-    echo "<h2>";
     echo htmlspecialchars($row["titel"]);
     echo "</h2>";
+    echo "<img height='30%' width='30%' src='https://mars.iuk.hdm-stuttgart.de/~ap121//webprojekt_gruppe/rezept_bilder/".htmlspecialchars($row['titelbild'])."' alt='bild'><br>";
+
     echo "<h4>";
     echo htmlspecialchars($row["zutaten"]);
     echo "</h4>";
@@ -50,10 +45,10 @@ if ($statement->execute(array(htmlspecialchars($_GET["id"])))){
     <form action="../rezepte/sammlung_do.php" method="post">
         <input type="hidden" name="id" value="<?php echo $row["id"]; ?>">
         <br>
-        <button type="submit" id="absenden">Rezept zur Sammlung hinzufügen</button>
+        <button type="submit" id="absenden" class="btn btn-primary">Rezept zur Sammlung hinzufügen</button>
     </form>
 
-    <?php echo "<a href='./../rezepte/edit.php?id=".$row["id"]." ' class='button'> Rezept bearbeiten </a>";
+    <?php echo "<a href='./../rezepte/edit.php?id=".$row["id"]." ' class='btn btn-primary'> Rezept bearbeiten </a>";
         //Eingabefeld Bewertung
         include("rating.php");
 //Durchschnittsbewertung
@@ -79,14 +74,16 @@ if($statement->execute()) {
 
             if($statement->execute()) {
                 while ($row = $statement->fetch()) {
-                    echo "<h3>";
+                    echo "<div style='border-width: 5px; border-color: dimgrey'>";
+                    echo "Bewertung:";
                     echo htmlspecialchars($row['rating']);
-                    echo "</h3>";
                     echo "<br>";
+                    echo "Kommentar:";
                     echo "<p class='Inhalt'>";
                     echo htmlspecialchars($row['kommentar']);
                     echo "</p>";
                     echo "<br>";
+                    echo "</div>";
                 }
 
             }
@@ -103,7 +100,7 @@ if($statement->execute()) {
 ?>
 
 <h3><a href="../oeffentliche_seiten/index.php" class="btn btn-primary">Zurück</a></h3>
-
+</div>
 <footer>
     <?php
     require("../includes/footer_include.php");

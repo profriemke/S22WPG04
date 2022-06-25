@@ -50,21 +50,23 @@ if (isset($_SESSION['id'])){ #Abfrage ID
                 die();}}
 
         if(!empty($_FILES["file"]["name"])) {
-            $statement = $pdo->prepare("UPDATE Nutzer SET vorname=?, nachname=?, email=?, bio=?, bild=? WHERE id=:id");
-            $statement->bindParam(":id",$_SESSION['id']);
-            if($statement->execute(array(htmlspecialchars($_POST["vorname"]),
+            $statement = $pdo->prepare("UPDATE Nutzer SET vorname=?, nachname=?, email=?, bio=?, bild=? WHERE id=?");
+            if($statement->execute(array(
+                        htmlspecialchars($_POST["vorname"]),
                         htmlspecialchars($_POST["nachname"]),
                         htmlspecialchars($_POST["email"]),
                         htmlspecialchars($_POST["bio"]),
-                        htmlspecialchars($_FILES["file"]["name"]))))
+                        htmlspecialchars($_FILES["file"]["name"]),
+                        htmlspecialchars($_POST['id']))))
         {echo "Profil erfolgreich geändert! mit bild". $_FILES["file"]["name"]."<br> Zurück zum <a href='profil.php'>Profil.</a>";}}
 
         else{
-            $statement = $pdo->prepare("UPDATE Nutzer SET vorname=?, nachname=?, email=?, bio=? WHERE id=$id");
+            $statement = $pdo->prepare("UPDATE Nutzer SET vorname=?, nachname=?, email=?, bio=? WHERE id=?");
                     if($statement->execute(array(htmlspecialchars($_POST["vorname"]),
                         htmlspecialchars($_POST["nachname"]),
                         htmlspecialchars($_POST["email"]),
-                        htmlspecialchars($_POST["bio"]))))
+                        htmlspecialchars($_POST["bio"]),
+                        htmlspecialchars($_POST['id']))))
             {echo "Profil erfolgreich geändert!<br> Zurück zum <a href='profil.php'>Profil.</a>";}}}
 
 

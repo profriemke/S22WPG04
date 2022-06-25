@@ -8,11 +8,12 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
     <link rel="stylesheet" href="../../css/style.css">
 </head>
-
+<body>
 <?php
 require("../includes/database_include.php");
 include("../includes/navbar_include.php");
 session_start();
+
 if (!isset($_SESSION["id"])){
     echo "<h1>Nutzer nicht angemeldet</h1>";
     echo "<h3>Hier zum <a href='../../php/nutzer_management/login.php'>Login</a></h3>";
@@ -28,7 +29,7 @@ if (isset($_SESSION['id'])){
     if($statement->execute()){
         while($row=$statement->fetch()){
  ?>
-
+<div class="content post">
         <h1>Neues Rezept</h1>
 
 <form action="post_do.php" method="post" enctype="multipart/form-data">
@@ -64,15 +65,7 @@ if (isset($_SESSION['id'])){
 
 
 ?>
-<body>
 
-
-
-
-
-
-
-    </div>
 
 
     <h3><button type="submit" class="btn btn-primary">Post hochladen</button></h3>
@@ -80,7 +73,7 @@ if (isset($_SESSION['id'])){
 <br>
 
 <h3><a href="../oeffentliche_seiten/index.php" class="btn btn-primary">Zurück</a></h3>
-
+</div>
 <footer>
     <?php
     require("../includes/footer_include.php");
