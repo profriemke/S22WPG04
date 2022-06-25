@@ -55,7 +55,7 @@ if ($statement->execute(array(htmlspecialchars($_GET["id"])))){
             <textarea type="text" name="bio" cols="40" rows="8">
                 </textarea> <br> -->
 
-            <img height='10%' width='10%' src='https://mars.iuk.hdm-stuttgart.de/~ap121//webprojekt_gruppe/rezept_bilder/<?php echo $row["bild"];?>'alt='bild'><br>
+            <img height='10%' width='10%' src='https://mars.iuk.hdm-stuttgart.de/~ap121//webprojekt_gruppe/rezept_bilder/<?php echo $row["titelbild"];?>'alt='bild'><br>
             <input type ="file" name="titelbild" id="titelbild">
 
             <input type="hidden" name="id" value="<?php echo $row["id"]; ?>">
