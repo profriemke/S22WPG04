@@ -11,7 +11,6 @@ session_start();
     <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body>
-<p> ID an Bild ranhängen</p>
 <?php
 
 require("../includes/navbar_include.php");
@@ -20,7 +19,6 @@ require("../includes/navbar_include.php");
 
     <?php
 if (isset($_SESSION['id'])){ #Abfrage ID
-    $id=$_SESSION['id'];
     if (!isset($_POST["vorname"]) #Abfrage alle Felder gefüllt?
         and !isset($_POST["nachname"])
         and !isset($_POST["email"])
@@ -30,7 +28,7 @@ if (isset($_SESSION['id'])){ #Abfrage ID
         {die("Fehler im Formular: Nicht alle Felder ausgefüllt");}
     else{
         if($_FILES["file"]["name"]=="")
-        {echo "Kein Profilbild hinzugefügt <br>";}
+        {echo "<br>";}
         else {
             $fileName=$_FILES["file"]["name"];
             $fileSplit= explode(".",$fileName);
@@ -62,13 +60,12 @@ if (isset($_SESSION['id'])){ #Abfrage ID
         {echo "Profil erfolgreich geändert! mit bild". $_FILES["file"]["name"]."<br> Zurück zum <a href='profil.php'>Profil.</a>";}}
 
         else{
-            $statement = $pdo->prepare("UPDATE Nutzer SET vorname=?, nachname=?, email=?, bio=? WHERE id=:id");
-            $statement->bindParam(":id",$_SESSION['id']);
+            $statement = $pdo->prepare("UPDATE Nutzer SET vorname=?, nachname=?, email=?, bio=? WHERE id=$id");
                     if($statement->execute(array(htmlspecialchars($_POST["vorname"]),
                         htmlspecialchars($_POST["nachname"]),
                         htmlspecialchars($_POST["email"]),
                         htmlspecialchars($_POST["bio"]))))
-            {echo "Profil erfolgreich geändert! ohne bild<br> Zurück zum <a href='profil.php'>Profil.</a>";}}}
+            {echo "Profil erfolgreich geändert!<br> Zurück zum <a href='profil.php'>Profil.</a>";}}}
 
 
 }else

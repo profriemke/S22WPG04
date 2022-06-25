@@ -29,7 +29,7 @@ if (isset($_SESSION['id'])){
                 $state = $pdo->prepare("SELECT * FROM Rezepte WHERE id=$rezepte");
                 if($state->execute()){
                     $row=$state->fetch();{
-                        $bild= $row['titelbild']?>
+                        ?>
 
                         <div class="card mb-3" style="max-width: 540px; margin-right: auto; margin-left: auto;">
                             <div class="row g-0">
