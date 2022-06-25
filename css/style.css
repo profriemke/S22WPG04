@@ -27,6 +27,7 @@ footer{
     margin-left: auto;
     margin-right: auto;
     margin-bottom: 10px;
+    margin-top: 10px;
     min-height: 65vh;
 }
 
@@ -86,59 +87,5 @@ footer{
         margin-top: 50px;
     }
 /* Profil Ende */
-/* Navigation Anfang */
 
-    .navibar{
-        /*position:fixed;*/
-        top: 0;
-        display: flex;
-        background-color: #004445;
-        color: white;
-        margin-bottom:10px;
-        padding: 20px 0px;
-        height: 20vh;
-
-}
-.logo-wrapper{
-    margin-left: 50px;
-    width: 10px;
-    margin-right: auto;
-    height: 100%;
-}
-
-.links-wrapper{
-    margin: auto;
-    text-align: right;
-    margin-right: 50px;
-}
-
-.drop-header {
-    padding-top: 10px;
-    background-color: #004443;
-    z-index: 1;
-}
-
-.nav-link{
-    padding: 15px 15px;
-    color: white;
-}
-
-.drop {
-    display: inline-block;
-    padding-left: 1px;
-}
-.drop-content {
-    display: none;
-    padding-top: 10px;
-    background-color: #004445;
-    z-index: 1;
-}
-.drop:hover .drop-content {
-    display: block;
-}
-.drop-item:hover{
-    background-color: #bab9b9;
-}
-
-/* Navigation Ende */
 

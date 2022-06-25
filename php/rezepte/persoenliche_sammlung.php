@@ -41,7 +41,7 @@ if (isset($_SESSION['id'])){
                                         <h5 class="card-title"><?php echo "<a href='./../rezepte/details.php?id=".$row["id"]." ' class='text'> ".htmlspecialchars($row['titel'])." </a>";?></h5>
 
                                         <p class="card-text"><?php echo htmlspecialchars($row['dauer']);?> </p>
-                                        <?php echo "<a href='./../rezepte/details.php?id=".$row["id"]."' class='btn btn-primary'>Zum Rezept</a>" ?>
+                                        <?php echo "<a href='./../rezepte/details.php?id=".$row["id"]."' class='btn btn-primary' style='background-color: #004445'>Zum Rezept</a>" ?>
                                     </div>
                                 </div>
                             </div>
@@ -51,8 +51,6 @@ if (isset($_SESSION['id'])){
                     #echo "<img height='30%' width='30%' src='https://mars.iuk.hdm-stuttgart.de/~ap121//webprojekt_gruppe/rezept_bilder/".$row['titelbild']."' alt='bild'><br>";
                 }else{
                     die("Datenbank-Fehler");}
-
-
             }
 
     }else{
@@ -70,7 +68,5 @@ if (isset($_SESSION['id'])){
     require("../includes/footer_include.php");
     ?>
 </footer>
-
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
 </body>
 </html>
