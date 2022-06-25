@@ -59,7 +59,7 @@ include("rating.php");
 
 
 //Kommentarsektion
-/*
+
         $rezepte_id=$row["id"];
 
        # while($row = $statement){
@@ -80,10 +80,10 @@ include("rating.php");
             }
       #  }
 
-*/
+
 
     }else{
-        echo ("Rezept nicht vorhanden");
+        echo ("Leider ist dieses Rezept aktuell nicht verfügbar.");
     }
 }else{
     die("Datenbank-Fehler");

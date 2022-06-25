@@ -76,7 +76,7 @@ include("../includes/navbar_include.php");
     $statement = $pdo->prepare('SELECT * FROM Rezepte');
     if ($statement->execute()) {
     while ($row = $statement->fetch()) {
-    //$datei="../../files".$row["datei"];
+
     echo "<div class='titel'>";
     echo "<h3>";
     echo "<a href='./../rezepte/details.php?id=".$row["id"]." ' class='text'> ".htmlspecialchars($row['titel'])." </a>";
@@ -87,10 +87,9 @@ include("../includes/navbar_include.php");
     echo "</p>";
     echo "<br>";
     echo($row['rating']);
-   /* echo "<div class='postpicture'>";
-    if (!empty($row["datei"])){
-    echo "<img src='../../".$row["datei"]. "'>";
-     }*/
+    if (!empty($row["Titelbild"])){
+    echo "<img src='https://mars.iuk.hdm-stuttgart.de/~ap121//webprojekt_gruppe/rezept_bilder/".$row["titelbild"]. "'>";
+     }
 
     #echo "</div>";
     #echo "<br>";
