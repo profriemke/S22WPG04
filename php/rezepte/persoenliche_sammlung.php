@@ -16,9 +16,9 @@ session_start();
 <?php
 require("../includes/navbar_include.php");
 ?>
-<div class="content post">
+<div class="content post" style="text-align: center">
 
-        <h2>Persönliche Sammlung</h2>
+        <h2>Persönliche Sammlung</h2><br>
 <?php
 if (isset($_SESSION['id'])){
     $statement = $pdo->prepare("SELECT * from Sammlung WHERE nutzer_id=:id");
@@ -28,18 +28,27 @@ if (isset($_SESSION['id'])){
             {$rezepte= $row["rezept_id"];
                 $state = $pdo->prepare("SELECT * FROM Rezepte WHERE id=$rezepte");
                 if($state->execute()){
-                    $row=$state->fetch();{?>
-                        <div class="card" style="width: 70%;">
-                            <img src="..." class="card-img-top" alt="...">
-                            <div class="card-body">
-                                <h5 class="card-title"><?php echo "<a href='./../rezepte/details.php?id=".$row["id"]." ' class='text'> ".htmlspecialchars($row['titel'])." </a>";?></h5>
-                                <p class="card-text"><?php echo htmlspecialchars($row['inhalt']);?> </p>
-                                <?php echo "<a href='./../rezepte/details.php?id=".$row["id"]."' class='btn btn-primary'>Zum Rezept</a>" ?>
+                    $row=$state->fetch();{
+                        $bild= $row['titelbild']?>
+
+                        <div class="card mb-3" style="max-width: 540px; margin-right: auto; margin-left: auto;">
+                            <div class="row g-0">
+                                <div class="col-md-4">
+                                    <?php echo "<img src='https://mars.iuk.hdm-stuttgart.de/~ap121//webprojekt_gruppe/rezept_bilder/".$row['titelbild']."' class='img-fluid rounded-start' alt='bild'>"; ?>
+                                </div>
+                                <div class="col-md-8">
+                                    <div class="card-body">
+                                        <h5 class="card-title"><?php echo "<a href='./../rezepte/details.php?id=".$row["id"]." ' class='text'> ".htmlspecialchars($row['titel'])." </a>";?></h5>
+
+                                        <p class="card-text"><?php echo htmlspecialchars($row['dauer']);?> </p>
+                                        <?php echo "<a href='./../rezepte/details.php?id=".$row["id"]."' class='btn btn-primary'>Zum Rezept</a>" ?>
+                                    </div>
+                                </div>
                             </div>
-                        </div><br>
+                        </div>
     <?php }
 
-
+                    #echo "<img height='30%' width='30%' src='https://mars.iuk.hdm-stuttgart.de/~ap121//webprojekt_gruppe/rezept_bilder/".$row['titelbild']."' alt='bild'><br>";
                 }else{
                     die("Datenbank-Fehler");}
 

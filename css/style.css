@@ -55,11 +55,12 @@ footer{
     margin-top: 40px;
     margin-bottom: 40px;
     border-radius: 50px;
+    text-align: center;
 }
 
 .action-button:hover{
-    background-color: rgba(0,0,100, 0.7);
-    transition: 0.2s ease-in;
+    background-color: rgb(0, 42, 41);
+    transition: 0.3s ease-in;
 }
 /* Registrieren Ende */
 /* Profil Anfang */
@@ -95,7 +96,7 @@ footer{
         color: white;
         margin-bottom:10px;
         padding: 20px 0px;
-        height: 15vh;
+        height: 20vh;
 
 }
 .logo-wrapper{
