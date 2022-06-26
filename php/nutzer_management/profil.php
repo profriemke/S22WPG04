@@ -45,7 +45,11 @@ if (isset($_SESSION['id'])){
             echo "</div>";
             echo "<hr>";
             echo "<div class='btn btn-primary' style='background-color: #d17609; border-color:#d17609; '>";
-            echo "<a href='profil_bearbeiten.php?id=".$id."' style='color:white;'> Profil bearbeiten</a> <br>";
+            echo "<a href='profil_bearbeiten.php?' style='color:white;'> Profil bearbeiten</a> <br>";
+            echo "</div>";
+            echo "<br>";
+            echo "<div class='btn btn-primary' style='background-color: #d17609; border-color:#d17609; '>";
+            echo "<a href='passwort_aendern.php?' style='color:white;'> Passwort ändern</a> <br>";
             echo "</div>";
         }
 
