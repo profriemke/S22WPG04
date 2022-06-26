@@ -3,11 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Title</title>
+    <title>Rezept</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
     <link rel="stylesheet" href="../../css/style.css">
-</head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" >
 
+
+</head>
 <?php
 require("../includes/database_include.php");
 session_start();
@@ -19,6 +21,7 @@ session_start();
 }
 */ // Falls man angemeldet sein muss um bearbeiten zu können
 ?>
+
 <body>
 <?php
 include("../includes/navbar_include.php")
@@ -55,7 +58,7 @@ if ($statement->execute(array(htmlspecialchars($_GET["id"])))){
 $statement = $pdo->prepare("SELECT AVG(rating) AS average FROM Bewertungen ");
 if($statement->execute()) {
     if ($row = $statement->fetch()) {
-        echo (round($row['average']));
+        echo (round($row['average'].'/5'.'<i class="fa-solid fa-star"></i>'));
     }
     else {
         echo("Leider ist die Bewertung aktuell nicht verfügbar.");
@@ -67,27 +70,26 @@ if($statement->execute()) {
 
 //Kommentarsektion
 
-
-
-       # while($row = $statement){
             $statement = $pdo->prepare("SELECT * FROM Bewertungen WHERE rezept_id=$rezepte_id");
 
             if($statement->execute()) {
                 while ($row = $statement->fetch()) {
-                    echo "<div style='border-width: 5px; border-color: dimgrey'>";
-                    echo "Bewertung:";
-                    echo htmlspecialchars($row['rating']);
-                    echo "<br>";
-                    echo "Kommentar:";
-                    echo "<p class='Inhalt'>";
-                    echo htmlspecialchars($row['kommentar']);
-                    echo "</p>";
-                    echo "<br>";
-                    echo "</div>";
+                    /*echo "<div style='border-width: 5px; border-color: dimgrey'>";*/
+
+                        echo "Bewertung:";
+                        echo htmlspecialchars($row['rating']);
+                        echo "<br>";
+                        echo "Kommentar:";
+                        echo "<p class='Inhalt'>";
+                        echo htmlspecialchars($row['kommentar']);
+                        echo "</p>";
+                        echo "<br>";
+
+                   /* echo "</div>";*/
                 }
 
             }
-      #  }
+
 
 
 
@@ -106,5 +108,6 @@ if($statement->execute()) {
     require("../includes/footer_include.php");
     ?>
 </footer>
+
 </body>
 </html>
