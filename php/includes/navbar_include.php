@@ -6,14 +6,14 @@ if (!isset($_SESSION['id'])){
  ?>
     <nav class="navbar navbar-expand-lg" style="background-color: #004445;">
         <div class="container-fluid">
-            <a class="navbar-brand" href="../oeffentliche_seiten/index.php" style="padding: 20px 20px;">
+            <a class="navbar-brand" href="../oeffentliche_seiten/index.php" style="padding: 0px 20px;">
                 <img src="https://mars.iuk.hdm-stuttgart.de/~ap121//webprojekt_gruppe/website_bilder/Logo" alt="Logo" width="100" height="100">
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNavDropdown" >
-                <ul class="navbar-nav">
+                <ul class="navbar-nav" style="margin-right: 0px; margin-left: auto">
                     <div style="margin-top: auto; margin-bottom: auto;">
                         <li class="nav-item" style="">
                             <button class="btn btn-sm btn-outline-secondary" type="button">
@@ -28,7 +28,7 @@ if (!isset($_SESSION['id'])){
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                                 <li><a class="dropdown-item" href="../nutzer_management/profil.php">Profil</a></li>
-                                <li><a class="dropdown-item" href="../rezepte/persoenliche_sammlung.php">persönliche Sammlung</a></li>
+                                <li><a class="dropdown-item" href="../rezepte/persoenliche_sammlung.php">persönliche <br> Sammlung</a></li>
                                 <li><hr class="dropdown-divider"></li>
                                 <li><a class="dropdown-item" href="../nutzer_management/login.php">Anmelden</a></li>
                                 <li><a class="dropdown-item" href="../nutzer_management/registrieren.php">Registrieren</a></li>
@@ -45,14 +45,14 @@ if (!isset($_SESSION['id'])){
 else{?>
 <nav class="navbar navbar-expand-lg" style="background-color: #004445;">
     <div class="container-fluid">
-        <a class="navbar-brand" href="../oeffentliche_seiten/index.php" style="padding: 20px 20px;">
+        <a class="navbar-brand" href="../oeffentliche_seiten/index.php" style="padding: 0px 20px;">
             <img src="https://mars.iuk.hdm-stuttgart.de/~ap121//webprojekt_gruppe/website_bilder/Logo.png" alt="Logo" width="100" height="100">
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNavDropdown" >
-            <ul class="navbar-nav">
+            <ul class="navbar-nav" style="margin-right: 0px; margin-left: auto">
                 <div style="margin-top: auto; margin-bottom: auto;">
                     <li class="nav-item" style="">
                         <button class="btn btn-sm btn-outline-secondary" type="button">

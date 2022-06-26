@@ -26,12 +26,23 @@ if (isset($_SESSION['id'])){
     $statement->bindParam(":id",$_SESSION['id']);
     if($statement->execute()){
         while($row=$statement->fetch()){
-
+            echo "<div style='height: 350px'>";
             if($row["bild"]==""){
-                echo "<img class='profilbild' height='40%' width='40%' src='https://mars.iuk.hdm-stuttgart.de/~ap121//webprojekt_gruppe/profil_bilder/placeholder.png' alt='bild'><br>";
+                echo "<img class='profilbild' src='https://mars.iuk.hdm-stuttgart.de/~ap121//webprojekt_gruppe/profil_bilder/placeholder.png' alt='bild'><br>";
             }else {
-                echo "<img class='profilbild' height='40%' width='40%' src='https://mars.iuk.hdm-stuttgart.de/~ap121//webprojekt_gruppe/profil_bilder/".$row['bild']."' alt='bild'><br>";}
-            echo"<br>";
+                echo "<img class='profilbild' src='https://mars.iuk.hdm-stuttgart.de/~ap121//webprojekt_gruppe/profil_bilder/".$row['bild']."' alt='bild'><br>";}
+            echo
+            "
+            <div style='display: flex; flex-direction: column'>
+            <button class='btn btn-primary' style='background-color: #d17609; border-color:#d17609; margin: 0 0 5px auto'>
+                <a href='profil_bearbeiten.php?' style='color:white;'> Profil bearbeiten</a>
+            </button>
+            <button class='btn btn-primary' style='background-color: #d17609; border-color:#d17609; margin: 0 0 5px auto'>
+                <a href='passwort_aendern.php?' style='color:white;'> Passwort ändern</a>
+            </button>
+            </div>
+            </div>
+            ";
             echo"<h3>";
             echo $row["vorname"]." ".$row["nachname"]."<br>";
             echo"</h3>";
@@ -43,14 +54,7 @@ if (isset($_SESSION['id'])){
             echo"</h3>";
             echo $row['bio'];
             echo "</div>";
-            echo "<hr>";
-            echo "<div class='btn btn-primary' style='background-color: #d17609; border-color:#d17609; '>";
-            echo "<a href='profil_bearbeiten.php?' style='color:white;'> Profil bearbeiten</a> <br>";
-            echo "</div>";
-            echo "<br>";
-            echo "<div class='btn btn-primary' style='background-color: #d17609; border-color:#d17609; '>";
-            echo "<a href='passwort_aendern.php?' style='color:white;'> Passwort ändern</a> <br>";
-            echo "</div>";
+
         }
 
     }else{
