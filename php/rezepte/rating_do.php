@@ -17,32 +17,26 @@ require("../includes/navbar_include.php");
 
 
 //if (!isset($_SESSION["id"])) {
-//    echo "<a href='../public_sites/index.php'> Zurück zur Startseite <br></a>";
-//    die("Um diese Aktion ausführen zu können musst du angemeldet sein!");
-
-//}
-if (isset($_SESSION['id'])) {
-    // $rating = $_POST["rating"];
-    // $nutzer_id = $_SESSION['id'];
-    //$rezept_id = $_POST['rezept_id'];
-    if (!isset($_POST["rezept_id"]) && !isset($_POST["nutzer_id"]) && !isset($_POST["rating"]) && !isset($_POST["kommentar"])) {
-        die("Fehler im Formular");}
+  //  echo "<a href='../nutzer_management/login.php'> Anmelden <br></a>";
 
 
-    else {
-        $statement = $pdo->prepare("INSERT INTO Bewertungen (rezept_id, nutzer_id, rating, kommentar) VALUES (?, ?, ?, ?)");
-        if ($statement->execute(array(htmlspecialchars($_POST["rezept_id"]), htmlspecialchars($_POST["user_id"]), htmlspecialchars($_POST["rating"]), htmlspecialchars($_POST["kommentar"]))))
-        {echo("Bewertung eingefügt");}
-
-        else{
-            echo $statement->errorInfo()[2];
-            echo $statement->queryString;
-            die("Fehler beim Einfügen");}
-    }
+    if (isset($_SESSION['id'])) {
+        if (!isset($_POST["rezept_id"]) && !isset($_POST["nutzer_id"]) && !isset($_POST["rating"]) && !isset($_POST["kommentar"])) {
+            die("Fehler im Formular");
+        } else {
+            $statement = $pdo->prepare("INSERT INTO Bewertungen (rezept_id, nutzer_id, rating, kommentar) VALUES (?, ?, ?, ?)");
+            if ($statement->execute(array(htmlspecialchars($_POST["rezept_id"]), htmlspecialchars($_POST["user_id"]), htmlspecialchars($_POST["rating"]), htmlspecialchars($_POST["kommentar"])))) {
+                echo("Bewertung eingefügt");
+            } else {
+                echo $statement->errorInfo()[2];
+                echo $statement->queryString;
+                die("Fehler beim Einfügen");
+            }
+        }
+    } else {
+        echo("Bitte zuerst <a href='../nutzer_management/login.php'> Anmelden </a>!");
+   // }
 }
-    else{
-        echo ("Bitte zuerst anmelden!");
-    }
 ?>
 
 <footer>

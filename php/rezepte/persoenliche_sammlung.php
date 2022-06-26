@@ -11,6 +11,20 @@ session_start();
     <link rel="stylesheet" href="../../css/style.css">
     <meta name="viewport" content="width=device-width">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        .col-md-4{
+
+        }
+        img {
+            max-height: 142px;
+            height: 142px;
+            width: 150px;
+            display: block;
+            object-fit: cover;
+
+
+        }
+    </style>
 </head>
 <body>
 <?php

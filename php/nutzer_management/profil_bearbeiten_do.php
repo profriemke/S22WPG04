@@ -38,7 +38,7 @@ if (isset($_SESSION['id'])){ #Abfrage ID
             {$fileName=$fileName.$fileSplit[$i];}
 
             if ($_FILES["file"]["size"] > 8000000)
-            {echo"Datei zu groß. Maximale größe beträgt 8 MB ";
+            {echo"Datei zu groß. Maximale Größe beträgt 8 MB ";
                 die();}
 
             if (!$fileType == "jpg" OR !$fileType=="png" OR !$fileType== "jpeg" OR !$fileType=="heic")
