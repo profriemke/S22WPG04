@@ -35,6 +35,5 @@ else {
 
         <br>
         <input type="submit" value = "Bewertung abgeben" class="btn btn-primary">
-
+        </div>
     </form>
-</div>

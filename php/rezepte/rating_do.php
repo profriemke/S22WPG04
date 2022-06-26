@@ -16,15 +16,11 @@ session_start();
 require("../includes/navbar_include.php");
 
 
-if (!isset($_SESSION["id"])) {
-    echo "<a href='../nutzer_management/login.php'> Anmelden <br></a>";
+//if (!isset($_SESSION["id"])) {
+  //  echo "<a href='../nutzer_management/login.php'> Anmelden <br></a>";
 
 
-//}
     if (isset($_SESSION['id'])) {
-        // $rating = $_POST["rating"];
-        // $nutzer_id = $_SESSION['id'];
-        //$rezept_id = $_POST['rezept_id'];
         if (!isset($_POST["rezept_id"]) && !isset($_POST["nutzer_id"]) && !isset($_POST["rating"]) && !isset($_POST["kommentar"])) {
             die("Fehler im Formular");
         } else {
@@ -38,14 +34,14 @@ if (!isset($_SESSION["id"])) {
             }
         }
     } else {
-        echo("Bitte zuerst anmelden!");
-    }
+        echo("Bitte zuerst <a href='../nutzer_management/login.php'> Anmelden </a>!");
+   // }
 }
 ?>
 
 <footer>
     <?php
-    //require("../includes/footer_include.php");
+    require("../includes/footer_include.php");
     ?>
 </footer>
     </body>
