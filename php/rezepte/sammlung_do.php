@@ -14,7 +14,9 @@ session_start();
 <body>
 <?php
 require("../includes/navbar_include.php");
-
+?>
+<div class="content post" style="text-align: center; width: 70vw;">
+<?php
 if (isset($_SESSION['id'])){
     $nutzer_id = $_SESSION['id'];
     if (!isset($_POST["id"]))
@@ -30,7 +32,7 @@ if (isset($_SESSION['id'])){
 }else
     {die("Bitte erst <a href='../nutzer_management/login.php'>anmelden</a><br>Zurück zur <a href='../oeffentliche_seiten/index.php'>Startseite </a>");}
 ?>
-
+</div>
 <footer>
     <?php
     require("../includes/footer_include.php");

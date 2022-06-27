@@ -13,10 +13,6 @@ include("../includes/database_include.php");
     <link rel="stylesheet" href="../../css/style.css">
 
     <style>
-        img{
-            max-height: 500px;
-        }
-
         .recipe_preview{
             display: flex;
         }

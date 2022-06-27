@@ -45,7 +45,7 @@ if (isset($_SESSION['id'])){
                     $row=$state->fetch();{
                         ?>
 
-                        <div class="card mb-3" style="max-width: 540px; margin-right: auto; margin-left: auto;">
+                        <div class="card mb-3" style="max-width: 740px; margin-right: auto; margin-left: auto;">
                             <div class="row g-0">
                                 <div class="col-md-4">
                                     <?php echo "<img src='https://mars.iuk.hdm-stuttgart.de/~ap121//webprojekt_gruppe/rezept_bilder/".$row['titelbild']."' class='img-fluid rounded-start' alt='bild'>"; ?>
@@ -55,7 +55,11 @@ if (isset($_SESSION['id'])){
                                         <h5 class="card-title"><?php echo "<a href='./../rezepte/details.php?id=".$row["id"]." ' class='text'> ".htmlspecialchars($row['titel'])." </a>";?></h5>
 
                                         <p class="card-text"><?php echo htmlspecialchars($row['dauer']);?> </p>
-                                        <?php echo "<a href='./../rezepte/details.php?id=".$row["id"]."' class='btn btn-primary' style='background-color: #004445'>Zum Rezept</a>" ?>
+                                        <div>
+                                        <?php echo "<a href='./../rezepte/details.php?id=".$row["id"]."' class='btn btn-primary' style='background-color: #d17609; border-color:#d17609;'>Zum Rezept</a>" ?> </div><br>
+                                        <div>
+                                        <?php echo "<a href='./../rezepte/loeschen_sammlung.php?id=".$row["id"]."' class='btn btn-primary' style='background-color: #d17609; border-color:#d17609;'>Aus Sammlung löschen</a>" ?>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
