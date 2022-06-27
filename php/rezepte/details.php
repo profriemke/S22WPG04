@@ -52,6 +52,9 @@ if ($statement->execute(array(htmlspecialchars($_GET["id"])))){
     </form>
 
     <?php echo "<a href='./../rezepte/edit.php?id=".$row["id"]." ' class='btn btn-primary'> Rezept bearbeiten </a>";
+        echo "<a href='./../rezepte/delete.php?id=" . $row["id"] . " ' class='btn btn-primary'> Rezept löschen </a>";
+
+
         //Eingabefeld Bewertung
         include("rating.php");
 //Durchschnittsbewertung
