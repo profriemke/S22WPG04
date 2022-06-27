@@ -7,6 +7,8 @@ textarea{
     margin-top: 10px;
 }
 
+
+
 .widget-container{
     width: 30vw;
     margin-left: auto;
@@ -18,19 +20,21 @@ textarea{
     display: flex;
     align-items: center;
     justify-content: center;
-    flex-direction: column;
-    background-color: rgb(170, 169, 169);
+    /*flex-direction: column;*/
+    background-color: #f2f9f9;
+
 }
 
-/* .widget container entfernt*/  input {
+.sterne input {
     display: none;
 }
 
-.sterne label{
-    float: right;
-    font-size: 30px;
+label{
     margin-left: auto;
     margin-right: auto;
+    float: right;
+    font-size: 30px;
+
 }
 
 .sterne-inner{
@@ -40,13 +44,18 @@ textarea{
 }
 
 /* Sterne bei hover färben*/
-/* ~ = Element vor Tilde Elternelement > alle untergeordneten Kindelemente bekommen Style zugewiesen. Funktioniert wie Bedingung*/
-input:not(:checked) ~label:hover, /* Ergänzung, sonst zeigt Zeile darunter alle vorherigen ELemente vor ausgewähltem orange bei hover*/
-input:not(:checked) ~label:hover ~label{ /*Zweites Label bewirkt, dass alle Sterne vor gehovertem Feld ebenfalls gefärbt werden*/
+
+input:not(:checked) +label:hover, /* Ergänzung, sonst zeigt Zeile darunter alle vorherigen ELemente vor ausgewähltem orange bei hover*/
+input:not(:checked) +label:hover ~label{ /*Zweites Label bewirkt, dass alle Sterne vor gehovertem Feld ebenfalls gefärbt werden*/
     color: #d17609;
 }
 
 /*Sterne bei Auswahl von Bewertung färben*/
 input:checked ~label{
     color: #d17609;
+}
+
+
+.kommentar{
+    border: 1px;
 }
