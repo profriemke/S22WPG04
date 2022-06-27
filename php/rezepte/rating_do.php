@@ -34,7 +34,7 @@ require("../includes/navbar_include.php");
             }
         }
     } else {
-        echo("Bitte zuerst <a href='../nutzer_management/login.php'> Anmelden </a>!");
+        echo("Bitte zuerst <a href='../nutzer_management/login.php'> anmelden </a>!");
    // }
 }
 ?>

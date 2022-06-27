@@ -13,9 +13,6 @@ include("../includes/database_include.php");
     <link rel="stylesheet" href="../../css/style.css">
 
     <style>
-        .recipe_preview{
-            display: flex;
-        }
 
     </style>
 </head>
@@ -65,26 +62,37 @@ include("../includes/navbar_include.php");
 
 
 
-<div class="content post">
+
     <?php
     //Alle Rezepte
-    echo " <h1> Entdecken </h1>";
+
     $statement = $pdo->prepare('SELECT * FROM Rezepte');
     if ($statement->execute()) {
     while ($row = $statement->fetch()) {
+?>
+     <div class="row">
+         <div class="col-md-6">
+                <div class="card mb-3" style="max-width: 540px;">
+                    <div class="row g-0">
+                        <div class="col-md-4">
+                            <?php echo "<img src='https://mars.iuk.hdm-stuttgart.de/~ap121//webprojekt_gruppe/rezept_bilder/".$row['titelbild']."' class='img-fluid rounded-start' alt='Bild zum Rezept'>"; ?>
+                        </div>
+                        <div class="col-md-8">
+                            <div class="card-body">
+                                <h5 class="card-title"><?php echo "<a href='./../rezepte/details.php?id=".$row["id"]." ' class='text'> ".htmlspecialchars($row['titel'])." </a>";?></h5>
+                                <p class="card-text"><?php echo htmlspecialchars($row['dauer']);?> </p>
+                                <p class="card-text"> <?php  echo htmlspecialchars(round($row['average'].'/5'.'<i class="fa-solid fa-star"></i>')) ;?></p>
+                            <div>
+                                    <?php echo "<a href='./../rezepte/details.php?id=".$row["id"]."' class='btn btn-primary' style='background-color: #d17609; border-color:#d17609;'>Zum Rezept</a>" ?>
+                            </div>
+                           </div>
+                        </div>
+                    </div>
+                </div>
+         </div>
+     </div>
 
-    echo "<h3>";
-    echo "<a href='./../rezepte/details.php?id=".$row["id"]." ' class='text'> ".htmlspecialchars($row['titel'])." </a>";
-    echo "</h3>";
-    echo "<br>";
-    echo "<p class='Inhalt'>";
-    echo htmlspecialchars($row['inhalt']);
-    echo "</p>";
-    echo "<img height='30%' width='30%' src='https://mars.iuk.hdm-stuttgart.de/~ap121//webprojekt_gruppe/rezept_bilder/".htmlspecialchars($row['titelbild'])."' alt='bild'><br>";
-    echo "<br>";
-    echo($row['rating']);
-
-
+<?php
         }
     }
     else {

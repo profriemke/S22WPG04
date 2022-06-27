@@ -14,6 +14,7 @@ textarea{
     margin-left: auto;
     margin-right: auto;
     margin-top: 30px;
+    margin-bottom: 30px;
     padding: 20px;
     border: 1px solid #004445;
     border-radius: 5px;
@@ -33,7 +34,7 @@ label{
     margin-left: auto;
     margin-right: auto;
     float: right;
-    font-size: 30px;
+    font-size: 40px;
 
 }
 
@@ -55,7 +56,10 @@ input:checked ~label{
     color: #d17609;
 }
 
+.average-rating{
+    display: block;
+}
 
 .kommentar{
-    border: 1px;
+    border-top: 1px solid !important;
 }

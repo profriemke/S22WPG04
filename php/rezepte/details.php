@@ -44,8 +44,20 @@ if ($statement->execute(array(htmlspecialchars($_GET["id"])))){
     echo "</h4>";
     echo htmlspecialchars($row["inhalt"]);
 
-?>
 
+//Durchschnittsbewertung
+        $statement = $pdo->prepare("SELECT AVG(rating) AS average FROM Bewertungen ");
+        if($statement->execute()) {
+            if ($row = $statement->fetch()) {
+                echo('<div class="rating-average">');
+                echo ('<div class ="rating-average-text" style="font-size: 40px">'.round($row['average']).'/5'.'<i class="fa-solid fa-star" style="color: #d17609" ></i>'.'</div>');
+                echo("</div>");
+              }
+        else {
+            echo("Leider ist die Bewertung aktuell nicht verfügbar.");
+        }
+      }
+?>
     <form action="../rezepte/sammlung_do.php" method="post">
         <input type="hidden" name="id" value="<?php echo $row["id"]; ?>">
         <br>
@@ -58,16 +70,8 @@ if ($statement->execute(array(htmlspecialchars($_GET["id"])))){
 
         //Eingabefeld Bewertung
         include("rating.php");
-//Durchschnittsbewertung
-$statement = $pdo->prepare("SELECT AVG(rating) AS average FROM Bewertungen ");
-if($statement->execute()) {
-    if ($row = $statement->fetch()) {
-        echo (round($row['average'].'/5'.'<i class="fa-solid fa-star"></i>'));
-    }
-    else {
-        echo("Leider ist die Bewertung aktuell nicht verfügbar.");
-    }
-}
+
+
 
 
 
@@ -79,12 +83,15 @@ if($statement->execute()) {
             if($statement->execute()) {
                 while ($row = $statement->fetch()) {
                     /*echo "<div style='border-width: 5px; border-color: dimgrey'>";*/
-                    echo('<div class="kommentar">');
-                        echo "Bewertung:";
-                        echo htmlspecialchars($row['rating']);
+                    echo('<div class="kommentar" >');
+                        echo"<p class='user' style='font-size: 30px'>";
+                        echo htmlspecialchars($row["nutzer_id"]);
+                        echo "</p>";
+                        echo "<p class='block-rating' style='font-size: 20px'>";
+                        echo ($row['rating'].'/'.'5'.'<i class="fa-solid fa-star" style="color: #d17609" ></i>');
+                        echo "</p>";
                         echo "<br>";
-                        echo "Kommentar:";
-                        echo "<p class='Inhalt'>";
+                        echo "<p class='Inhalt' style='font-size: 15px'>";
                         echo htmlspecialchars($row['kommentar']);
                         echo "</p>";
                         echo "<br>";

@@ -6,7 +6,7 @@ if (isset($_SESSION['id'])) {
     $nutzer_id = $_SESSION['id'];
 }
 else {
-    echo("Fehler");
+    echo("Bitte zuerst anmelden");
 }
 ?>
 

@@ -47,6 +47,13 @@ footer{
     margin-top: 10px;
 }
 
+.link footer{
+    color: #f2f9f9;
+
+}
+
+
+
 /* Registrieren Anfang */
 .content{
     top:20px;
@@ -65,6 +72,11 @@ footer{
     margin-right: auto;
     display: flex;
     flex-direction: column;
+}
+
+.content-index{
+    min-height: 70vh;
+    margin-top: 10px;
 }
 
 /* Registrieren Ende */
