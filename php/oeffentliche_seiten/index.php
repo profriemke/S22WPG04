@@ -70,26 +70,30 @@ include("../includes/navbar_include.php");
     while ($row = $statement->fetch()) {
 
             $rezept=$row["id"];
+            $titelbild=$row['titelbild'];
+            $rezept_id=$row["id"];
+            $rezept_dauer=$row['dauer'];
+            $rezept_titel=$row['titel'];
+
              $state = $pdo->prepare("SELECT AVG(rating) AS average FROM Bewertungen WHERE id=$rezept");
              if($state->execute()) {
                  if ($row = $state->fetch()) {
                      $average=$row["average"];
-                     while ($row = $statement->fetch()) {
 ?>
          <div class="col-md-6">
 
                 <div class="card mb-3" style="max-width: 540px;">
                     <div class="row g-0">
                         <div class="col-md-4">
-                            <?php echo "<img src='https://mars.iuk.hdm-stuttgart.de/~ap121//webprojekt_gruppe/rezept_bilder/".$row['titelbild']."' class='img-fluid rounded-start' alt='Bild zum Rezept'style='object-fit: cover; object-position: 50%; width: 240px; height:325px;'>"; ?>
+                            <?php echo "<img src='https://mars.iuk.hdm-stuttgart.de/~ap121//webprojekt_gruppe/rezept_bilder/".$titelbild."' class='img-fluid rounded-start' alt='Bild zum Rezept'style='object-fit: cover; object-position: 50%; width: 240px; height:325px;'>"; ?>
                         </div>
                         <div class="col-md-8">
                             <div class="card-body">
-                                <h5 class="card-title"><?php echo "<a href='./../rezepte/details.php?id=".$row["id"]." ' class='text'> ".htmlspecialchars($row['titel'])." </a>";?></h5>
-                                <p class="card-text"><?php echo htmlspecialchars($row['dauer']);?> </p>
+                                <h5 class="card-title"><?php echo "<a href='./../rezepte/details.php?id=".$rezept_id." ' class='text'> ".$rezept_titel." </a>";?></h5>
+                                <p class="card-text"><?php echo $rezept_dauer;?> </p>
                                 <p class="card-text"> <?php  echo (round($average.'/5'.'<i class="fa-solid fa-star"></i>')) ;?></p>
                             <div>
-                                    <?php echo "<a href='./../rezepte/details.php?id=".$row["id"]."' class='btn btn-primary' style='background-color: #d17609; border-color:#d17609;'>Zum Rezept</a>" ?>
+                                    <?php echo "<a href='./../rezepte/details.php?id=".$rezept_id."' class='btn btn-primary' style='background-color: #d17609; border-color:#d17609;'>Zum Rezept</a>" ?>
                             </div>
                            </div>
                         </div>
@@ -100,7 +104,7 @@ include("../includes/navbar_include.php");
 
 <?php
 }}
-        }}}
+        }}
 
     else {
         die("Dieses Rezept ist aktuell leider nicht verfügbar.");
