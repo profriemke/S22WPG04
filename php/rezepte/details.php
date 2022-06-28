@@ -57,7 +57,12 @@ if ($statement->execute(array(htmlspecialchars($_GET["id"])))){
             echo("Leider ist die Bewertung aktuell nicht verfügbar.");
         }
       }
-?>
+
+        $statement = $pdo->prepare("SELECT * FROM Rezepte WHERE id=?");
+        if ($statement->execute(array(htmlspecialchars($_GET["id"])))){
+            if($row = $statement->fetch()){
+    ?>
+
     <form action="../rezepte/sammlung_do.php" method="post">
         <input type="hidden" name="id" value="<?php echo $row["id"]; ?>">
         <br>
@@ -69,7 +74,7 @@ if ($statement->execute(array(htmlspecialchars($_GET["id"])))){
 
 
         //Eingabefeld Bewertung
-        include("rating.php");
+        include("rating.php");}}
 
 
 

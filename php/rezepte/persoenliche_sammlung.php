@@ -6,25 +6,12 @@ session_start();
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>profil</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
     <link rel="stylesheet" href="../../css/style.css">
-    <meta name="viewport" content="width=device-width">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <style>
-        .col-md-4{
-
-        }
-        img {
-            max-height: 142px;
-            height: 142px;
-            width: 150px;
-            display: block;
-            object-fit: cover;
 
 
-        }
-    </style>
 </head>
 <body>
 <?php
@@ -48,7 +35,7 @@ if (isset($_SESSION['id'])){
                         <div class="card mb-3" style="max-width: 740px; margin-right: auto; margin-left: auto;">
                             <div class="row g-0">
                                 <div class="col-md-4">
-                                    <?php echo "<img src='https://mars.iuk.hdm-stuttgart.de/~ap121//webprojekt_gruppe/rezept_bilder/".$row['titelbild']."' class='img-fluid rounded-start' alt='bild'>"; ?>
+                                    <?php echo "<img src='https://mars.iuk.hdm-stuttgart.de/~ap121//webprojekt_gruppe/rezept_bilder/".$row['titelbild']."' class='img-fluid rounded-start' alt='bild' style='object-fit: cover; object-position: 50%; width: 240px; height:325px;'>"; ?>
                                 </div>
                                 <div class="col-md-8">
                                     <div class="card-body">
