@@ -80,7 +80,8 @@ include("../includes/navbar_include.php");
                  if ($row = $state->fetch()) {
                      $average=$row["average"];
 ?>
-         <div class="col-md-6">
+
+         <div class="col-md-4">
 
                 <div class="card mb-3" style="max-width: 540px;">
                     <div class="row g-0">
