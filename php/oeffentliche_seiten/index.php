@@ -64,7 +64,7 @@ include("../includes/navbar_include.php");
      <div class="row">
 
              <?php
-    $statement = $pdo->prepare('SELECT * FROM Rezepte');
+    $statement = $pdo->prepare('SELECT * FROM Rezepte ORDER BY timestamp ASC');
     if ($statement->execute()) {
     while ($row = $statement->fetch()) {
 
