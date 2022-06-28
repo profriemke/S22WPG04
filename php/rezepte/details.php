@@ -48,6 +48,8 @@ if ($statement->execute(array(htmlspecialchars($_GET["id"])))){
                             <li class="list-group-item"><?php echo htmlspecialchars($row['zutaten']);?></li>
                         </ul>
                         <p class="card-text"><?php echo htmlspecialchars($row['inhalt']);?></p>
+
+                        <p class="card-text">Erstellt von: <?php echo htmlspecialchars($row['autor']);?></p>
                         <p class="card-text"><small class="text-muted"><?php echo htmlspecialchars($row['timestamp']);?></small></p>
                         <?php echo "<a href='./../rezepte/edit.php?id=".$row["id"]." ' class='btn btn-primary'> Rezept bearbeiten </a>";?>
                         <?php echo "<a href='./../rezepte/delete.php?id=" . $row["id"] . " ' class='btn btn-danger'> Rezept löschen </a>";?>
