@@ -59,12 +59,13 @@ else{
             die();
         }}
 
-    $statement = $pdo->prepare("INSERT INTO Rezepte (titel, inhalt, zutaten, autor, dauer, titelbild) VALUES (?,?,?,?,?,?)");
+    $statement = $pdo->prepare("INSERT INTO Rezepte (titel, inhalt, zutaten, autor, dauer, nutzer, titelbild) VALUES (?,?,?,?,?,?,?)");
     if ($statement->execute(array(htmlspecialchars($_POST["titel"]),
         htmlspecialchars($_POST["inhalt"]),
         htmlspecialchars($_POST["zutaten"]),
         htmlspecialchars($_POST["autor"]),
         htmlspecialchars($_POST["dauer"]),
+        htmlspecialchars($_POST["nutzer"]),
         htmlspecialchars($_FILES["titelbild"]["name"].$number)))) {
         echo "erfolgreich hochgeladen";
 
