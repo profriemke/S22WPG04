@@ -21,11 +21,11 @@ require("../includes/navbar_include.php");
 
 
     if (isset($_SESSION['id'])) {
-        if (!isset($_POST["rezept_id"]) && !isset($_POST["nutzer_id"]) && !isset($_POST['username']) && !isset($_POST["rating"]) && !isset($_POST["kommentar"])) {
+        if (!isset($_POST["rezept_id"]) && !isset($_POST["nutzer_id"])  && !isset($_POST["rating"]) && !isset($_POST["kommentar"])) {
             die("Fehler im Formular");
         } else {
-            $statement = $pdo->prepare("INSERT INTO Bewertungen (rezept_id, nutzer_id, username, rating, kommentar) VALUES (?,?,?,?,?)");
-            if ($statement->execute(array(htmlspecialchars($_POST["rezept_id"]), htmlspecialchars($_POST["user_id"]),htmlspecialchars($_POST["username"]) ,htmlspecialchars($_POST["rating"]), htmlspecialchars($_POST["kommentar"])))) {
+            $statement = $pdo->prepare("INSERT INTO Bewertungen (rezept_id, nutzer_id, rating, kommentar) VALUES (?,?,?,?)");
+            if ($statement->execute(array(htmlspecialchars($_POST["rezept_id"]), htmlspecialchars($_POST["user_id"]) ,htmlspecialchars($_POST["rating"]), htmlspecialchars($_POST["kommentar"])))) {
                 echo("Bewertung eingefügt");
             } else {
                 echo $statement->errorInfo()[2];
