@@ -32,6 +32,7 @@ if($statement->execute()){
             echo "Herzlich Willkommen ".$row["vorname"]." ".$row["nachname"]."!";
             echo "</div>";
             $_SESSION["id"] = $row["id"];
+            $_SESSION["username"] = $row["username"];
         } else {
             echo "Passwort falsch";
         }
