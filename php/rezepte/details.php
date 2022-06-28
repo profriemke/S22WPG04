@@ -27,7 +27,7 @@ session_start();
 <?php
 include("../includes/navbar_include.php")
 ?>
-<div class="content post" style="text-align: center">
+<div class="content" style="text-align: center">
 <?php
 //Rezept
 $statement = $pdo->prepare("SELECT * FROM Rezepte WHERE id=?");
@@ -35,7 +35,7 @@ if ($statement->execute(array(htmlspecialchars($_GET["id"])))){
     if($row = $statement->fetch()){
     $rezepte_id=$row["id"];
     ?>
-        <div class="card mb-3" style="max-width: 740px; margin-right: auto; margin-left: auto;">
+        <div class="card mb-3" style="max-width: fit-content ;">
             <div class="row g-0">
                 <div class="col-md-4">
                     <?php echo "<img src='https://mars.iuk.hdm-stuttgart.de/~ap121//webprojekt_gruppe/rezept_bilder/".$row['titelbild']."' class='img-fluid rounded-start' alt='bild'>"; ?>
@@ -49,6 +49,8 @@ if ($statement->execute(array(htmlspecialchars($_GET["id"])))){
                         </ul>
                         <p class="card-text"><?php echo htmlspecialchars($row['inhalt']);?></p>
                         <p class="card-text"><small class="text-muted"><?php echo htmlspecialchars($row['timestamp']);?></small></p>
+                        <?php echo "<a href='./../rezepte/edit.php?id=".$row["id"]." ' class='btn btn-primary'> Rezept bearbeiten </a>";?>
+                        <?php echo "<a href='./../rezepte/delete.php?id=" . $row["id"] . " ' class='btn btn-danger'> Rezept löschen </a>";?>
                     </div>
                 </div>
             </div>
@@ -61,8 +63,8 @@ if ($statement->execute(array(htmlspecialchars($_GET["id"])))){
         <button type="submit" id="absenden" class="btn btn-primary">Rezept zur Sammlung hinzufügen</button>
     </form>
 
-    <?php echo "<a href='./../rezepte/edit.php?id=".$row["id"]." ' class='btn btn-primary'> Rezept bearbeiten </a>";
-        echo "<a href='./../rezepte/delete.php?id=" . $row["id"] . " ' class='btn btn-primary'> Rezept löschen </a>";
+
+    <?php
 
         //Durchschnittsbewertung
         $statement = $pdo->prepare("SELECT AVG(rating) AS average FROM Bewertungen ");
