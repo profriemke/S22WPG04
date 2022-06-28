@@ -63,15 +63,18 @@ include("../includes/navbar_include.php");
 
 
 
-    <?php
-    //Alle Rezepte
 
+    //Alle Rezepte
+<div class="container">
+     <div class="row">
+
+             <?php
     $statement = $pdo->prepare('SELECT * FROM Rezepte');
     if ($statement->execute()) {
     while ($row = $statement->fetch()) {
 ?>
-     <div class="row">
          <div class="col-md-6">
+
                 <div class="card mb-3" style="max-width: 540px;">
                     <div class="row g-0">
                         <div class="col-md-4">
@@ -89,16 +92,19 @@ include("../includes/navbar_include.php");
                         </div>
                     </div>
                 </div>
+
          </div>
-     </div>
 
 <?php
-        }
-    }
+        }}
+
     else {
         die("Dieses Rezept ist aktuell leider nicht verfügbar.");
     }
     ?>
+         </div>
+     </div>
+
 </div>
 
 <footer>
