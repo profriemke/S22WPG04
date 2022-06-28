@@ -90,7 +90,7 @@ if ($statement->execute(array(htmlspecialchars($_GET["id"])))){
                     /*echo "<div style='border-width: 5px; border-color: dimgrey'>";*/
                     echo('<div class="kommentar" >');
                         echo"<p class='user' style='font-size: 30px'>";
-                        echo htmlspecialchars($row["nutzer_id"]);
+                        echo htmlspecialchars($row["username"]);
                         echo "</p>";
                         echo "<p class='block-rating' style='font-size: 20px'>";
                         echo ($row['rating'].'/'.'5'.'<i class="fa-solid fa-star" style="color: #d17609" ></i>');

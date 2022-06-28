@@ -61,10 +61,6 @@ include("../includes/navbar_include.php");
 </div>
 
 
-
-
-
-    //Alle Rezepte
 <div class="container">
      <div class="row">
 
