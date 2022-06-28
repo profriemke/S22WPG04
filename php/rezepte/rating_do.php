@@ -16,26 +16,29 @@ session_start();
 require("../includes/navbar_include.php");
 
 
-//if (!isset($_SESSION["id"])) {
-  //  echo "<a href='../nutzer_management/login.php'> Anmelden <br></a>";
 
 
     if (isset($_SESSION['id'])) {
         if (!isset($_POST["rezept_id"]) && !isset($_POST["nutzer_id"])  && !isset($_POST["rating"]) && !isset($_POST["kommentar"])) {
-            die("Fehler im Formular");
+            echo("<div class='content'>");
+            die("Fehler im Formular </div>");
         } else {
             $statement = $pdo->prepare("INSERT INTO Bewertungen (rezept_id, nutzer_id, rating, kommentar) VALUES (?,?,?,?)");
             if ($statement->execute(array(htmlspecialchars($_POST["rezept_id"]), htmlspecialchars($_POST["user_id"]) ,htmlspecialchars($_POST["rating"]), htmlspecialchars($_POST["kommentar"])))) {
-                echo("Bewertung eingefügt");
+                echo("Vielen Dank für deine Bewertung <br> ");
+                echo(" Zurück zur <a href='../oeffentliche_seiten/index.php' >Startseite </a>");
             } else {
+                echo("<div class='content'>");
                 echo $statement->errorInfo()[2];
                 echo $statement->queryString;
-                die("Fehler beim Einfügen");
+                die("Fehler beim Einfügen </div>");
             }
         }
     } else {
-        echo("Bitte zuerst <a href='../nutzer_management/login.php'> anmelden </a>!");
-   // }
+        echo("<div class='content' >");
+        echo("Bitte zuerst <a href='../nutzer_management/login.php'>anmelden  </a>!");
+        echo("</div>");
+
 }
 ?>
 

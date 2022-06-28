@@ -11,17 +11,16 @@ include("../includes/database_include.php");
     <title> eat.pray.eat </title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
     <link rel="stylesheet" href="../../css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" >
 
-    <style>
 
-    </style>
 </head>
 <body>
 <?php
 include("../includes/navbar_include.php");
 ?>
 
-<div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="false">
+<div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="false" style="margin-bottom: 20px">
     <div class="carousel-indicators">
         <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
         <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
@@ -90,11 +89,11 @@ include("../includes/navbar_include.php");
                         </div>
                         <div class="col-md-8">
                             <div class="card-body">
-                                <h5 class="card-title"><?php echo "<a href='./../rezepte/details.php?id=".$rezept_id." ' class='text'> ".$rezept_titel." </a>";?></h5>
+                                <h5 class="card-title"><?php echo "<a href='./../rezepte/details.php?id=".$rezept_id." ' class='text'> ".$rezept_titel ."</a>";?></h5>
                                 <p class="card-text"><?php echo $rezept_dauer;?> </p>
-                                <p class="card-text"> <?php  echo (round($average.'/5'.'<i class="fa-solid fa-star"></i>')) ;?></p>
+                                <p class="card-text"> <?php echo (round($average).'/5'.'<i class="fa-solid fa-star" style="color: #d17609" ></i>') ;?></p>
                             <div>
-                                    <?php echo "<a href='./../rezepte/details.php?id=".$rezept_id."' class='btn btn-primary' style='background-color: #d17609; border-color:#d17609;'>Zum Rezept</a>" ?>
+                                    <?php echo "<a href='./../rezepte/details.php?id=".$rezept_id."' class='btn btn-primary' style='background-color: #1a5e5d; border-color:#1a5e5d;'>Zum Rezept</a>" ?>
                             </div>
                            </div>
                         </div>
