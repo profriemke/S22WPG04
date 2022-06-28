@@ -61,21 +61,20 @@ include("../includes/navbar_include.php");
 </div>
 
 
+<div class="container">
+     <div class="row">
 
-
-    <?php
-    //Alle Rezepte
-
+             <?php
     $statement = $pdo->prepare('SELECT * FROM Rezepte');
     if ($statement->execute()) {
     while ($row = $statement->fetch()) {
 ?>
-     <div class="row">
          <div class="col-md-6">
+
                 <div class="card mb-3" style="max-width: 540px;">
                     <div class="row g-0">
                         <div class="col-md-4">
-                            <?php echo "<img src='https://mars.iuk.hdm-stuttgart.de/~ap121//webprojekt_gruppe/rezept_bilder/".$row['titelbild']."' class='img-fluid rounded-start' alt='Bild zum Rezept'>"; ?>
+                            <?php echo "<img src='https://mars.iuk.hdm-stuttgart.de/~ap121//webprojekt_gruppe/rezept_bilder/".$row['titelbild']."' class='img-fluid rounded-start' alt='Bild zum Rezept'style='object-fit: cover; object-position: 50%; width: 240px; height:325px;'>"; ?>
                         </div>
                         <div class="col-md-8">
                             <div class="card-body">
@@ -89,16 +88,19 @@ include("../includes/navbar_include.php");
                         </div>
                     </div>
                 </div>
+
          </div>
-     </div>
 
 <?php
-        }
-    }
+        }}
+
     else {
         die("Dieses Rezept ist aktuell leider nicht verfügbar.");
     }
     ?>
+         </div>
+     </div>
+
 </div>
 
 <footer>
