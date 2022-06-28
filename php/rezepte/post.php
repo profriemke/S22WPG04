@@ -32,27 +32,27 @@ if (isset($_SESSION['id'])){
 <div class="content post">
         <h1>Neues Rezept</h1>
 
-<form action="post_do.php" method="post" enctype="multipart/form-data">
+<form class="signup-wrapper" action="post_do.php" method="post" enctype="multipart/form-data">
 
     <h3>Titel:</h3>
     <input type="text" name="titel">
 
-    <h3>Bild:</h3>
+    <h4>Bild:</h4>
     <input type="file" class="form-control" id="inputGroupFile02" name="titelbild"> <!--Hier kann man vielleicht Drag and Drop nutzen?-->
 
-    <h3>Inhalt:</h3>
+    <h4>Inhalt:</h4>
     <textarea name="inhalt" rows=”200″ cols="40"></textarea>
 
-    <h3>Dauer:</h3>
+    <h4>Dauer:</h4>
     <input type="text" name="dauer">
 
-    <h3>Autor:</h3>
+    <h4>Autor:</h4>
     <input type="text" name="autor" value="<?php echo htmlspecialchars($row['username']);?>">
 
     <!-- <h3>Nutzer:</h3> -->
     <input type="hidden" name="nutzer" value="<?php echo htmlspecialchars($row['id']);?>">
 
-    <h3>Zutaten:</h3>
+    <h4>Zutaten:</h4>
     <input type="text" name="zutaten">
 <?php
 }
