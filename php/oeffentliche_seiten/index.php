@@ -68,6 +68,13 @@ include("../includes/navbar_include.php");
     $statement = $pdo->prepare('SELECT * FROM Rezepte');
     if ($statement->execute()) {
     while ($row = $statement->fetch()) {
+
+            $rezept=$row["id"];
+             $state = $pdo->prepare("SELECT AVG(rating) AS average FROM Bewertungen WHERE id=$rezept");
+             if($state->execute()) {
+                 if ($row = $state->fetch()) {
+                     $average=$row["average"];
+                     while ($row = $statement->fetch()) {
 ?>
          <div class="col-md-6">
 
@@ -80,7 +87,7 @@ include("../includes/navbar_include.php");
                             <div class="card-body">
                                 <h5 class="card-title"><?php echo "<a href='./../rezepte/details.php?id=".$row["id"]." ' class='text'> ".htmlspecialchars($row['titel'])." </a>";?></h5>
                                 <p class="card-text"><?php echo htmlspecialchars($row['dauer']);?> </p>
-                                <p class="card-text"> <?php  echo htmlspecialchars(round($row['average'].'/5'.'<i class="fa-solid fa-star"></i>')) ;?></p>
+                                <p class="card-text"> <?php  echo (round($average.'/5'.'<i class="fa-solid fa-star"></i>')) ;?></p>
                             <div>
                                     <?php echo "<a href='./../rezepte/details.php?id=".$row["id"]."' class='btn btn-primary' style='background-color: #d17609; border-color:#d17609;'>Zum Rezept</a>" ?>
                             </div>
@@ -92,7 +99,8 @@ include("../includes/navbar_include.php");
          </div>
 
 <?php
-        }}
+}}
+        }}}
 
     else {
         die("Dieses Rezept ist aktuell leider nicht verfügbar.");
