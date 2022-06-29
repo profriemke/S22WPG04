@@ -28,7 +28,7 @@ if (!isset($_SESSION['id'])){
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                                 <li><a class="dropdown-item" href="../nutzer_management/profil.php">Profil</a></li>
-                                <li><a class="dropdown-item" href="../rezepte/persoenliche_sammlung.php">Persönliche <br> Sammlung</a></li>
+                                <li><a class="dropdown-item" href="../rezepte/persoenliche_sammlung.php">Favoriten</a></li>
                                 <li><hr class="dropdown-divider"></li>
                                 <li><a class="dropdown-item" href="../nutzer_management/login.php">Anmelden</a></li>
                                 <li><a class="dropdown-item" href="../nutzer_management/registrieren.php">Registrieren</a></li>
@@ -67,7 +67,7 @@ else{?>
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                             <li><a class="dropdown-item" href="../nutzer_management/profil.php">Profil</a></li>
-                            <li><a class="dropdown-item" href="../rezepte/persoenliche_sammlung.php">persönlichem <br> Sammlung</a></li>
+                            <li><a class="dropdown-item" href="../rezepte/persoenliche_sammlung.php">Favoriten</a></li>
                             <li><hr class="dropdown-divider"></li>
                             <li><a class="dropdown-item" href="../nutzer_management/logout.php">Abmelden</a></li>
                         </ul>

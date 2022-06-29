@@ -19,7 +19,7 @@ session_start();
 <?php
 include("../includes/navbar_include.php");
 ?>
-
+<!-- Karussell -->
 <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="false" style="margin-bottom: 20px">
     <div class="carousel-indicators">
         <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
@@ -30,22 +30,22 @@ include("../includes/navbar_include.php");
         <div class="carousel-item active">
             <img src="https://mars.iuk.hdm-stuttgart.de/~ap121//webprojekt_gruppe/website_bilder/Titelbild.png" class="d-block w-100" alt="bild">
             <div class="carousel-caption d-none d-md-block">
-                <h5>First slide label</h5>
-                <p>Some representative placeholder content for the first slide.</p>
+                <h5>eat pray eat</h5>
+                <p>Die besten Rezepte gibt es hier!</p>
             </div>
         </div>
         <div class="carousel-item">
             <img src="https://mars.iuk.hdm-stuttgart.de/~ap121//webprojekt_gruppe/website_bilder/Eat.Pray.Eat.png" class="d-block w-100" alt="bild">
             <div class="carousel-caption d-none d-md-block">
-                <h5>Second slide label</h5>
-                <p>Some representative placeholder content for the second slide.</p>
+                <h5>Täglich neue Rezepte</h5>
+                <p>Frisch und regional</p>
             </div>
         </div>
         <div class="carousel-item">
             <img src="https://mars.iuk.hdm-stuttgart.de/~ap121//webprojekt_gruppe/website_bilder/Eat.Pray.Eat.png" class="d-block w-100" alt="bild">
             <div class="carousel-caption d-none d-md-block">
-                <h5>Third slide label</h5>
-                <p>Some representative placeholder content for the third slide.</p>
+                <h5>Für jeden etwas dabei!</h5>
+                <p>Von Snack bis Festmahl findest du alles!</p>
             </div>
         </div>
     </div>
@@ -64,10 +64,10 @@ include("../includes/navbar_include.php");
      <div class="row">
 
              <?php
-    $statement = $pdo->prepare('SELECT * FROM Rezepte ORDER BY timestamp ASC');
+    $statement = $pdo->prepare('SELECT * FROM Rezepte ');
     if ($statement->execute()) {
     while ($row = $statement->fetch()) {
-
+        //hier Speicherung aller Variablen, da sonst nicht alle Rezepte abgerufen werden
             $rezept=$row["id"];
             $titelbild=$row['titelbild'];
             $rezept_id=$row["id"];
@@ -79,7 +79,7 @@ include("../includes/navbar_include.php");
                  if ($row = $state->fetch()) {
                      $average=$row["average"];
 ?>
-
+<!-- Karten für Rezepte -->
          <div class="col-md-4">
 
                 <div class="card mb-3" style="max-width: 540px;">
