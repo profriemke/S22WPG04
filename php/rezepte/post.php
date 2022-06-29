@@ -37,8 +37,11 @@ if (isset($_SESSION['id'])){
     <h3>Titel:</h3>
     <input type="text" name="titel">
 
-    <h4>Bild:</h4>
+    <h4>Titelbild:</h4>
     <input type="file" class="form-control" id="inputGroupFile02" name="titelbild"> <!--Hier kann man vielleicht Drag and Drop nutzen?-->
+
+    <!-- <h4>Bild:</h4>
+    <input type="file" class="form-control" id="inputGroupFile02" name="bild"> <!--Hier kann man vielleicht Drag and Drop nutzen?-->
 
     <h4>Inhalt:</h4>
     <textarea name="inhalt" rows=”200″ cols="40"></textarea>
@@ -50,7 +53,7 @@ if (isset($_SESSION['id'])){
     <input type="text" name="autor" value="<?php echo htmlspecialchars($row['username']);?>">
 
     <!-- <h3>Nutzer:</h3> -->
-    <input type="hidden" name="nutzer" value="<?php echo htmlspecialchars($row['id']);?>">
+    <input type="hidden" name="nutzer_id" value="<?php echo htmlspecialchars($row['id']);?>">
 
     <h4>Zutaten:</h4>
     <input type="text" name="zutaten">
