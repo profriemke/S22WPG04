@@ -6,7 +6,7 @@ session_start();
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>profil bearbeiten</title>
+    <title>Passwort ändern</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
     <link rel="stylesheet" href="../../css/style.css">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -16,7 +16,7 @@ session_start();
 
 require("../includes/navbar_include.php");
 ?>
-<div class="content post">
+<div class="content" style="text-align: center;">
 
     <?php
     if (isset($_SESSION['id'])){
@@ -26,7 +26,7 @@ require("../includes/navbar_include.php");
             if($row=$statement->fetch()){
                 ?>
                 <form class="signup-wrapper" action="passwort_aendern_do.php" method="post">
-
+                    <h2>Passwort ändern</h2><br>
                     <input type="password" name="passwort" id="passwort" placeholder="aktuelles Passwort eingeben"> <br>
 
                     <input type="password" name="passwort_neu" id="passwort_neu" placeholder="neues Passwort eingeben"> <br>

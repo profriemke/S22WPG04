@@ -42,31 +42,68 @@ if (isset($_SESSION['id'])){
             </button>
             </div>
             </div>
-            ";
-            echo"<h3>";
+            <hr>
+            <h3>";
             echo $row["vorname"]." ".$row["nachname"]."<br>";
             echo"</h3>";
-            echo "@".$row["username"]."<br>";
+            echo "@".$row["username"];
             echo "<hr>";
             echo "<div class='bio'>";
-            echo"<h3>";
-            echo "Bio: <br>";
-            echo"</h3>";
-            echo $row['bio'];
-            echo "</div>";
-
+            echo"<h3> Bio:</h3> <div style='width: 70%; hyphens: auto; text-align: justify'>".$row['bio']."
+            </div>
+            </div><hr>
+            <h3> Meine Rezepte:</h3>";
         }
-
     }else{
         die("Datenbank-Fehler");}
     }else{
-        echo "Bitte erst <a href='login.php'>anmelden</a>";
-    }
+        echo "Bitte erst <a href='login.php'>anmelden</a>";}
+    ?>
+    <div class="container">
+        <div class="row">
+            <?php
+    $statement = $pdo->prepare("SELECT * from Rezepte WHERE nutzer_id=:id");
+    $statement->bindParam(":id",$_SESSION['id']);
+    if($statement->execute()){
+    while($row=$statement->fetch()){
+            $rezept=$row["id"];
+            $titelbild=$row['titelbild'];
+            $rezept_id=$row["id"];
+            $rezept_dauer=$row['dauer'];
+            $rezept_titel=$row['titel'];
 
+            $state = $pdo->prepare("SELECT AVG(rating) AS average FROM Bewertungen WHERE id=$rezept");
+            if($state->execute()) {
+            if ($row = $state->fetch()) {
+            $average=$row["average"];
+            ?>
+            <div class="col-md-6">
 
-?>
+                <div class="card mb-3" style="max-width: 540px;">
+                    <div class="row g-0">
+                        <div class="col-md-4">
+                            <?php echo "<img src='https://mars.iuk.hdm-stuttgart.de/~ap121//webprojekt_gruppe/rezept_bilder/".$titelbild."' class='img-fluid rounded-start' alt='Bild zum Rezept'style='object-fit: cover; object-position: 50%; width: 240px; height:325px;'>"; ?>
+                        </div>
+                        <div class="col-md-8">
+                            <div class="card-body">
+                                <h5 class="card-title"><?php echo "<a href='./../rezepte/details.php?id=".$rezept_id." ' class='text'> ".$rezept_titel." </a>";?></h5>
+                                <p class="card-text"><?php echo $rezept_dauer;?> </p>
+                                <p class="card-text"> <?php  echo (round($average.'/5'.'<i class="fa-solid fa-star"></i>')) ;?></p>
+                                <div>
+                                    <?php echo "<a href='./../rezepte/details.php?id=".$rezept_id."' class='btn btn-primary' style='background-color: #d17609; border-color:#d17609;'>Zum Rezept</a>" ?>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <?php
+    }}}}
+
+      ?>
+        </div>
+    </div>
 </div>
-
     <footer>
         <?php
         require("../includes/footer_include.php");
