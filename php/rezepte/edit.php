@@ -43,10 +43,9 @@ if ($statement->execute(array(htmlspecialchars($_GET["id"])))){
 
             <img height='10%' width='10%' src='https://mars.iuk.hdm-stuttgart.de/~ap121//webprojekt_gruppe/rezept_bilder/<?php echo $row["titelbild"];?>'alt='bild'><br>
             <input type ="file" name="titelbild" id="titelbild">
-            <br>
 
            <!-- <label for="titelbild">Titelbild:</label>
-            <input type="file" name="titelbild" value="<?php echo $row["titelbild"]; ?>">
+            <input type="file" name="titelbild" value="<?php #echo $row["titelbild"]; ?>">
             <br> -->
 
             <label for="zutaten">Inhalt:</label>
