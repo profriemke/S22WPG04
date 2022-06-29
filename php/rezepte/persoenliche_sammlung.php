@@ -21,7 +21,7 @@ require("../includes/navbar_include.php");
 
         <h2>Persönliche Sammlung</h2><br>
 
-    <div class="container">
+    <div class="container mx-auto">
         <div class="row row-cols-2">
 <?php
 if (isset($_SESSION['id'])){
