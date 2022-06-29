@@ -77,7 +77,8 @@ include("../includes/navbar_include.php")
             <?php
 
             //Durchschnittsbewertung
-            $statement = $pdo->prepare("SELECT AVG(rating) AS average FROM Bewertungen ");
+            $rezept_id = $row['id'];
+            $statement = $pdo->prepare("SELECT AVG(rating) AS average FROM Bewertungen WHERE id=$rezept_id");
             if($statement->execute()) {
                 if ($row = $statement->fetch()) {
                     echo('<div class="rating-average">');
@@ -106,10 +107,8 @@ include("../includes/navbar_include.php")
                 while ($row = $statement->fetch()) {
                     /*echo "<div style='border-width: 5px; border-color: dimgrey'>";*/
                     echo('<div class="kommentar" >');
-                    echo"<p class='user' style='font-size: 30px'>";
-                    echo htmlspecialchars($row["nutzer_id"]);
-                    echo "</p>";
-                    echo "<p class='block-rating' style='font-size: 20px'>";
+
+                    echo "<p class='block-rating' style='font-size: 30px'>";
                     echo ($row['rating'].'/'.'5'.'<i class="fa-solid fa-star" style="color: #d17609" ></i>');
                     echo "</p>";
                     echo "<br>";
