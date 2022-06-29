@@ -1,13 +1,11 @@
 textarea{
     resize: none;
-    border: 1px solid #004445;
+    border: 1px solid black;
     border-radius: 5px;
     margin-right: auto;
     margin-left: auto;
     margin-top: 10px;
 }
-
-
 
 .widget-container{
     width: 30vw;
@@ -16,7 +14,7 @@ textarea{
     margin-top: 30px;
     margin-bottom: 30px;
     padding: 20px;
-    border: 1px solid #004445;
+    border: 1px solid black;
     border-radius: 5px;
     display: flex;
     align-items: center;
@@ -33,7 +31,7 @@ textarea{
 label{
     margin-left: auto;
     margin-right: auto;
-    float: right;
+    float: right; /*verhindert, dass Sterne bei hover von rechts nach links gefärbt werden */
     font-size: 40px;
 
 }
@@ -46,8 +44,8 @@ label{
 
 /* Sterne bei hover färben*/
 
-input:not(:checked) +label:hover, /* Ergänzung, sonst zeigt Zeile darunter alle vorherigen ELemente vor ausgewähltem orange bei hover*/
-input:not(:checked) +label:hover ~label{ /*Zweites Label bewirkt, dass alle Sterne vor gehovertem Feld ebenfalls gefärbt werden*/
+input:not(:checked) +label:hover, /* Ergänzung, sonst zeigt Zeile darunter alle vorherigen ELemente vor ausgewähltem orange bei hover, nicht ausgewähltes Feld selber*/
+input:not(:checked) +label:hover ~label { /*Zweites Label bewirkt, dass alle Sterne vor gehovertem Feld ebenfalls gefärbt werden*/
     color: #d17609;
 }
 
