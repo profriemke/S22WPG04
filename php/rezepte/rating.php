@@ -13,7 +13,7 @@ if (isset($_SESSION['id'])) {
     <form action="rating_do.php" method="post" >
         <input type="hidden" name ="user_id" value="<?php echo($nutzer_id);?>">
 
-        <input type="hidden" name="rezept_id" value="<?php echo $row["id"]; ?>">
+        <input type="hidden" name="rezept_id" value="<?php echo ($rezepte_id); ?>">
 
 
 
