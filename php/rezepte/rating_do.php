@@ -18,12 +18,12 @@ require("../includes/navbar_include.php");
 
 
 
-    if (isset($_SESSION['id'])) {
-        if (!isset($_POST["rezept_id"]) && !isset($_POST["nutzer_id"])  && !isset($_POST["rating"]) && !isset($_POST["kommentar"])) {
+    if (isset($_SESSION['id'])) { //Anmeldungsabfrage, Bewertungen abgeben nur angemeldet möglich
+        if (!isset($_POST["rezept_id"]) && !isset($_POST["nutzer_id"])  && !isset($_POST["rating"]) && !isset($_POST["kommentar"])) { //Sicherheitsabfrage der gesetzten Felder
             echo("<div class='content'>");
             die("Fehler im Formular </div>");
-        } else {
-            $statement = $pdo->prepare("INSERT INTO Bewertungen (rezept_id, nutzer_id, rating, kommentar) VALUES (?,?,?,?)");
+        } else { //wenn Sicherheitsabfrage der Felder erfolgreich kann SQL Befehl ausgeführt werden
+            $statement = $pdo->prepare("INSERT INTO Bewertungen (rezept_id, nutzer_id, rating, kommentar) VALUES (?,?,?,?)"); //fügt Bewertung in Datenbank ein
             if ($statement->execute(array(htmlspecialchars($_POST["rezept_id"]), htmlspecialchars($_POST["user_id"]) ,htmlspecialchars($_POST["rating"]), htmlspecialchars($_POST["kommentar"])))) {
                 echo("Vielen Dank für deine Bewertung <br> ");
                 echo(" Zurück zur <a href='../oeffentliche_seiten/index.php' >Startseite </a>");

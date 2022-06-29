@@ -3,7 +3,7 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" >
 <?php
 if (isset($_SESSION['id'])) {
-    $nutzer_id = $_SESSION['id'];
+    $nutzer_id = $_SESSION['id']; //Speicherung der Session-ID zur Zuordnung der Nutzer
 }
 
 ?>
@@ -16,7 +16,7 @@ if (isset($_SESSION['id'])) {
         <input type="hidden" name="rezept_id" value="<?php echo ($rezepte_id); ?>">
 
 
-
+<!--Sternewidget-->
         <div class="sterne">
             <div class="sterne-inner">
             <input type="radio" name="rating" value="5" id="rating-5">
@@ -31,6 +31,7 @@ if (isset($_SESSION['id'])) {
             <label for="rating-1" class="fas fa-star"></label>
             </div>
         </div>
+        <!--Kommentarfeld-->
         <textarea cols="20" rows="5" name="kommentar" placeholder="Sag uns deine Meinung" id="comment"></textarea>
 
         <br>
