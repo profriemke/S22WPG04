@@ -20,9 +20,9 @@ require("../includes/navbar_include.php");
 <div class="content" style="text-align: center;">
 <?php
 if (!isset($_POST["vorname"]) and !isset($_POST["nachname"]) and !isset($_POST["passwort"]) and !isset($_POST["username"]) and !isset($_POST["email"]) and !isset($_POST["file"])) {
-    die("Fehler im Formular: Nicht alle Felder ausgefüllt");}
+    die("Fehler im Formular: Nicht alle Felder ausgefüllt");} #Abfrage ob alle Felder gefüllt wurden
 else{
-    $number= rand();
+    $number= rand(); #Erstellen einer random Nummer für Bild, um Doppelnamen zu verhindern
     if($_FILES["file"]["name"]=="")
     {echo "Kein Profilbild hinzugefügt";
     }else{
@@ -44,20 +44,20 @@ else{
             die();
         }
 
-        if (!move_uploaded_file($_FILES["file"]["tmp_name"], "/home/ap121/public_html/webprojekt_gruppe/profil_bilder/".$_FILES["file"]["name"].$number)) {
+        if (!move_uploaded_file($_FILES["file"]["tmp_name"], "/home/ap121/public_html/webprojekt_gruppe/profil_bilder/".$_FILES["file"]["name"].$number)) {#Bild mit der random Nummer werden abgespeichert
             echo "Datei wurde nicht hochgeladen. Bitte erneut versuchen";
             die();
         }}
 
-$statement = $pdo->prepare("INSERT INTO Nutzer (vorname, nachname, passwort, username, email, bild) VALUES (?,?,?,?,?,?)");
+$statement = $pdo->prepare("INSERT INTO Nutzer (vorname, nachname, passwort, username, email, bild) VALUES (?,?,?,?,?,?)");#SQL einfügen des neuen Nutzers
         if ($statement->execute(array(htmlspecialchars($_POST["vorname"]),
                                     htmlspecialchars($_POST["nachname"]),
-                                    password_hash($_POST["passwort"], PASSWORD_BCRYPT),
+                                    password_hash($_POST["passwort"], PASSWORD_BCRYPT), #der Passworthash wird durchgeührt damit das Paasswort gehasht in die DB eingespeichert wird
                                     htmlspecialchars($_POST["username"]),
                                     htmlspecialchars($_POST["email"]),
                                     htmlspecialchars($_FILES["file"]["name"].$number)))) {
             echo "erfolgreich registriert.<a href='login.php' Jetzt anmelden</a>";
-            $_SESSION["id"] = $row["id"];
+
 
         }
         else {

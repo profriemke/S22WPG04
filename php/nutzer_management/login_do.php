@@ -18,25 +18,25 @@ require("../includes/navbar_include.php");
 ?>
 <div class="content post">
 <?php
-if (!isset($_POST["username"]) or !isset($_POST["passwort"])) {
-    echo "<div style='text-align: center;'>";
+if (!isset($_POST["username"]) or !isset($_POST["passwort"])) { #Abfrage ob beide input Felder ausgefüllt wurden
+    echo "<div style='text-align: center;'>"; #damit Text in der Mitte angezeigt wird, sieht schöner aus
     die("Login oder Passwort falsch angegeben");
     echo "</div>";
 }
-$statement = $pdo->prepare("SELECT * FROM Nutzer WHERE username=:username");
-$statement->bindParam(":username",$_POST["username"]);
+$statement = $pdo->prepare("SELECT * FROM Nutzer WHERE username=:username"); #SQL Abfrage Tabelle "Nutzer", filter nach username
+$statement->bindParam(":username",$_POST["username"]); #einfügen username aus form
 if($statement->execute()){
     if($row = $statement->fetch()) {
-        if(password_verify($_POST["passwort"],$row["passwort"])){
-            echo "<div style='text-align: center;'>";
+        if(password_verify($_POST["passwort"],$row["passwort"])){ #Überprüfung ob Passwort richtig eingegeben wurde
+            echo "<div style='text-align: center;'>"; #Wenn Passwort richtig eingegeben wurde, wird der Nutzer angemeldet
             echo "Herzlich Willkommen ".$row["vorname"]." ".$row["nachname"]."!";
             echo "</div>";
-            $_SESSION["id"] = $row["id"];
+            $_SESSION["id"] = $row["id"]; #über Session wird die ID gespeichert, wichtig da an vielen Stellen benötigt.
             $_SESSION["username"] = $row["username"];
         } else {
             echo "Passwort falsch";
         }
-    }else{
+    }else{ #Wenn der Nutzername nicht vorhanden ist, wird dies ausgeführt.
         echo "<div style='text-align: center;'>";
         echo"Nutzer nicht vorhanden";
         echo "</div>";

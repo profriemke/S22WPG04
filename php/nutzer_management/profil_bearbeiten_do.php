@@ -27,7 +27,7 @@ if (isset($_SESSION['id'])){ #Abfrage ID
         and !isset($_POST["id"]))
         {die("Fehler im Formular: Nicht alle Felder ausgefüllt");}
     else{
-        if($_FILES["file"]["name"]=="")
+        if($_FILES["file"]["name"]=="") #Überprüfen ob Bild eingefügt wurde
         {echo "<br>";}
         else {
             $fileName=$_FILES["file"]["name"];
@@ -37,20 +37,20 @@ if (isset($_SESSION['id'])){ #Abfrage ID
             for ($i=0; $i<=sizeof($fileSplit)-2; $i++)
             {$fileName=$fileName.$fileSplit[$i];}
 
-            if ($_FILES["file"]["size"] > 8000000)
+            if ($_FILES["file"]["size"] > 8000000) #Überprüfen nach größe des Bilds
             {echo"Datei zu groß. Maximale Größe beträgt 8 MB ";
                 die();}
 
-            if (!$fileType == "jpg" OR !$fileType=="png" OR !$fileType== "jpeg" OR !$fileType=="heic")
+            if (!$fileType == "jpg" OR !$fileType=="png" OR !$fileType== "jpeg" OR !$fileType=="heic") #Dateiart prüfen
             {echo"Dateiart nicht gültig. Folgende Dateiarten sind zugelassen : JPG; PNG; JPEG";
                 die();}
 
-            if (!move_uploaded_file($_FILES["file"]["tmp_name"], "/home/ap121/public_html/webprojekt_gruppe/profil_bilder/".$_FILES["file"]["name"]))
+            if (!move_uploaded_file($_FILES["file"]["tmp_name"], "/home/ap121/public_html/webprojekt_gruppe/profil_bilder/".$_FILES["file"]["name"])) #Datei in Server uploaden
             {echo "Datei wurde nicht hochgeladen. Bitte erneut versuchen";
                 die();}}
 
         if(!empty($_FILES["file"]["name"])) {
-            $statement = $pdo->prepare("UPDATE Nutzer SET vorname=?, nachname=?, email=?, bio=?, bild=? WHERE id=?");
+            $statement = $pdo->prepare("UPDATE Nutzer SET vorname=?, nachname=?, email=?, bio=?, bild=? WHERE id=?"); #Daten in DB Updaten, wenn Bild geändert wurde
             if($statement->execute(array(
                         htmlspecialchars($_POST["vorname"]),
                         htmlspecialchars($_POST["nachname"]),
@@ -61,7 +61,7 @@ if (isset($_SESSION['id'])){ #Abfrage ID
         {echo "Profil erfolgreich geändert! <br> Zurück zum <a href='profil.php'>Profil.</a>";}}
 
         else{
-            $statement = $pdo->prepare("UPDATE Nutzer SET vorname=?, nachname=?, email=?, bio=? WHERE id=?");
+            $statement = $pdo->prepare("UPDATE Nutzer SET vorname=?, nachname=?, email=?, bio=? WHERE id=?");  #Daten in DB Updaten, wenn Bild nicht geändert wurde
                     if($statement->execute(array(htmlspecialchars($_POST["vorname"]),
                         htmlspecialchars($_POST["nachname"]),
                         htmlspecialchars($_POST["email"]),

@@ -17,12 +17,12 @@ require("../includes/navbar_include.php");
 ?>
 <div class="content post" style="text-align: center; width: 70vw;">
 <?php
-if (isset($_SESSION['id'])){
+if (isset($_SESSION['id'])){#Abfrage ob man registriert ist.
     $nutzer_id = $_SESSION['id'];
     if (!isset($_POST["id"]))
             {die("Fehler im Formular");}
 
-    else{$statement = $pdo->prepare("INSERT INTO Sammlung (nutzer_id, rezept_id) VALUES ($nutzer_id,?)");
+    else{$statement = $pdo->prepare("INSERT INTO Sammlung (nutzer_id, rezept_id) VALUES ($nutzer_id,?)");#Einfügen des Rezeptes in die Tabelle Sammlung
             if ($statement->execute(array(htmlspecialchars($_POST["id"]))))
                 {echo "erfolgreich zur Sammlung hinzugefügt";}
             else

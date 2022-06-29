@@ -19,19 +19,19 @@ require("../includes/navbar_include.php");
 
     <?php
 if (isset($_SESSION['id'])){ #Abfrage ID
-        $statement = $pdo->prepare("SELECT * FROM Nutzer WHERE id=:id");
+        $statement = $pdo->prepare("SELECT * FROM Nutzer WHERE id=:id"); #SQL Abfrage um im nächsten Schritt das aktuelle Passwort zu prüfen
         $statement->bindParam(":id",$_POST['id']);
         if($statement->execute()){
         if($row = $statement->fetch()) {
-        if(password_verify($_POST["passwort"],$row["passwort"])){
-             $statement = $pdo->prepare("UPDATE Nutzer SET passwort=? WHERE id=?");
-                    if($statement->execute(array( password_hash($_POST["passwort_neu"], PASSWORD_BCRYPT),
-                        htmlspecialchars($_POST['id']))))
+        if(password_verify($_POST["passwort"],$row["passwort"])){ #aktuelles Passwort auf Richtigkeit prüfen
+             $statement = $pdo->prepare("UPDATE Nutzer SET passwort=? WHERE id=?"); #Wenn richtig: UPDATE mit neuem Passwort wird durchgeführt
+                    if($statement->execute(array( password_hash($_POST["passwort_neu"], PASSWORD_BCRYPT),#der Passworthash wird durchgeührt damit das Paasswort gehasht in die DB eingespeichert wird
+                        htmlspecialchars($_POST['id'])))) #id wird für das WHERE id=? nochmal hier eingefügt, hier ist die richtige Reihenfolge wie im SQL Befehl wichtig!
             {echo "Passwort erfolgreich geändert!<br> Zurück zum <a href='profil.php'>Profil.</a>";}}}
 
         } else {
             echo "Passwort falsch, bitte erneut versuchen";
-
+            #hier habe ich nochmal den gleichen Code von "passwort_aendern" eingefügt, um erneutes Navigieren zur Seite durch viele Klicks zu vermeiden
             $statement = $pdo->prepare("SELECT * from Nutzer WHERE id=:id");
             $statement->bindParam(":id",$_SESSION['id']);
             if($statement->execute()){

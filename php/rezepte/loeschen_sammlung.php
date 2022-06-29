@@ -21,8 +21,8 @@ require("../includes/navbar_include.php");
     <h2>Persönliche Sammlung</h2><br>
 
             <?php
-            if (isset($_SESSION['id'])){
-                $statement = $pdo->prepare("DELETE FROM Sammlung WHERE nutzer_id=? AND rezept_id=?");
+            if (isset($_SESSION['id'])){# Überprüfen ob man angemeldet ist
+                $statement = $pdo->prepare("DELETE FROM Sammlung WHERE nutzer_id=? AND rezept_id=?"); #Doppelte Abfrage, da nur wenn beides erfüllt das richtige Rezept gelöscht wird
                 if ($statement->execute(array(htmlspecialchars($_SESSION["id"]), htmlspecialchars($_GET["id"])))){
                     echo "Rezept erfolgreich gelöscht! Zurück zur <a href='persoenliche_sammlung.php'>persönlichen Sammlung</a>";
                 }
