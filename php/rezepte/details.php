@@ -27,7 +27,7 @@ session_start();
 <?php
 include("../includes/navbar_include.php")
 ?>
-<div class="content" style="text-align: center">
+<div class="content mx-auto" style="width: 90vw; text-align: center">
     <?php
     //Rezept
     $statement = $pdo->prepare("SELECT * FROM Rezepte WHERE id=?");
