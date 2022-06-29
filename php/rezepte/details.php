@@ -34,7 +34,14 @@ include("../includes/navbar_include.php")
     if ($statement->execute(array(htmlspecialchars($_GET["id"])))){
         if($row = $statement->fetch()){
             $rezepte_id=$row["id"];
+            $nutzer_id=$row["nutzer_id"];
+            $state = $pdo->prepare("SELECT * FROM Nutzer WHERE id=?");
+            if($state->execute(array(htmlspecialchars($nutzer_id)))){
+                if($r = $state->fetch()){
+                    $bild=$r["bild"];
+                }}
             ?>
+
             <div class="card mb-3" style="max-width: fit-content ;">
                 <div class="row g-0">
                     <div class="col-md-4">
@@ -50,6 +57,7 @@ include("../includes/navbar_include.php")
                             <p class="card-text"><?php echo htmlspecialchars($row['inhalt']);?></p>
 
                             <p class="card-text">Erstellt von: <?php echo htmlspecialchars($row['autor']);?></p>
+                            <?php echo "<img class='profilbild' src='https://mars.iuk.hdm-stuttgart.de/~ap121//webprojekt_gruppe/profil_bilder/".$bild."' class='img-fluid rounded-start' alt='bild'><br>";?>
                             <p class="card-text"><small class="text-muted"><?php echo htmlspecialchars($row['timestamp']);?></small></p>
                             <?php echo "<a href='./../rezepte/edit.php?id=".$row["id"]." ' class='btn btn-primary'> Rezept bearbeiten </a>";?>
                             <?php echo "<a href='./../rezepte/delete.php?id=" . $row["id"] . " ' class='btn btn-danger'> Rezept löschen </a>";?>
