@@ -29,7 +29,7 @@ include("../includes/navbar_include.php")
 
 
 <?php
-if (!isset($_POST["titel"]) and !isset($_POST["inhalt"]) and !isset($_POST["titelbild"]) and !isset($_POST["zutaten"]) and !isset($_POST["autor"]) and !isset($_POST["dauer"])) {
+if (!isset($_POST["titel"]) and !isset($_POST["inhalt"]) and !isset($_POST["titelbild"]) and !isset($_POST["zutaten"]) and !isset($_POST["autor"]) and !isset($_POST["dauer"]) and !isset($_POST["nutzer_id"])) {
     die("Fehler im Formular: Nicht alle Felder ausgefüllt");}
 else{
     $number= rand();
@@ -59,13 +59,13 @@ else{
             die();
         }}
 
-    $statement = $pdo->prepare("INSERT INTO Rezepte (titel, inhalt, zutaten, autor, dauer, nutzer, titelbild) VALUES (?,?,?,?,?,?,?)");
+    $statement = $pdo->prepare("INSERT INTO Rezepte (titel, inhalt, zutaten, autor, dauer, nutzer_id, titelbild) VALUES (?,?,?,?,?,?,?)");
     if ($statement->execute(array(htmlspecialchars($_POST["titel"]),
         htmlspecialchars($_POST["inhalt"]),
         htmlspecialchars($_POST["zutaten"]),
         htmlspecialchars($_POST["autor"]),
         htmlspecialchars($_POST["dauer"]),
-        htmlspecialchars($_POST["nutzer"]),
+        htmlspecialchars($_POST["nutzer_id"]),
         htmlspecialchars($_FILES["titelbild"]["name"].$number)))) {
         echo "erfolgreich hochgeladen";
 

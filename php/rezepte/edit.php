@@ -41,22 +41,33 @@ if ($statement->execute(array(htmlspecialchars($_GET["id"])))){
             <input type="text" name="titel" value="<?php echo $row["titel"]; ?>">
             <br>
 
-            <label for="dauer">Dauer:</label>
-            <input type="text" name="dauer" value="<?php echo $row["dauer"]; ?>">
+            <img height='10%' width='10%' src='https://mars.iuk.hdm-stuttgart.de/~ap121//webprojekt_gruppe/rezept_bilder/<?php echo $row["titelbild"];?>'alt='bild'><br>
+            <input type ="file" name="titelbild" id="titelbild">
+            <br>
+
+           <!-- <label for="titelbild">Titelbild:</label>
+            <input type="file" name="titelbild" value="<?php echo $row["titelbild"]; ?>">
+            <br> -->
+
+            <label for="zutaten">Inhalt:</label>
+            <input type="text" name="zutaten" value="<?php echo $row["zutaten"]; ?>">
             <br>
 
             <label for="inhalt">Inhalt:</label>
             <input type="text" name="inhalt" value="<?php echo $row["inhalt"]; ?>">
             <br>
 
+            <label for="dauer">Dauer:</label>
+            <input type="text" name="dauer" value="<?php echo $row["dauer"]; ?>">
+            <br>
+
+
+
           <!--  <label for="bio">Bio:</label>
             <p><#?php echo $row['bio']; ?></p>
             <label for="bio">ändern:</label> <br>
             <textarea type="text" name="bio" cols="40" rows="8">
                 </textarea> <br> -->
-
-            <img height='10%' width='10%' src='https://mars.iuk.hdm-stuttgart.de/~ap121//webprojekt_gruppe/rezept_bilder/<?php echo $row["titelbild"];?>'alt='bild'><br>
-            <input type ="file" name="titelbild" id="titelbild">
 
             <input type="hidden" name="id" value="<?php echo $row["id"]; ?>">
             <br>
