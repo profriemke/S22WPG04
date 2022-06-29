@@ -67,7 +67,7 @@ else{?>
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                             <li><a class="dropdown-item" href="../nutzer_management/profil.php">Profil</a></li>
-                            <li><a class="dropdown-item" href="../rezepte/persoenliche_sammlung.php">persönliche Sammlung</a></li>
+                            <li><a class="dropdown-item" href="../rezepte/persoenliche_sammlung.php">persönlichem <br> Sammlung</a></li>
                             <li><hr class="dropdown-divider"></li>
                             <li><a class="dropdown-item" href="../nutzer_management/logout.php">Abmelden</a></li>
                         </ul>

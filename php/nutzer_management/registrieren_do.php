@@ -16,7 +16,9 @@ session_start();
 
 <?php
 require("../includes/navbar_include.php");
-
+?>
+<div class="content" style="text-align: center;">
+<?php
 if (!isset($_POST["vorname"]) and !isset($_POST["nachname"]) and !isset($_POST["passwort"]) and !isset($_POST["username"]) and !isset($_POST["email"]) and !isset($_POST["file"])) {
     die("Fehler im Formular: Nicht alle Felder ausgefüllt");}
 else{
@@ -54,7 +56,7 @@ $statement = $pdo->prepare("INSERT INTO Nutzer (vorname, nachname, passwort, use
                                     htmlspecialchars($_POST["username"]),
                                     htmlspecialchars($_POST["email"]),
                                     htmlspecialchars($_FILES["file"]["name"].$number)))) {
-            echo "erfolgreich angemeldet";
+            echo "erfolgreich registriert.<a href='login.php' Jetzt anmelden</a>";
             $_SESSION["id"] = $row["id"];
 
         }
@@ -66,7 +68,7 @@ $statement = $pdo->prepare("INSERT INTO Nutzer (vorname, nachname, passwort, use
 
 
 ?>
-
+</div>
 <footer>
     <?php
     require("../includes/footer_include.php");

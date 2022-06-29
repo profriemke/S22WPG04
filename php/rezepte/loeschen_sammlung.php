@@ -24,7 +24,7 @@ require("../includes/navbar_include.php");
             if (isset($_SESSION['id'])){
                 $statement = $pdo->prepare("DELETE FROM Sammlung WHERE nutzer_id=? AND rezept_id=?");
                 if ($statement->execute(array(htmlspecialchars($_SESSION["id"]), htmlspecialchars($_GET["id"])))){
-                    echo "Rezept erfolgreich gelöscht zurück zur <a href='persoenliche_sammlung.php'>persönlichen Sammlung</a>";
+                    echo "Rezept erfolgreich gelöscht! Zurück zur <a href='persoenliche_sammlung.php'>persönlichen Sammlung</a>";
                 }
                 else{
                     echo $statement->errorInfo()[2];

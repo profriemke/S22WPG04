@@ -20,6 +20,9 @@ require("../includes/navbar_include.php");
 <div class="content post" style="text-align: center">
 
         <h2>Persönliche Sammlung</h2><br>
+
+    <div class="container">
+        <div class="row row-cols-2">
 <?php
 if (isset($_SESSION['id'])){
     $statement = $pdo->prepare("SELECT * from Sammlung WHERE nutzer_id=:id");
@@ -31,11 +34,11 @@ if (isset($_SESSION['id'])){
                 if($state->execute()){
                     $row=$state->fetch();{
                         ?>
-
+                    <div class="col">
                         <div class="card mb-3" style="max-width: 740px; margin-right: auto; margin-left: auto;">
                             <div class="row g-0">
-                                <div class="col-md-4">
-                                    <?php echo "<img src='https://mars.iuk.hdm-stuttgart.de/~ap121//webprojekt_gruppe/rezept_bilder/".$row['titelbild']."' class='img-fluid rounded-start' alt='bild' style='object-fit: cover; object-position: 50%; width: 240px; height:325px;'>"; ?>
+                                <div class="col-md-4" >
+                                    <?php echo "<img src='https://mars.iuk.hdm-stuttgart.de/~ap121//webprojekt_gruppe/rezept_bilder/".$row['titelbild']."' class='img-fluid rounded-start' alt='bild' style='object-fit: cover; object-position: 50%; width: 245px; height:325px;'>"; ?>
                                 </div>
                                 <div class="col-md-8">
                                     <div class="card-body">
@@ -51,6 +54,13 @@ if (isset($_SESSION['id'])){
                                 </div>
                             </div>
                         </div>
+                    </div>
+
+
+
+
+
+
     <?php }
 
                     #echo "<img height='30%' width='30%' src='https://mars.iuk.hdm-stuttgart.de/~ap121//webprojekt_gruppe/rezept_bilder/".$row['titelbild']."' alt='bild'><br>";
@@ -66,6 +76,8 @@ if (isset($_SESSION['id'])){
     {echo "Bitte erst <a href='../nutzer_management/login.php'>anmelden</a>";}
 
 ?>
+        </div>
+    </div>
 </div>
 
 <footer>

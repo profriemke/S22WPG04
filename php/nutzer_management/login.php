@@ -20,7 +20,7 @@ require("../includes/navbar_include.php");
 <div class="content post">
 
 <form class="signup-wrapper" action="login_do.php" method="post">
-    <h2> Bei eat.pray.eat anmelden </h2>
+    <h2> Bei eat.pray.eat anmelden </h2><br>
     <input type="text" name="username" id="username" minlength="1" required placeholder="Username"><br>
     <input type="password" name="passwort" id="passwort"  minlength="1" required placeholder="Passwort">
     <br>
