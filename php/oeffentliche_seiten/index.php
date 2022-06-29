@@ -1,7 +1,7 @@
 <?php
 
 include("../includes/database_include.php");
-
+session_start();
 ?>
 <!DOCTYPE html>
 <html lang="de">
