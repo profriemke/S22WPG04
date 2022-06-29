@@ -10,15 +10,20 @@
 <?php
 include ("../includes/database_include.php");
 require("../includes/navbar_include.php");
-session_start();
-if (!isset($_SESSION["id"])){
-    echo "<h1>Nutzer nicht angemeldet</h1>";
-    echo "<h3>Hier zum <a href='../nutzer_management/login.php' class='btn btn-primary'>Login</a></h3>";
-    die("<h3><a href='../oeffentliche_seiten/index.php' class='btn btn-primary'>Zurück</a></h3>");
-
-}
-
 ?>
+
+<div class="content mx-auto" style="width: 90vw; text-align: center">
+
+    <?php
+    session_start();
+    if (!isset($_SESSION["id"])){
+        echo "<h1>Nutzer nicht angemeldet</h1>";
+        echo "<h3>Hier zum <a href='../nutzer_management/login.php' class='btn btn-primary'>Login</a></h3>";
+        die("<h3><a href='../oeffentliche_seiten/index.php' class='btn btn-primary'>Zurück</a></h3>");
+
+    } // Falls man angemeldet sein muss um bearbeiten zu können
+
+    ?>
 
 <body>
 
@@ -41,6 +46,7 @@ if (isset($_GET["id"])) {
 
 <h3><a href="../oeffentliche_seiten/index.php" class="btn btn-primary">Zurück</a></h3>
 
+</div>
 <footer>
     <?php
     require("../includes/footer_include.php");

@@ -8,25 +8,29 @@
     <link rel="stylesheet" href="../../css/style.css">
 </head>
 
-<?php
-require("../includes/database_include.php");
-session_start();
-/*if (!isset($_SESSION["id"])){
-    echo "<h1>Nutzer nicht angemeldet</h1>";
-    echo "<h3>Hier zum <a href='../account/login.php' class='btn btn-primary'>Login</a></h3>";
-    die("<h3><a href='../public/index.php' class='btn btn-primary'>Zurück</a></h3>");
 
-}
-*/ // Falls man angemeldet sein muss um bearbeiten zu können
-
-?>
 
 <?php
 include("../includes/navbar_include.php")
 ?>
+
+<div class="content mx-auto" style="width: 90vw; text-align: center">
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
 <body>
+<?php
+require("../includes/database_include.php");
+?>
 
+<?php
+session_start();
+if (!isset($_SESSION["id"])){
+    echo "<h1>Nutzer nicht angemeldet</h1>";
+    echo "<h3>Hier zum <a href='../nutzer_management/login.php' class='btn btn-primary'>Login</a></h3>";
+    die("<h3><a href='../oeffentliche_seiten/index.php' class='btn btn-primary'>Zurück</a></h3>");
+
+} // Falls man angemeldet sein muss um bearbeiten zu können
+
+?>
 <h1>Rezept</h1>
 
 <?php
@@ -72,21 +76,22 @@ if ($statement->execute(array(htmlspecialchars($_GET["id"])))){
             <br>
 
             <button class="action-button" type="submit" id="absenden">Rezept ändern</button>
+            <br>
         </form>
         <?php
 
-        echo "<a href='./../rezepte/delete.php?id=" . $row["id"] . " ' class='text'>Rezept löschen</a>";
+        echo "<a href='./../rezepte/delete.php?id=" . $row["id"] . " ' class='btn btn-danger'>Rezept löschen </a>";
     }else{
         echo ("Rezept nicht vorhanden");
     }
 }else{
     die("Datenbank-Fehler");
 }
-echo "<a href='./../rezepte/details.php?id=".htmlspecialchars($row["id"])." ' class='text'>Zurück zu ".htmlspecialchars($row['titel'])." </a>";
+echo "<a href='./../rezepte/details.php?id=".htmlspecialchars($row["id"])." ' class='btn btn-primary'>Zurück zu ".htmlspecialchars($row['titel'])." </a>";
 ?>
 
 
-
+</div>
 <footer>
     <?php
     require("../includes/footer_include.php");

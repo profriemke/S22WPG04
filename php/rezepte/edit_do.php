@@ -1,16 +1,4 @@
-<?php
-require("../includes/database_include.php");
-session_start();
-/* if (!isset($_SESSION["id"])){
-    echo "Nutzer nicht angemeldet";
-    echo "<h3><a href='index.php'>Zurück</a></h3>";
-    die("<h3>Hier zum <a href=''>Login</a></h3>");
 
-}
-
-*/ //Falls man angemeldet sein muss um bearbeiten zu können
-
-?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -27,8 +15,19 @@ session_start();
 <?php
 include("../includes/navbar_include.php")
 ?>
-
+<div class="content mx-auto" style="width: 90vw; text-align: center">
 <body>
+
+<?php
+session_start();
+if (!isset($_SESSION["id"])){
+    echo "<h1>Nutzer nicht angemeldet</h1>";
+    echo "<h3>Hier zum <a href='../nutzer_management/login.php' class='btn btn-primary'>Login</a></h3>";
+    die("<h3><a href='../oeffentliche_seiten/index.php' class='btn btn-primary'>Zurück</a></h3>");
+
+} // Falls man angemeldet sein muss um bearbeiten zu können
+
+?>
 
 <p>
 
@@ -107,7 +106,7 @@ include("../includes/navbar_include.php")
 <!-- <h3><a href="../rezepte/details.php?id=<?php #echo $pdo->lastInsertId()?>" class="btn btn-primary">Zum Rezept</a></h3> letzte id immer 0-->
 <h3><a href="../oeffentliche_seiten/index.php" class="btn btn-primary">Zurück</a></h3>
 
-
+</div>
 <footer>
     <?php
     require("../includes/footer_include.php");

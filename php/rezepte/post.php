@@ -4,7 +4,7 @@
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Title</title>
+    <title>Neues Rezept</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
     <link rel="stylesheet" href="../../css/style.css">
 </head>
@@ -12,6 +12,11 @@
 <?php
 require("../includes/database_include.php");
 include("../includes/navbar_include.php");
+?>
+
+<div class="content mx-auto" style="width: 90vw; text-align: center">
+
+<?php
 session_start();
 
 if (!isset($_SESSION["id"])){
@@ -29,8 +34,11 @@ if (isset($_SESSION['id'])){
     if($statement->execute()){
         while($row=$statement->fetch()){
  ?>
-<div class="content post">
-        <h1>Neues Rezept</h1>
+
+<h1>Neues Rezept</h1>
+
+
+
 
 <form class="signup-wrapper" action="post_do.php" method="post" enctype="multipart/form-data">
 
@@ -41,7 +49,7 @@ if (isset($_SESSION['id'])){
     <input type="file" class="form-control" id="inputGroupFile02" name="titelbild"> <!--Hier kann man vielleicht Drag and Drop nutzen?-->
 
     <!-- <h4>Bild:</h4>
-    <input type="file" class="form-control" id="inputGroupFile02" name="bild"> <!--Hier kann man vielleicht Drag and Drop nutzen?-->
+    <input type="file" class="form-control" id="inputGroupFile02" name="bild"> Hier kann man vielleicht Drag and Drop nutzen?-->
 
     <h4>Inhalt:</h4>
     <textarea name="inhalt" rows=”200″ cols="40"></textarea>
@@ -70,7 +78,7 @@ if (isset($_SESSION['id'])){
 ?>
 
 
-
+<br>
     <h3><button type="submit" class="btn btn-primary">Post hochladen</button></h3>
 </form>
 <br>
