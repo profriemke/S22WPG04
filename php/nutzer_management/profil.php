@@ -17,20 +17,20 @@ session_start();
 require("../includes/navbar_include.php");
 ?>
 
-<div class="content post">
+<div class="content">
 
 <?php
 
-if (isset($_SESSION['id'])){
-    $statement = $pdo->prepare("SELECT * from Nutzer WHERE id=:id");
+if (isset($_SESSION['id'])){#Abfrage ob man angemeldet it
+    $statement = $pdo->prepare("SELECT * from Nutzer WHERE id=:id");#SQL Abfrage für Nutzerdaten
     $statement->bindParam(":id",$_SESSION['id']);
     if($statement->execute()){
-        while($row=$statement->fetch()){
+        while($row=$statement->fetch()){#Ausgabe der Nutzerdaten
             echo "<div style='height: 350px'>";
             if($row["bild"]==""){
-                echo "<img class='profilbild' src='https://mars.iuk.hdm-stuttgart.de/~ap121//webprojekt_gruppe/profil_bilder/placeholder.png' alt='bild'><br>";
+                echo "<img class='profilbild' src='https://mars.iuk.hdm-stuttgart.de/~ap121//webprojekt_gruppe/profil_bilder/placeholder.png' alt='bild'><br>";#Placeholder Bild falls kein Profilbild angegeben wurde
             }else {
-                echo "<img class='profilbild' src='https://mars.iuk.hdm-stuttgart.de/~ap121//webprojekt_gruppe/profil_bilder/".$row['bild']."' alt='bild'><br>";}
+                echo "<img class='profilbild' src='https://mars.iuk.hdm-stuttgart.de/~ap121//webprojekt_gruppe/profil_bilder/".$row['bild']."' alt='bild'><br>";}#Abrufen Profilbild
             echo
             "
             <div style='display: flex; flex-direction: column'>
@@ -62,7 +62,8 @@ if (isset($_SESSION['id'])){
     <div class="container">
         <div class="row">
             <?php
-    $statement = $pdo->prepare("SELECT * from Rezepte WHERE nutzer_id=:id");
+    #Abfrage der Rezepte, die von dem Nutzer erstellt wurden.
+    $statement = $pdo->prepare("SELECT * from Rezepte WHERE nutzer_id=:id"); #SQL Abfrage Rezepte wo die aktuelle Session ID der Ersteller ist
     $statement->bindParam(":id",$_SESSION['id']);
     if($statement->execute()){
     while($row=$statement->fetch()){
@@ -72,10 +73,11 @@ if (isset($_SESSION['id'])){
             $rezept_dauer=$row['dauer'];
             $rezept_titel=$row['titel'];
 
-            $state = $pdo->prepare("SELECT AVG(rating) AS average FROM Bewertungen WHERE id=$rezept");
+            $state = $pdo->prepare("SELECT AVG(rating) AS average FROM Bewertungen WHERE id=$rezept"); #Rating des Rezeptes
             if($state->execute()) {
             if ($row = $state->fetch()) {
             $average=$row["average"];
+                #Ausgabe des Rezeptes
             ?>
             <div class="col-md-6">
 

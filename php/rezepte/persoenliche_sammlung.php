@@ -17,25 +17,25 @@ session_start();
 <?php
 require("../includes/navbar_include.php");
 ?>
-<div class="content post mx-auto" style="text-align: center">
+<div class="content mx-auto" style="text-align: center; width: 90vw;">
 
         <h2>Persönliche Sammlung</h2><br>
 
     <div class="container mx-auto">
-        <div class="row row-cols-2">
+        <div class="row">
 <?php
 if (isset($_SESSION['id'])){
-    $statement = $pdo->prepare("SELECT * from Sammlung WHERE nutzer_id=:id");
+    $statement = $pdo->prepare("SELECT * from Sammlung WHERE nutzer_id=:id"); #Abfrage 1 zum durchgehen der Sammlung Tabelle um alle Rezept ID's zu holen
     $statement->bindParam(":id",$_SESSION['id']);
     if($statement->execute()){
         while($row=$statement->fetch())
-            {$rezepte= $row["rezept_id"];
-                $state = $pdo->prepare("SELECT * FROM Rezepte WHERE id=$rezepte");
+            {$rezepte= $row["rezept_id"]; #Abspeichern der Rezept ID in einer While Schleife, damit nicht nur das erste Rezept ausgeben wird was die Bedinung erfüllt sondern alle
+                $state = $pdo->prepare("SELECT * FROM Rezepte WHERE id=$rezepte"); #Ausgabe des Rezeptes
                 if($state->execute()){
                     $row=$state->fetch();{
                         ?>
-                    <div class="col">
-                        <div class="card mb-3" style="max-width: 740px; margin-right: auto; margin-left: auto;">
+                    <div class="col-md-4">
+                        <div class="card mb-3" style="max-width: 540px;">
                             <div class="row g-0">
                                 <div class="col-md-4" >
                                     <?php echo "<img src='https://mars.iuk.hdm-stuttgart.de/~ap121//webprojekt_gruppe/rezept_bilder/".$row['titelbild']."' class='img-fluid rounded-start' alt='bild' style='object-fit: cover; object-position: 50%; width: 245px; height:325px;'>"; ?>
@@ -46,8 +46,10 @@ if (isset($_SESSION['id'])){
 
                                         <p class="card-text"><?php echo htmlspecialchars($row['dauer']);?> </p>
                                         <div>
+                                            <!-- Zum Rezept Verlinkung -->
                                         <?php echo "<a href='./../rezepte/details.php?id=".$row["id"]."' class='btn btn-primary' style='background-color: #d17609; border-color:#d17609;'>Zum Rezept</a>" ?> </div><br>
                                         <div>
+                                            <!-- Verlinkung zum löschen des Rezeptes aus der persönlichen Sammlung -->
                                         <?php echo "<a href='./../rezepte/loeschen_sammlung.php?id=".$row["id"]."' class='btn btn-primary' style='background-color: #d17609; border-color:#d17609;'>Aus Sammlung löschen</a>" ?>
                                         </div>
                                     </div>
