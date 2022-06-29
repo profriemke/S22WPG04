@@ -25,8 +25,10 @@ require("../includes/navbar_include.php");
         } else { //wenn Sicherheitsabfrage der Felder erfolgreich kann SQL Befehl ausgeführt werden
             $statement = $pdo->prepare("INSERT INTO Bewertungen (rezept_id, nutzer_id, rating, kommentar) VALUES (?,?,?,?)"); //fügt Bewertung in Datenbank ein
             if ($statement->execute(array(htmlspecialchars($_POST["rezept_id"]), htmlspecialchars($_POST["user_id"]) ,htmlspecialchars($_POST["rating"]), htmlspecialchars($_POST["kommentar"])))) {
+                echo("<div class='content'>");
                 echo("Vielen Dank für deine Bewertung <br> ");
                 echo(" Zurück zur <a href='../oeffentliche_seiten/index.php' >Startseite </a>");
+                echo("</div>");
             } else {
                 echo("<div class='content'>");
                 echo $statement->errorInfo()[2];
