@@ -1,14 +1,4 @@
-<?php
-require("../includes/database_include.php");
-session_start();
-/*if (!isset($_SESSION["id"])){
-    echo "Nutzer nicht angemeldet";
-    echo "<h3><a href='../public/index.php'>Zurück</a></h3>";
-    die("<h3>Hier zum <a href='../account/login.php'>Login</a></h3>");
 
-}
-*/
-?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -25,8 +15,19 @@ session_start();
 include("../includes/navbar_include.php")
 ?>
 
+<div class="content mx-auto" style="width: 90vw; text-align: center">
 <body>
 
+<?php
+session_start();
+if (!isset($_SESSION["id"])){
+    echo "<h1>Nutzer nicht angemeldet</h1>";
+    echo "<h3>Hier zum <a href='../nutzer_management/login.php' class='btn btn-primary'>Login</a></h3>";
+    die("<h3><a href='../oeffentliche_seiten/index.php' class='btn btn-primary'>Zurück</a></h3>");
+
+} // Falls man angemeldet sein muss um bearbeiten zu können
+
+?>
 
 <?php
 if (!isset($_POST["titel"]) and !isset($_POST["inhalt"]) and !isset($_POST["titelbild"]) and !isset($_POST["zutaten"]) and !isset($_POST["autor"]) and !isset($_POST["dauer"]) and !isset($_POST["nutzer_id"])) {
@@ -67,7 +68,7 @@ else{
         htmlspecialchars($_POST["dauer"]),
         htmlspecialchars($_POST["nutzer_id"]),
         htmlspecialchars($_FILES["titelbild"]["name"].$number)))) {
-        echo "erfolgreich hochgeladen";
+        echo "<p>Erfolgreich hochgeladen</p>";
 
     }
     else {
@@ -80,7 +81,11 @@ else{
 ?>
 
 <h3><a href="post.php" class="btn btn-primary">Neuer Post</a></h3>
+<p>
 <h3><a href="../rezepte/details.php?id=<?php echo $pdo->lastInsertId()?>" class="btn btn-primary">Zum Rezept</a></h3>
+</p>
+
+</div>
 
 <footer>
     <?php

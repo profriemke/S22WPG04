@@ -17,7 +17,7 @@ session_start();
 <?php
 require("../includes/navbar_include.php");
 ?>
-<div class="content post" style="text-align: center">
+<div class="content post mx-auto" style="text-align: center">
 
         <h2>Persönliche Sammlung</h2><br>
 

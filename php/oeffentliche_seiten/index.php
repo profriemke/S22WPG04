@@ -60,7 +60,7 @@ include("../includes/navbar_include.php");
 </div>
 
 
-<div class="container mx-auto">
+<div class="content mx-auto" style="width: 90vw; text-align: center">
      <div class="row">
 
              <?php
