@@ -28,21 +28,21 @@ include("../includes/navbar_include.php");
     </div>
     <div class="carousel-inner">
         <div class="carousel-item active">
-            <img src="https://mars.iuk.hdm-stuttgart.de/~ap121//webprojekt_gruppe/website_bilder/Titelbild.png" class="d-block w-100" alt="bild">
+            <img src="https://mars.iuk.hdm-stuttgart.de/~ap121//webprojekt_gruppe/website_bilder/Eat.Pray.Eat4.jpg" class="d-block w-100" alt="bild">
             <div class="carousel-caption d-none d-md-block">
                 <h5>eat pray eat</h5>
                 <p>Die besten Rezepte gibt es hier!</p>
             </div>
         </div>
         <div class="carousel-item">
-            <img src="https://mars.iuk.hdm-stuttgart.de/~ap121//webprojekt_gruppe/website_bilder/Eat.Pray.Eat.png" class="d-block w-100" alt="bild">
+            <img src="https://mars.iuk.hdm-stuttgart.de/~ap121//webprojekt_gruppe/website_bilder/blueberries-2278921 (1).jpg" class="d-block w-100" alt="bild">
             <div class="carousel-caption d-none d-md-block">
                 <h5>Täglich neue Rezepte</h5>
                 <p>Frisch und regional</p>
             </div>
         </div>
         <div class="carousel-item">
-            <img src="https://mars.iuk.hdm-stuttgart.de/~ap121//webprojekt_gruppe/website_bilder/Eat.Pray.Eat.png" class="d-block w-100" alt="bild">
+            <img src="https://mars.iuk.hdm-stuttgart.de/~ap121//webprojekt_gruppe/website_bilder/burgers-1839090 (1).jpg" class="d-block w-100" alt="bild">
             <div class="carousel-caption d-none d-md-block">
                 <h5>Für jeden etwas dabei!</h5>
                 <p>Von Snack bis Festmahl findest du alles!</p>
