@@ -86,7 +86,7 @@ include("../includes/navbar_include.php")
                     htmlspecialchars($_POST["dauer"]),
                     htmlspecialchars($_FILES["titelbild"]["name"]),
                     htmlspecialchars($_POST["id"]))))
-                {echo "Rezept erfolgreich geändert!<br> Zurück zum <a href='details.php'>Rezept.</a>";}}
+                {echo "Rezept erfolgreich geändert!";}}
 
             else{
                 $statement = $pdo->prepare("UPDATE Rezepte SET titel=?, inhalt=?, dauer=? WHERE id=?");
@@ -95,7 +95,7 @@ include("../includes/navbar_include.php")
                     htmlspecialchars($_POST["inhalt"]),
                     htmlspecialchars($_POST["dauer"]),
                     htmlspecialchars($_POST["id"]))))
-                {echo "Rezept erfolgreich geändert! ohne bild<br> Zurück zum <a href='details.php'>Rezept.</a>";}}}
+                {echo "Rezept erfolgreich geändert! ohne bild";}}}
 
 
     }else
@@ -104,6 +104,7 @@ include("../includes/navbar_include.php")
 
 <p>
 
+<!-- <h3><a href="../rezepte/details.php?id=<?php #echo $pdo->lastInsertId()?>" class="btn btn-primary">Zum Rezept</a></h3> letzte id immer 0-->
 <h3><a href="../oeffentliche_seiten/index.php" class="btn btn-primary">Zurück</a></h3>
 
 

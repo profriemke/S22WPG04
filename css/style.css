@@ -102,7 +102,19 @@ footer{
         object-position: 50%;
     }
 
-    .bio{
+    .profilbild_rezept{
+        top: 10px;
+        height: 70px;
+        width: 70px;
+        border-radius: 200px;
+        -moz-border-radius: 200px;
+        -webkit-border-radius: 200px;
+        object-fit: cover;
+        object-position: 50%;
+    }
+
+
+.bio{
         position: relative;
 
     }

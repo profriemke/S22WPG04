@@ -48,7 +48,7 @@ if ($statement->execute(array(htmlspecialchars($_GET["id"])))){
             <input type="file" name="titelbild" value="<?php #echo $row["titelbild"]; ?>">
             <br> -->
 
-            <label for="zutaten">Inhalt:</label>
+            <label for="zutaten">Zutaten:</label>
             <input type="text" name="zutaten" value="<?php echo $row["zutaten"]; ?>">
             <br>
 

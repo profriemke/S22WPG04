@@ -79,7 +79,7 @@ else{
 
 ?>
 
-<h3><a href="edit.php" class="btn btn-primary">Neuer Post</a></h3>
+<h3><a href="post.php" class="btn btn-primary">Neuer Post</a></h3>
 <h3><a href="../rezepte/details.php?id=<?php echo $pdo->lastInsertId()?>" class="btn btn-primary">Zum Rezept</a></h3>
 
 <footer>
