@@ -20,7 +20,7 @@ require("../includes/navbar_include.php");
 
     <?php
     if (isset($_SESSION['id'])){
-        $statement = $pdo->prepare("SELECT * from Nutzer WHERE id=:id");
+        $statement = $pdo->prepare("SELECT * from Nutzer WHERE id=:id"); #SQL Abfrage mit Session ID
         $statement->bindParam(":id",$_SESSION['id']);
         if($statement->execute()){
             if($row=$statement->fetch()){
@@ -28,9 +28,9 @@ require("../includes/navbar_include.php");
                 <form class="signup-wrapper" action="passwort_aendern_do.php" method="post">
                     <h2>Passwort ändern</h2><br>
                     <input type="password" name="passwort" id="passwort" placeholder="aktuelles Passwort eingeben"> <br>
-
+                    <!-- aktuelles Passwort wird in "passwort_aendern_do.php" geprüft-->
                     <input type="password" name="passwort_neu" id="passwort_neu" placeholder="neues Passwort eingeben"> <br>
-
+                    <!-- Eingabe neues Passwort-->
                     <input type="hidden" name="id" value="<?php echo $row["id"]; ?>">
                     <br>
 

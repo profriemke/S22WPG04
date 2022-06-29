@@ -4,6 +4,9 @@
 <?php
 if (!isset($_SESSION['id'])){
  ?>
+
+<!--Navbar mit Bootstrap Template
+Hier die Navbar wenn man nicht angemeldet ist, sodass "Anmelden"(Zeile 36) und "Registrieren"(Zeile 37) erscheint-->
     <nav class="navbar navbar-expand-lg" style="background-color: #004445;">
         <div class="container-fluid">
             <a class="navbar-brand" href="../oeffentliche_seiten/index.php" style="padding: 0px 20px;">
@@ -43,6 +46,7 @@ if (!isset($_SESSION['id'])){
 <?php
 }
 else{?>
+        <!--Navbar wenn man angemeldet ist, damit "Abmelden"(Zeile 76)  angezeigt wird -->
 <nav class="navbar navbar-expand-lg" style="background-color: #004445;">
     <div class="container-fluid">
         <a class="navbar-brand" href="../oeffentliche_seiten/index.php" style="padding: 0px 20px;">

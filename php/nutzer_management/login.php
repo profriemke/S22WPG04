@@ -16,8 +16,8 @@ session_start();
 <?php
 require("../includes/navbar_include.php");
 ?>
-
-<div class="content post">
+<!-- form start für Login, Besonderheit: minlenght, so kann sichergestellt werden, dass Nutzer was eingeben muss, bevor er das form abschickt-->
+<div class="content">
 
 <form class="signup-wrapper" action="login_do.php" method="post">
     <h2> Bei eat.pray.eat anmelden </h2><br>
@@ -27,7 +27,7 @@ require("../includes/navbar_include.php");
 
     <button class='btn btn-primary' style='background-color: #d17609; border-color:#d17609;' type="submit" id="absenden" class='btn btn-primary' style='background-color: #d17609; border-color:#d17609; '>anmelden</button>
     <br>
-    <p> Noch kein Konto? Jetzt <a href="registrieren.php">registrieren</a>! </p>
+    <p> Noch kein Konto? Jetzt <a href="registrieren.php">registrieren</a>!</p>
 </form>
 </div>
 

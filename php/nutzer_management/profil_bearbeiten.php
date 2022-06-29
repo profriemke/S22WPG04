@@ -19,8 +19,8 @@ require("../includes/navbar_include.php");
 <div class="content post">
 
 <?php
-if (isset($_SESSION['id'])){
-    $statement = $pdo->prepare("SELECT * from Nutzer WHERE id=:id");
+if (isset($_SESSION['id'])){#Abfrage ob man angemeldet ist
+    $statement = $pdo->prepare("SELECT * from Nutzer WHERE id=:id");# Abrufen der aktuellen Nutzerdaten, damit diese bereits ins Formular eingetragen werden
     $statement->bindParam(":id",$_SESSION['id']);
     if($statement->execute()){
         if($row=$statement->fetch()){

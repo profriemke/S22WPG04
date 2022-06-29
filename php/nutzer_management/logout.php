@@ -10,7 +10,7 @@
 
     <?php
     require("../includes/database_include.php");
-    session_start();
+    session_start(); #Session start um sie im nächsten Schritt aufzulösen
 
 
 
@@ -20,7 +20,7 @@
 <div class="content post" style="text-align: center;">
     <?php
     if (isset($_SESSION['id'])) {
-        session_destroy();
+        session_destroy(); #Hiermit wird die Session aufgelöst, also der Nutzer abgemeldet
         echo "Logout erfolgreich";
     }
     ?>

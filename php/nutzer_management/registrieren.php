@@ -17,7 +17,7 @@ require("../includes/navbar_include.php");
 ?>
 
 <div class="content post">
-
+<!-- Form zum Registrieren -->
 <form class="signup-wrapper" action="registrieren_do.php" method="post" enctype="multipart/form-data">
     <h2>Neues Konto erstellen</h2><br>
     <input type="text" name="vorname" id="vorname" placeholder="Vorname"><br>
