@@ -27,8 +27,8 @@ if (!isset($_SESSION["id"])){
 }
 ?>
 
-    //Nutzer Datenbank wird abgefragt um somit den Nutzer direkt über die Session id zu fetchen und im Formular als Autor zu hinterlegen
-<?php
+
+<?php //Nutzer Datenbank wird abgefragt um somit den Nutzer direkt über die Session id zu fetchen und im Formular als Autor zu hinterlegen
 if (isset($_SESSION['id'])){
     $id=$_SESSION['id'];
     $statement = $pdo->prepare("SELECT * from Nutzer WHERE id=$id");

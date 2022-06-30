@@ -44,11 +44,13 @@ include("../includes/navbar_include.php")
     }else{
         die("<h1>Formular-Fehler</h1>");
     }
-   */ ?> // Erster Versuch von edit.do
+   */
+    // Erster Versuch von edit.do
+    ?>
 
-    // Erweiterung vom ersten edit.do, mit der Möglichkeit das Bild zu ändern
 
-    <?php
+
+    <?php // Erweiterung vom ersten edit.do, mit der Möglichkeit das Bild zu ändern
     if (isset($_SESSION['id'])){ #Abfrage I
         if (!isset($_POST["titel"]) #Abfrage alle Felder gefüllt?
             and !isset($_POST["inhalt"])
