@@ -42,28 +42,32 @@ if (isset($_SESSION['id'])){
 
 <form class="signup-wrapper" action="post_do.php" method="post" enctype="multipart/form-data">
 
-    <h3>Titel:</h3>
+    <label for="titel">Titel:</label>
     <input type="text" name="titel">
+    <br>
 
-    <h4>Titelbild:</h4>
+    <label for="titelbild">Titelbild:</label>
     <input type="file" class="form-control" id="inputGroupFile02" name="titelbild"> <!--Hier kann man vielleicht Drag and Drop nutzen?-->
-
+    <br>
     <!-- <h4>Bild:</h4>
     <input type="file" class="form-control" id="inputGroupFile02" name="bild"> Hier kann man vielleicht Drag and Drop nutzen?-->
 
-    <h4>Inhalt:</h4>
+    <label for="titel">Inhalt:</label>
     <textarea name="inhalt" rows=”200″ cols="40"></textarea>
+    <br>
 
-    <h4>Dauer:</h4>
+    <label for="dauer">Dauer:</label>
     <input type="text" name="dauer">
+    <br>
 
-    <h4>Autor:</h4>
+    <label for="autor">Autor:</label>
     <input type="text" name="autor" value="<?php echo htmlspecialchars($row['username']);?>">
+    <br>
 
     <!-- <h3>Nutzer:</h3> -->
     <input type="hidden" name="nutzer_id" value="<?php echo htmlspecialchars($row['id']);?>">
 
-    <h4>Zutaten:</h4>
+    <label for="zutaten">Zutaten:</label>
     <input type="text" name="zutaten">
 <?php
 }

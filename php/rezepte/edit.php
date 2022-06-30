@@ -45,8 +45,9 @@ if ($statement->execute(array(htmlspecialchars($_GET["id"])))){
             <input type="text" name="titel" value="<?php echo $row["titel"]; ?>">
             <br>
 
+            <label for="titel">Titelbild:</label>
             <img height='10%' width='10%' src='https://mars.iuk.hdm-stuttgart.de/~ap121//webprojekt_gruppe/rezept_bilder/<?php echo $row["titelbild"];?>'alt='bild'><br>
-            <input type ="file" name="titelbild" id="titelbild">
+            <input type="file" class="form-control" id="inputGroupFile02" name="titelbild"> <!--Hier kann man vielleicht Drag and Drop nutzen?-->
 
             <label for="dauer">Dauer:</label>
             <input type="text" name="dauer" value="<?php echo $row["dauer"]; ?>">
