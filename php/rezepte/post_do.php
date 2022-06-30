@@ -1,4 +1,13 @@
+<?php
+require("../includes/database_include.php");
+session_start();
+if (!isset($_SESSION["id"])){
+    echo "Nutzer nicht angemeldet";
+    echo "<h3><a href='../oeffentliche_seiten/index.php'>Zurück</a></h3>";
+    die("<h3>Hier zum <a href='../nutzer_management/login.php'>Login</a></h3>");
 
+}
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -14,6 +23,7 @@
 <?php
 include("../includes/navbar_include.php")
 ?>
+
 <body>
 <div class="content mx-auto" style="width: 90vw; text-align: center">
 

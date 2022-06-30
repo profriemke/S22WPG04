@@ -51,9 +51,11 @@ include("../includes/navbar_include.php")
                         <div class="card-body">
                             <h2 class="card-title"><?php echo htmlspecialchars($row['titel']);?></h2>
                             <p class="card-text"><small class="text-muted"><i class="fa-solid fa-clock"></i> <?php echo  htmlspecialchars($row['dauer']);?></small></p>
+                            <h4 class="card-title">Zutaten</h4>
                             <ul class="list-group">
                                 <li class="list-group-item"><?php echo htmlspecialchars($row['zutaten']);?></li>
                             </ul>
+                            <h4 class="card-title">Zubereitung</h4>
                             <p class="card-text"><?php echo htmlspecialchars($row['inhalt']);?></p>
 
                             <p class="card-text">Erstellt von: <?php echo htmlspecialchars($row['autor']);?></p>
