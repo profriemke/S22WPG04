@@ -64,7 +64,7 @@ include("../includes/navbar_include.php");
      <div class="row">
 
              <?php
-    $statement = $pdo->prepare('SELECT * FROM Rezepte ');
+    $statement = $pdo->prepare('SELECT * FROM Rezepte '); //Abfrage aller Rezepte
     if ($statement->execute()) {
     while ($row = $statement->fetch()) {
         //hier Speicherung aller Variablen, da sonst nicht alle Rezepte abgerufen werden
@@ -74,13 +74,13 @@ include("../includes/navbar_include.php");
             $rezept_dauer=$row['dauer'];
             $rezept_titel=$row['titel'];
 
-             $state = $pdo->prepare("SELECT AVG(rating) AS average FROM Bewertungen WHERE id=$rezept");
+             $state = $pdo->prepare("SELECT AVG(rating) AS average FROM Bewertungen WHERE id=$rezept"); //fragt durchschnittliche Bewertungen der Rezepte ab
              if($state->execute()) {
                  if ($row = $state->fetch()) {
                      $average=$row["average"];
 ?>
 <!-- Karten für Rezepte -->
-         <div class="col-md-4">
+         <div class="col-md-4"> <!-- Zeigt 3 Karten pro Reihe an-->
 
                 <div class="card mb-3" style="max-width: 540px;">
                     <div class="row g-0">

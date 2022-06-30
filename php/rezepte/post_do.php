@@ -14,9 +14,9 @@
 <?php
 include("../includes/navbar_include.php")
 ?>
-
-<div class="content mx-auto" style="width: 90vw; text-align: center">
 <body>
+<div class="content mx-auto" style="width: 90vw; text-align: center">
+
 
 <?php
 session_start();

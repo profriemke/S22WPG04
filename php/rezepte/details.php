@@ -78,7 +78,7 @@ include("../includes/navbar_include.php")
 
             //Durchschnittsbewertung
             $rezept_id = $row['id'];
-            $statement = $pdo->prepare("SELECT AVG(rating) AS average FROM Bewertungen WHERE id=$rezept_id");
+            $statement = $pdo->prepare("SELECT AVG(rating) AS average FROM Bewertungen WHERE id=$rezept_id"); //zeigt für jedes Rezept gerundete Durchschnittsbewertung aus allen Einzelbewertungen
             if($statement->execute()) {
                 if ($row = $statement->fetch()) {
                     echo('<div class="rating-average">');
@@ -101,11 +101,11 @@ include("../includes/navbar_include.php")
 
 //Kommentarsektion
 
-            $statement = $pdo->prepare("SELECT * FROM Bewertungen WHERE rezept_id=$rezepte_id");
+            $statement = $pdo->prepare("SELECT * FROM Bewertungen WHERE rezept_id=$rezepte_id"); //ordnet jedem Rezept mth von Sekundärschlüssel aus Tabelle Bewertungen seine Kommentare zu
 
             if($statement->execute()) {
-                while ($row = $statement->fetch()) {
-                    /*echo "<div style='border-width: 5px; border-color: dimgrey'>";*/
+                while ($row = $statement->fetch()) { //Ruft alle Kommentare zu Rezept ab
+
                     echo('<div class="kommentar" >');
 
                     echo "<p class='block-rating' style='font-size: 30px'>";
@@ -117,7 +117,7 @@ include("../includes/navbar_include.php")
                     echo "</p>";
                     echo "<br>";
                     echo('</div>');
-                    /* echo "</div>";*/
+
                 }
 
             }
