@@ -27,6 +27,7 @@ if (!isset($_SESSION["id"])){
 }
 ?>
 
+    //Nutzer Datenbank wird abgefragt um somit den Nutzer direkt über die Session id zu fetchen und im Formular als Autor zu hinterlegen
 <?php
 if (isset($_SESSION['id'])){
     $id=$_SESSION['id'];

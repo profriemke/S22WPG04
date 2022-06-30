@@ -65,7 +65,7 @@ else{
             die();
         }
 
-        if (!move_uploaded_file($_FILES["titelbild"]["tmp_name"], "/home/ap121/public_html/webprojekt_gruppe/rezept_bilder/".$_FILES["titelbild"]["name"].$number)) {
+        if (!move_uploaded_file($_FILES["titelbild"]["tmp_name"], "/home/ap121/public_html/webprojekt_gruppe/rezept_bilder/".$_FILES["titelbild"]["name"].$number)) { //hier wird automatisch eine Nummer hinterlegt, damit es keine Dopplung bei den Dateinamen gibt
             echo "Datei wurde nicht hochgeladen. Bitte erneut versuchen";
             die();
         }}

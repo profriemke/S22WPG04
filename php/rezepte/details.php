@@ -28,8 +28,10 @@ session_start();
 include("../includes/navbar_include.php")
 ?>
 <div class="content mx-auto" style="width: 90vw; text-align: center">
+
+
     <?php
-    //Rezept
+    //Rezepte anzeigen
     $statement = $pdo->prepare("SELECT * FROM Rezepte WHERE id=?");
     if ($statement->execute(array(htmlspecialchars($_GET["id"])))){
         if($row = $statement->fetch()){

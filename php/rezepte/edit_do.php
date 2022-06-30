@@ -44,7 +44,9 @@ include("../includes/navbar_include.php")
     }else{
         die("<h1>Formular-Fehler</h1>");
     }
-   */ ?>
+   */ ?> // Erster Versuch von edit.do
+
+    // Erweiterung vom ersten edit.do, mit der Möglichkeit das Bild zu ändern
 
     <?php
     if (isset($_SESSION['id'])){ #Abfrage I
