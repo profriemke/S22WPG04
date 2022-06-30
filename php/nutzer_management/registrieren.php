@@ -21,11 +21,11 @@ require("../includes/navbar_include.php");
     <!-- Besonderheit: minlenght, so kann sichergestellt werden, dass Nutzer was eingeben muss, bevor er das form abschickt-->
 <form class="signup-wrapper" action="registrieren_do.php" method="post" enctype="multipart/form-data">
     <h2>Neues Konto erstellen</h2><br>
-    <input type="text" name="vorname" id="vorname" minlength="1" placeholder="Vorname"><br>
-    <input type="text" name="nachname" id="nachname" minlength="1" placeholder="Nachname"><br>
-    <input type="text" name="email" id="email" minlength="1" placeholder="E-Mail"><br>
-    <input type="password" name="passwort" id="passwort" minlength="1" placeholder="Passwort"> <br>
-    <input type="text" name="username" id="username" minlength="1" placeholder="Username">  <br> <br>
+    <input type="text" name="vorname" id="vorname" minlength="1" required placeholder="Vorname"><br>
+    <input type="text" name="nachname" id="nachname" minlength="1" required placeholder="Nachname"><br>
+    <input type="text" name="email" id="email" minlength="1" required placeholder="E-Mail"><br>
+    <input type="password" name="passwort" id="passwort" minlength="1" required placeholder="Passwort"> <br>
+    <input type="text" name="username" id="username" minlength="1" required placeholder="Username">  <br> <br>
     <label for="bio">Profilbild:</label><br>
     <input type ="file" name="file" id="file"> <br>
 
