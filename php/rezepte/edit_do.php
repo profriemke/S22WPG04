@@ -1,4 +1,14 @@
+<?php
+require("../includes/database_include.php");
+session_start();
+if (!isset($_SESSION["id"])){
+    echo "<h1>Nutzer nicht angemeldet</h1>";
+    echo "<h3>Hier zum <a href='../nutzer_management/login.php' class='btn btn-primary'>Login</a></h3>";
+    die("<h3><a href='../oeffentliche_seiten/index.php' class='btn btn-primary'>Zurück</a></h3>");
 
+} // Falls man angemeldet sein muss um bearbeiten zu können
+
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -18,16 +28,7 @@ include("../includes/navbar_include.php")
 <div class="content mx-auto" style="width: 90vw; text-align: center">
 <body>
 
-<?php
-session_start();
-if (!isset($_SESSION["id"])){
-    echo "<h1>Nutzer nicht angemeldet</h1>";
-    echo "<h3>Hier zum <a href='../nutzer_management/login.php' class='btn btn-primary'>Login</a></h3>";
-    die("<h3><a href='../oeffentliche_seiten/index.php' class='btn btn-primary'>Zurück</a></h3>");
 
-} // Falls man angemeldet sein muss um bearbeiten zu können
-
-?>
 
 <p>
 
@@ -50,8 +51,8 @@ if (!isset($_SESSION["id"])){
         if (!isset($_POST["titel"]) #Abfrage alle Felder gefüllt?
             and !isset($_POST["inhalt"])
             and !isset($_POST["dauer"])
+            and !isset($_POST["zutaten"])
             and !isset($_POST["titelbild"])
-            #and !isset($_POST[""])
             and !isset($_POST["id"]))
         {die("Fehler im Formular: Nicht alle Felder ausgefüllt");}
         else{
@@ -78,21 +79,23 @@ if (!isset($_SESSION["id"])){
                     die();}}
 
             if(!empty($_FILES["titelbild"]["name"])) {
-                $statement = $pdo->prepare("UPDATE Rezepte SET titel=?, inhalt=?, dauer=?, titelbild=? WHERE id=?");
+                $statement = $pdo->prepare("UPDATE Rezepte SET titel=?, inhalt=?, dauer=?, zutaten=?, titelbild=? WHERE id=?");
                 if($statement->execute(array(
                     htmlspecialchars($_POST["titel"]),
                     htmlspecialchars($_POST["inhalt"]),
                     htmlspecialchars($_POST["dauer"]),
+                    htmlspecialchars($_POST["zutaten"]),
                     htmlspecialchars($_FILES["titelbild"]["name"]),
                     htmlspecialchars($_POST["id"]))))
                 {echo "Rezept erfolgreich geändert!";}}
 
             else{
-                $statement = $pdo->prepare("UPDATE Rezepte SET titel=?, inhalt=?, dauer=? WHERE id=?");
+                $statement = $pdo->prepare("UPDATE Rezepte SET titel=?, inhalt=?, zutaten=?, dauer=? WHERE id=?");
                 if($statement->execute(array(
                     htmlspecialchars($_POST["titel"]),
                     htmlspecialchars($_POST["inhalt"]),
                     htmlspecialchars($_POST["dauer"]),
+                    htmlspecialchars($_POST["zutaten"]),
                     htmlspecialchars($_POST["id"]))))
                 {echo "Rezept erfolgreich geändert! ohne bild";}}}
 

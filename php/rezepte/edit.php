@@ -48,6 +48,10 @@ if ($statement->execute(array(htmlspecialchars($_GET["id"])))){
             <img height='10%' width='10%' src='https://mars.iuk.hdm-stuttgart.de/~ap121//webprojekt_gruppe/rezept_bilder/<?php echo $row["titelbild"];?>'alt='bild'><br>
             <input type ="file" name="titelbild" id="titelbild">
 
+            <label for="dauer">Dauer:</label>
+            <input type="text" name="dauer" value="<?php echo $row["dauer"]; ?>">
+            <br>
+
            <!-- <label for="titelbild">Titelbild:</label>
             <input type="file" name="titelbild" value="<?php #echo $row["titelbild"]; ?>">
             <br> -->
@@ -60,9 +64,7 @@ if ($statement->execute(array(htmlspecialchars($_GET["id"])))){
             <input type="text" name="inhalt" value="<?php echo $row["inhalt"]; ?>">
             <br>
 
-            <label for="dauer">Dauer:</label>
-            <input type="text" name="dauer" value="<?php echo $row["dauer"]; ?>">
-            <br>
+
 
 
 
