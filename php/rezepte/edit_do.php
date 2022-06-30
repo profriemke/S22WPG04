@@ -92,7 +92,7 @@ include("../includes/navbar_include.php")
                 {echo "Rezept erfolgreich geändert!";}}
 
             else{
-                $statement = $pdo->prepare("UPDATE Rezepte SET titel=?, inhalt=?, zutaten=?, dauer=? WHERE id=?");
+                $statement = $pdo->prepare("UPDATE Rezepte SET titel=?, inhalt=?, dauer=?, zutaten=?  WHERE id=?");
                 if($statement->execute(array(
                     htmlspecialchars($_POST["titel"]),
                     htmlspecialchars($_POST["inhalt"]),
