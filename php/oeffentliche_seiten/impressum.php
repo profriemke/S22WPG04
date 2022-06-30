@@ -34,7 +34,7 @@ require("../includes/navbar_include.php");
         Musterweg<br>
         12345 Musterstadt <br></p> <br>
 </div>
-
+<!-- Inhalte mit Generator erstellt-->
     <footer>
         <?php
         require("../includes/footer_include.php");
