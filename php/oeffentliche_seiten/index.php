@@ -20,6 +20,7 @@ session_start();
 include("../includes/navbar_include.php");
 ?>
 <!-- Karussell -->
+<!--Aus Bootstrap-Template-->
 <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="false" style="margin-bottom: 20px">
     <div class="carousel-indicators">
         <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
@@ -81,7 +82,7 @@ include("../includes/navbar_include.php");
 ?>
 <!-- Karten für Rezepte -->
          <div class="col-md-4"> <!-- Zeigt 3 Karten pro Reihe an-->
-
+<!--Aus Bootstrap-Template-->
                 <div class="card mb-3" style="max-width: 540px;">
                     <div class="row g-0">
                         <div class="col-md-4">
